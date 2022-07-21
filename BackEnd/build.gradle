@@ -29,8 +29,8 @@ dependencies {
     // This dependency is used internally, and not exposed to consumers on their own compile classpath.
     implementation 'com.google.guava:guava:28.2-jre'
 
-    // Use JUnit test framework
-    testImplementation 'junit:junit:4.12'
+ 	// Use JUnit test framework
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.8.2'
     
      //We need a postgresql dependency. I'm getting this one from mvnrepository.com, which is a website full of dependencies
     //https://mvnrepository.com/artifact/org.postgresql/postgresql
