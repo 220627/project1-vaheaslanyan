@@ -8,7 +8,7 @@ public class User {
 	private String user_first_name;
 	private String user_last_name;
 	private String user_email;
-	private String user_role_id_fk;
+	private int user_role_id_fk;
 	
 	private UserRole userRole;
 
@@ -16,7 +16,7 @@ public class User {
 	
 	//For getting User
 	public User(int user_id, String username, String password, String user_first_name, String user_last_name,
-			String user_email, String user_role_id_fk, UserRole userRole) {
+			String user_email, int user_role_id_fk, UserRole userRole) {
 		super();
 		this.user_id = user_id;
 		this.username = username;
@@ -30,7 +30,7 @@ public class User {
 
 	//For inserting new User.
 	public User(String username, String password, String user_first_name, String user_last_name, String user_email,
-			String user_role_id_fk) {
+			int user_role_id_fk) {
 		super();
 		this.username = username;
 		this.password = password;
@@ -67,7 +67,7 @@ public class User {
 		return user_email;
 	}
 
-	public String getUser_role_id_fk() {
+	public int getUser_role_id_fk() {
 		return user_role_id_fk;
 	}
 
@@ -100,7 +100,7 @@ public class User {
 		this.user_email = user_email;
 	}
 
-	public void setUser_role_id_fk(String user_role_id_fk) {
+	public void setUser_role_id_fk(int user_role_id_fk) {
 		this.user_role_id_fk = user_role_id_fk;
 	}
 
