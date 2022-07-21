@@ -5,7 +5,7 @@ public class UserRole {
 	private int user_role_id;
 	private String user_role_name;
 	
-	/* MARK: - Constructors -----------------------------------------------------------------*/
+	/* MARK: - Constructors --------------------------------------------------------------------- */
 	
 	//For getting Role(s)
 	public UserRole(int user_role_id, String user_role_name) {
@@ -20,7 +20,7 @@ public class UserRole {
 		this.user_role_name = user_role_name;
 	}
 	
-	/* MARK: - Getters and Setters ----------------------------------------------------------*/
+	/* MARK: - Getters and Setters -------------------------------------------------------------- */
 	
 	//Getters
 	public int getUser_role_id() {
@@ -40,5 +40,4 @@ public class UserRole {
 		this.user_role_name = user_role_name;
 	}
 
-	
 }
