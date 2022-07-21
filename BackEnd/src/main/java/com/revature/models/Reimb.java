@@ -8,20 +8,20 @@ public class Reimb {
 	private String reimb_resolved;
 	private String reimb_description;
 	private String reimb_receipt_url;
-	private String reimb_is_approved;
+	private boolean reimb_is_approved;
 	private int reimb_type_id_fk;
 	private int reimb_author_id_fk;
 	private int reimb_resolver_id_fk;
 	
 	private ReimbType reimbType;
-	private User author;
-	private User resolver;
+	private User reimbAuthor;
+	private User reimbResolver;
 	
 	/* MARK: - Constructors --------------------------------------------------------------------- */
 	
 	//For getting Reimb
 	public Reimb(int reimb_id, double reimb_amount, String reimb_submitted, String reimb_resolved,
-			String reimb_description, String reimb_receipt_url, String reimb_is_approved, int reimb_type_id_fk,
+			String reimb_description, String reimb_receipt_url, boolean reimb_is_approved, int reimb_type_id_fk,
 			int reimb_author_id_fk, int reimb_resolver_id_fk, ReimbType reimbType, User author, User resolver) {
 		super();
 		this.reimb_id = reimb_id;
@@ -35,8 +35,8 @@ public class Reimb {
 		this.reimb_author_id_fk = reimb_author_id_fk;
 		this.reimb_resolver_id_fk = reimb_resolver_id_fk;
 		this.reimbType = reimbType;
-		this.author = author;
-		this.resolver = resolver;
+		this.reimbAuthor = author;
+		this.reimbResolver = resolver;
 	}
 
 	//For inserting reimb
@@ -78,7 +78,7 @@ public class Reimb {
 		return reimb_receipt_url;
 	}
 
-	public String getReimb_is_approved() {
+	public boolean getReimb_is_approved() {
 		return reimb_is_approved;
 	}
 
@@ -98,12 +98,12 @@ public class Reimb {
 		return reimbType;
 	}
 
-	public User getAuthor() {
-		return author;
+	public User getReimbAuthor() {
+		return reimbAuthor;
 	}
 
-	public User getResolver() {
-		return resolver;
+	public User getReimbResolver() {
+		return reimbResolver;
 	}
 
 	//Setters
@@ -131,7 +131,7 @@ public class Reimb {
 		this.reimb_receipt_url = reimb_receipt_url;
 	}
 
-	public void setReimb_is_approved(String reimb_is_approved) {
+	public void setReimb_is_approved(boolean reimb_is_approved) {
 		this.reimb_is_approved = reimb_is_approved;
 	}
 
@@ -151,12 +151,12 @@ public class Reimb {
 		this.reimbType = reimbType;
 	}
 
-	public void setAuthor(User author) {
-		this.author = author;
+	public void setReimbAuthor(User author) {
+		this.reimbAuthor = author;
 	}
 
-	public void setResolver(User resolver) {
-		this.resolver = resolver;
+	public void setReimbResolver(User resolver) {
+		this.reimbResolver = resolver;
 	}	
 	
 }

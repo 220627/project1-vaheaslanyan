@@ -150,6 +150,8 @@ public class UserDAO implements UserDAOInterface {
 		
 		return null;
 	}
+	
+	/* MARK: - Helper Methods --------------------------------------------------------------------- */
 
 	@Override
 	public UserRole getUserRoleForUser(User user) {
@@ -160,7 +162,4 @@ public class UserDAO implements UserDAOInterface {
 		return userRole;
 	}
 
-	
-	
-	
 }

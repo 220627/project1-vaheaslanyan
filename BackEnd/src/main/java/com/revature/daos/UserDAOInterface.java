@@ -19,7 +19,7 @@ public interface UserDAOInterface {
 	//Delete User with ID
 	User deleteUser(User user);
 	
-	//Get UserRole by user_role_id_fk
+	//Get UserRole for User
 	UserRole getUserRoleForUser(User user);
 	
 }
