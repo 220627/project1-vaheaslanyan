@@ -15,10 +15,10 @@ public interface ReimbDAOInterface {
 	Reimb getReimbById(int reimb_id);
 	
 	//Insert a new Reimb
-	Reimb insertReimb(Reimb reimb);
+	boolean insertReimb(Reimb reimb);
 	
 	//Delete Reimb with ID
-	Reimb deleteReimb(Reimb reimb);
+	boolean deleteReimbWithId(int reimb_id);
 	
 	//Get ReimbType for Reimb
 	ReimbType getReimbType(Reimb reimb);

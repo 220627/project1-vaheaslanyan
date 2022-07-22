@@ -110,7 +110,7 @@ public class ReimbDAO implements ReimbDAOInterface {
 	}
 
 	@Override
-	public Reimb insertReimb(Reimb reimb) {
+	public boolean insertReimb(Reimb reimb) {
 		
 		try (Connection connection = ConnectionUtil.getConnection()) {
 			
@@ -127,33 +127,37 @@ public class ReimbDAO implements ReimbDAOInterface {
 			preparedStatement.executeUpdate();
 			System.out.println("Reimb with ID " + reimb.getReimb_id() + " successfully added");
 			
+			return true;
+			
 		} catch (SQLException e) {
 			System.out.println("Failed to insert Reimb: SQL Exception occured.");
 			e.printStackTrace();
 		}
 		
-		return null;
+		return false;
 	}
 
 	@Override
-	public Reimb deleteReimb(Reimb reimb) {
+	public boolean deleteReimbWithId(int reimb_id) {
 		
 		try (Connection connection = ConnectionUtil.getConnection()) {
 			
 			String sql = "DELETE FROM reimbs WHERE reimb_id = ?;";
 			
 			PreparedStatement preparedStatement = connection.prepareStatement(sql);
-			preparedStatement.setInt(1, reimb.getReimb_id());
+			preparedStatement.setInt(1, reimb_id);
 			
 			preparedStatement.executeQuery();
-			System.out.println("Reimb with ID " + reimb.getReimb_id() + " successfully deleted.");
+			System.out.println("Reimb with ID " + reimb_id + " successfully deleted.");
+			
+			return true;
 			
 		} catch (SQLException e) {
 			System.out.println("Failed to delete Reimb: SQL Exception occured.");
 			e.printStackTrace();
 		}
 		
-		return null;
+		return false;
 	}
 	
 	/* MARK: - Helper Methods --------------------------------------------------------------------- */
