@@ -77,11 +77,11 @@ public class ReimbTypeDAO implements ReimbTypeDAOInterface {
 	}
 
 	@Override
-	public ReimbType insertReimbType(ReimbType reimbType) {
+	public boolean insertReimbType(ReimbType reimbType) {
 		
 		try (Connection connection = ConnectionUtil.getConnection()) {
 			
-			String sql = "INSERT INTO reimb_type (reimb_type_name) "
+			String sql = "INSERT INTO reimb_types (reimb_type_name) "
 					+ "VALUES (?);";
 			
 			PreparedStatement preparedStatement = connection.prepareStatement(sql);
@@ -89,36 +89,36 @@ public class ReimbTypeDAO implements ReimbTypeDAOInterface {
 			
 			preparedStatement.executeUpdate();
 			
-			return reimbType;
+			return true;
 			
 		} catch (SQLException e) {
 			System.out.println("Failed inserting ReimbType: SQL Exception occured.");
 			e.printStackTrace();
 		}
 		
-		return null;
+		return false;
 	}
 
 	@Override
-	public ReimbType deleteReimbType(ReimbType reimbType) {
+	public boolean deleteReimbTypeWithId(int reimb_type_id) {
 		
 		try (Connection connection = ConnectionUtil.getConnection()) {
 			
 			String sql = "DELETE FROM reimb_types WHERE reimb_type_id = ?;";
 			
 			PreparedStatement preparedStatement = connection.prepareStatement(sql);
-			preparedStatement.setInt(1, reimbType.getReimb_type_id());
+			preparedStatement.setInt(1, reimb_type_id);
 			
 			preparedStatement.executeUpdate();
 			
-			return reimbType;
+			return true;
 			
 		} catch (SQLException e) {
 			System.out.println("Failed deleting ReimbType: SQL Exception occured.");
 			e.printStackTrace();
 		}
 		
-		return null;
+		return false;
 	}
 
 }

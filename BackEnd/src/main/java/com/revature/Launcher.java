@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.SQLException;
 
 import com.revature.controllers.AuthController;
+import com.revature.controllers.ReimbTypeController;
 import com.revature.controllers.UserController;
 import com.revature.controllers.UserRoleController;
 import com.revature.daos.UserDAO;
@@ -39,6 +40,7 @@ public class Launcher {
 		AuthController authController = new AuthController();
 		UserRoleController userRoleController = new UserRoleController();
 		UserController userController = new UserController();
+		ReimbTypeController reimbTypeController = new ReimbTypeController();
 		
 		//Starting Javalin server on port 3000
 		Javalin app = Javalin.create(
@@ -63,11 +65,17 @@ public class Launcher {
 		app.post("/user_roles", userRoleController.insertUserRoleHandler);
 		app.delete("/user_roles/:user_role_id", userRoleController.deleteUserRoleHandler);
 		
-		//Handling requests for UserRole
+		//Handling requests for Users
 		app.get("/users", userController.getAllUsersHandler);
 		app.get("/users/:user_id", userController.getUserByIdHandler);
 		app.post("/users", userController.insertUserHandler);
 		app.delete("/users/:user_id", userController.deleteUserHandler);
+		
+		//Handling requests for ReimbTypes
+		app.get("/reimb_types", reimbTypeController.getAllReimbTypesHandler);
+		app.get("/reimb_types/:reimb_type_id", reimbTypeController.getReimbTypeByIdHandler);
+		app.post("/reimb_types", reimbTypeController.insertReimbTypeHandler);
+		app.delete("/reimb_types/:reimb_type_id", reimbTypeController.deleteReimbTypeHandler);
 	}
 	
 	

@@ -13,9 +13,9 @@ public interface ReimbTypeDAOInterface {
 	ReimbType getReimbTypeById(int reimt_type_id);
 	
 	//Insert ReimbType
-	ReimbType insertReimbType(ReimbType reimbType);
+	boolean insertReimbType(ReimbType reimbType);
 	
 	//Delete ReimbType with ID
-	ReimbType deleteReimbType(ReimbType reimbType);
+	boolean deleteReimbTypeWithId(int reimb_type_id);
 
 }
