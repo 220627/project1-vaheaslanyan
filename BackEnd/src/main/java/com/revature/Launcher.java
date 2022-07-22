@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.SQLException;
 
 import com.revature.controllers.AuthController;
+import com.revature.controllers.UserController;
 import com.revature.controllers.UserRoleController;
 import com.revature.daos.UserDAO;
 import com.revature.utils.ConnectionUtil;
@@ -37,6 +38,7 @@ public class Launcher {
 		//Initializing Controllers
 		AuthController authController = new AuthController();
 		UserRoleController userRoleController = new UserRoleController();
+		UserController userController = new UserController();
 		
 		//Starting Javalin server on port 3000
 		Javalin app = Javalin.create(
@@ -50,6 +52,7 @@ public class Launcher {
 				).start(3000);
 		
 		/* Handling HTTP requests --------------------------------------------------------- */
+		
 		//Handling user login
 		app.post("/login", authController.loginHandler);
 		app.post("/logout", authController.logoutHandler);
@@ -59,6 +62,12 @@ public class Launcher {
 		app.get("/user_roles/:user_role_id", userRoleController.getUserRoleByIdHandler);
 		app.post("/user_roles", userRoleController.insertUserRoleHandler);
 		app.delete("/user_roles/:user_role_id", userRoleController.deleteUserRoleHandler);
+		
+		//Handling requests for UserRole
+		app.get("/users", userController.getAllUsersHandler);
+		app.get("/users/:user_id", userController.getUserByIdHandler);
+		app.post("/users", userController.insertUserHandler);
+		app.delete("/users/:user_id", userController.deleteUserHandler);
 	}
 	
 	

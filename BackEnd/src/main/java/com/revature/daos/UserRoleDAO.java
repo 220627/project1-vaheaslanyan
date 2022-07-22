@@ -103,7 +103,7 @@ public class UserRoleDAO implements UserRoleDAOInterface {
 	}
 
 	@Override
-	public boolean deleteUserRole(int user_role_id) {
+	public boolean deleteUserRoleWithId(int user_role_id) {
 		
 		try (Connection connection = ConnectionUtil.getConnection()) {
 			

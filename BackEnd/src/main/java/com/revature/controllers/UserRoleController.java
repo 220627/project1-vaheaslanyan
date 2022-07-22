@@ -80,7 +80,7 @@ public class UserRoleController {
 		
 		int userRoleId = Integer.parseInt(ctx.pathParam("user_role_id"));
 		
-		if (userRoleDAO.deleteUserRole(userRoleId)) {
+		if (userRoleDAO.deleteUserRoleWithId(userRoleId)) {
 			
 			ctx.result("UserRole successfully deleted.");
 			ctx.status(200);

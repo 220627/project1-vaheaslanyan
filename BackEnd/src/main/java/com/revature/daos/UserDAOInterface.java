@@ -14,10 +14,10 @@ public interface UserDAOInterface {
 	User getUserById(int user_id);
 	
 	//Insert a new User
-	User insertUser(User user);
+	boolean insertUser(User user);
 	
 	//Delete User with ID
-	User deleteUser(User user);
+	boolean deleteUserWithId(int user_id);
 	
 	//Get UserRole for User
 	UserRole getUserRoleForUser(User user);

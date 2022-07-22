@@ -98,7 +98,7 @@ public class UserDAO implements UserDAOInterface {
 	}
 
 	@Override
-	public User insertUser(User user) {
+	public boolean insertUser(User user) {
 		
 		try (Connection connection = ConnectionUtil.getConnection()) {
 			
@@ -117,38 +117,37 @@ public class UserDAO implements UserDAOInterface {
 			
 			System.out.println("User " + user.getUser_first_name() + "successfully added.");
 			
-			return user;
+			return true;
 			
 		} catch (SQLException e) {
 			System.out.println("Failed inserting User: SQL Exception occured.");
 			e.printStackTrace();
 		}
 		
-		return null;
+		return false;
 	}
 
 	@Override
-	public User deleteUser(User user) {
+	public boolean deleteUserWithId(int user_id) {
 		
 		try (Connection connection = ConnectionUtil.getConnection()) {
 			
-			String sql = "DELETE FROM users WHERE user_id = ?;";
+			String sql = "DELETE FROM user_roles WHERE user_role_id = ?;";
 			
 			PreparedStatement preparedStatement = connection.prepareStatement(sql);
-			preparedStatement.setInt(1, user.getUser_id());
+			preparedStatement.setInt(1, user_id);
 			
 			preparedStatement.executeUpdate();
 			
-			System.out.println("User with id: " + user.getUser_id() + " successfully deleted.");
-			
-			return user;
+			System.out.println("UserRole " + user_id + " successfully deleted.");
+			return true;
 			
 		} catch (SQLException e) {
-			System.out.println("Failed deleting User by ID: SQL Exception occured.");
+			System.out.println("Unable to delete UserRole: SQL Exception occured.");
 			e.printStackTrace();
 		}
 		
-		return null;
+		return false;
 	}
 	
 	/* MARK: - Helper Methods --------------------------------------------------------------------- */
