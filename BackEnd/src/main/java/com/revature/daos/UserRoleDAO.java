@@ -79,7 +79,7 @@ public class UserRoleDAO implements UserRoleDAOInterface {
 	}
 
 	@Override
-	public UserRole insertUserRole(UserRole userRole) {
+	public boolean insertUserRole(UserRole userRole) {
 		
 		try (Connection connection = ConnectionUtil.getConnection()) {
 			
@@ -92,37 +92,37 @@ public class UserRoleDAO implements UserRoleDAOInterface {
 			preparedStatement.executeUpdate();
 			
 			System.out.println("USerRole " + userRole.getUser_role_name() + " has been sucessfully added.");
-			return userRole;
+			return true;
 			
 		} catch (SQLException e) {
 			System.out.println("Failed inserting UserRole: SQL Exception occured.");
 			e.printStackTrace();
 		}
 		
-		return null;
+		return false;
 	}
 
 	@Override
-	public UserRole deleteUserRole(UserRole userRole) {
+	public boolean deleteUserRole(int user_role_id) {
 		
 		try (Connection connection = ConnectionUtil.getConnection()) {
 			
 			String sql = "DELETE FROM user_roles WHERE user_role_id = ?;";
 			
 			PreparedStatement preparedStatement = connection.prepareStatement(sql);
-			preparedStatement.setInt(1, userRole.getUser_role_id());
+			preparedStatement.setInt(1, user_role_id);
 			
 			preparedStatement.executeUpdate();
 			
-			System.out.println("UserRole " + userRole.getUser_role_name() + " successfully deleted.");
-			return userRole;
+			System.out.println("UserRole " + user_role_id + " successfully deleted.");
+			return true;
 			
 		} catch (SQLException e) {
 			System.out.println("Unable to delete UserRole: SQL Exception occured.");
 			e.printStackTrace();
 		}
 		
-		return null;
+		return false;
 	}
 
 }

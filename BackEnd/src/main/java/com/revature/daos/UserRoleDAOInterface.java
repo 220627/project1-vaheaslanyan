@@ -13,9 +13,9 @@ public interface UserRoleDAOInterface {
 	UserRole getUserRoleById(int user_role_id);
 	
 	//Insert UserRole
-	UserRole insertUserRole(UserRole userRole);
+	boolean insertUserRole(UserRole userRole);
 	
 	//Delete UserRole with ID
-	UserRole deleteUserRole(UserRole userRole);
+	boolean deleteUserRole(int user_role_id);
 
 }

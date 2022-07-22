@@ -9,7 +9,11 @@ public class AuthService {
 	
 	public User login(String username, String password) {
 		
-		return authDAO.login(username, password);
+		if (authDAO.login(username, password) != null) {
+			return authDAO.login(username, password);
+		}
+		
+		return null;
 		
 	}
 	

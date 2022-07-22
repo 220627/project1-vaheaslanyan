@@ -19,6 +19,7 @@ public class AuthController {
 	
 	public static HttpSession session;
 	
+	//Method to check if user is authenticated. This method is used in other controller handlers
 	public static boolean isLoggedIn(Context ctx) {
 		
 		if (session != null) {
@@ -35,12 +36,24 @@ public class AuthController {
 	
 	public Handler loginHandler = (ctx) -> {
 		
+		//Getting Json from HTTP body
 		String body = ctx.body();
 		
+		//Parsing Json to LoginDTO object
 		LoginDTO loginDTO = gson.fromJson(body, LoginDTO.class);
 		
-		User user = authService.login(loginDTO.getUsername(), loginDTO.getPassword());
+		User user = null;
 		
+		try {
+			//Instantiate a User object if authService.login is successful
+			user = authService.login(loginDTO.getUsername(), loginDTO.getPassword());
+		} catch (Exception e) {
+			System.out.println("Exception occured:");
+			e.printStackTrace();
+		}
+		
+		
+		//If user obj successfully instantiated set session
 		if (user != null) {
 			
 			System.out.println("User login successful.");
