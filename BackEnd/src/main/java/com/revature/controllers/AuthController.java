@@ -42,7 +42,7 @@ public class AuthController {
 		//Getting Json from HTTP body
 		String body = ctx.body();
 		
-		//Parsing Json to LoginDTO object
+		//Parsing Json to LoginDTO object, if email instead of username is passed it must still be passed as username in Json
 		LoginDTO loginDTO = gson.fromJson(body, LoginDTO.class);
 		
 		User user = null;
@@ -50,7 +50,7 @@ public class AuthController {
 		try {
 			
 			//Instantiate a User object if authService.login is successful
-			user = authService.login(loginDTO.getUsername(), loginDTO.getPassword());
+			user = authService.login(loginDTO.getUsernameOrEmail(), loginDTO.getPassword());
 		} catch (Exception e) {
 			
 			log.warn("Exception occurred when assigning User object at login: " + e);
@@ -63,7 +63,9 @@ public class AuthController {
 			
 			log.info("User login successful.");
 			
-			ctx.result("Login successful");
+			String userJson = gson.toJson(user);
+			
+			ctx.result(userJson);
 			ctx.status(200);
 			
 			session = ctx.req.getSession();

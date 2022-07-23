@@ -13,16 +13,18 @@ public class AuthDAO implements AuthDAOInterface{
 	UserDAO userDAO = new UserDAO();
 
 	@Override
-	public User login(String username, String password) {
+	public User login(String usernameOrEmail, String password) {
 		
 		try (Connection connection = ConnectionUtil.getConnection()) {
 		
-			String sql = "SELECT * FROM users WHERE username = ? AND password = ?;";
+			String sql = "SELECT * FROM users WHERE username = ? AND password = ? OR user_email = ? AND password = ?;";
 			
 			PreparedStatement preparedStatement = connection.prepareStatement(sql);
 			
-			preparedStatement.setString(1, username);
+			preparedStatement.setString(1, usernameOrEmail);
 			preparedStatement.setString(2, password);
+			preparedStatement.setString(3, usernameOrEmail);
+			preparedStatement.setString(4, password);
 			
 			ResultSet resultSet = preparedStatement.executeQuery();
 			

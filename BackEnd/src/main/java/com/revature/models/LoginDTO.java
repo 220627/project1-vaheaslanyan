@@ -2,7 +2,7 @@ package com.revature.models;
 
 public class LoginDTO {
 
-	private String username;
+	private String username; //Can also be email
 	private String password;
 	
 	public LoginDTO(String username, String password) {
@@ -11,7 +11,7 @@ public class LoginDTO {
 		this.password = password;
 	}
 
-	public String getUsername() {
+	public String getUsernameOrEmail() {
 		return username;
 	}
 
@@ -19,7 +19,7 @@ public class LoginDTO {
 		return password;
 	}
 
-	public void setUsername(String username) {
+	public void setUsernameOrEmail(String username) {
 		this.username = username;
 	}
 
