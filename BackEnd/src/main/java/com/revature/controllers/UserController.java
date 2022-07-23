@@ -2,6 +2,9 @@ package com.revature.controllers;
 
 import java.util.ArrayList;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import com.google.gson.Gson;
 import com.revature.daos.UserDAO;
 import com.revature.models.User;
@@ -10,6 +13,7 @@ import io.javalin.http.Handler;
 
 public class UserController {
 	
+	static final Logger log = LogManager.getLogger();
 	Gson gson = new Gson();
 	
 	UserDAO userDAO = new UserDAO();
@@ -22,10 +26,10 @@ public class UserController {
 		}
 		
 		ArrayList<User> userList = userDAO.getAllUsers();
-		
 		String userListJson = gson.toJson(userList);
 		
-		System.out.println("Successful GET request.");
+		log.info("GET Request for all Users successful.");
+		
 		ctx.result(userListJson);
 		ctx.status(200);
 	};
@@ -43,8 +47,9 @@ public class UserController {
 		User user = userDAO.getUserById(userId);
 		String userJson = gson.toJson(user);
 		
+		log.info("GET Request for User with ID successful.");
+		
 		//Responding with JSON User object
-		System.out.println("Successful GET request.");
 		ctx.result(userJson);
 		ctx.status(200);
 	};
@@ -56,16 +61,17 @@ public class UserController {
 		}
 		
 		String body = ctx.body();
-		
 		User newUser = gson.fromJson(body, User.class);
 		
-		
-		
 		if (userDAO.insertUser(newUser)) {
+			
+			log.info("POST Request for Users successful.");
 			
 			ctx.result("User " + newUser.getUsername() + " successfully added.");
 			ctx.status(200);
 		} else {
+			
+			log.warn("POST Request for all Users failed.");
 			
 			ctx.result("Failed to add User.");
 			ctx.status(406);
@@ -82,9 +88,13 @@ public class UserController {
 		
 		if (userDAO.deleteUserWithId(userId)) {
 			
+			log.info("DELETE Request for User successful.");
+			
 			ctx.result("User successfully deleted.");
 			ctx.status(200);
 		} else {
+			
+			log.info("DELETE Request for User failed.");
 			
 			ctx.result("Failed to delete User.");
 			ctx.status(404);

@@ -2,6 +2,9 @@ package com.revature.controllers;
 
 import java.util.ArrayList;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import com.google.gson.Gson;
 import com.revature.daos.UserRoleDAO;
 import com.revature.models.UserRole;
@@ -10,6 +13,7 @@ import io.javalin.http.Handler;
 
 public class UserRoleController {
 
+	static final Logger log = LogManager.getLogger();
 	Gson gson = new Gson();
 	
 	UserRoleDAO userRoleDAO = new UserRoleDAO();
@@ -22,10 +26,10 @@ public class UserRoleController {
 		}
 		
 		ArrayList<UserRole> userRoleList = userRoleDAO.getAllUserRoles();
-		
 		String userRoleListJson = gson.toJson(userRoleList);
 		
-		System.out.println("Successful GET request.");
+		log.info("GET Request for all UserRoles successful.");
+		
 		ctx.result(userRoleListJson);
 		ctx.status(200);
 	};
@@ -43,8 +47,9 @@ public class UserRoleController {
 		UserRole userRole = userRoleDAO.getUserRoleById(userRoleId);
 		String userRoleJson = gson.toJson(userRole);
 		
+		log.info("GET Request for UserRole with ID successful.");
+		
 		//Responding with JSON User object
-		System.out.println("Successful GET request.");
 		ctx.result(userRoleJson);
 		ctx.status(200);
 	};
@@ -56,16 +61,17 @@ public class UserRoleController {
 		}
 		
 		String body = ctx.body();
-		
 		UserRole newUserRole = gson.fromJson(body, UserRole.class);
 		
-		
-		
 		if (userRoleDAO.insertUserRole(newUserRole)) {
+			
+			log.info("POST Request for UserRole successful.");
 			
 			ctx.result("UserRole " + newUserRole.getUser_role_name() + " successfully added.");
 			ctx.status(200);
 		} else {
+
+			log.warn("POST Request for UserRole failed.");
 			
 			ctx.result("Failed to add UserRole.");
 			ctx.status(406);
@@ -82,9 +88,13 @@ public class UserRoleController {
 		
 		if (userRoleDAO.deleteUserRoleWithId(userRoleId)) {
 			
+			log.info("DELETE Request for UserRole successful.");
+			
 			ctx.result("UserRole successfully deleted.");
 			ctx.status(200);
 		} else {
+			
+			log.warn("DELETE Request for UserRole failed.");
 			
 			ctx.result("Failed to delete UserRole.");
 			ctx.status(404);
