@@ -1,11 +1,2 @@
-2022-07-22 17:15:08 WARN  AuthController:34 - Access denied to user: Login required.
-2022-07-22 17:23:56 WARN  AuthController:57 - Exception occured when assinging User object: null
-2022-07-22 17:23:56 WARN  AuthController:75 - User login attempt failed.
-2022-07-22 17:25:49 WARN  AuthController:57 - Exception occured when assinging User object: null
-2022-07-22 17:25:49 WARN  AuthController:75 - User login attempt failed.
-2022-07-22 17:26:42 WARN  AuthController:57 - Exception occured when assinging User object: null
-2022-07-22 17:26:42 WARN  AuthController:73 - User login attempt failed.
-2022-07-22 17:29:15 WARN  AuthController:57 - Exception occured when assinging User object at login: java.lang.NullPointerException
-2022-07-22 17:29:15 WARN  AuthController:73 - User login attempt failed.
-2022-07-22 17:30:24 WARN  AuthController:58 - Exception occured when assinging User object at login: java.lang.NullPointerException
-2022-07-22 17:30:24 WARN  AuthController:74 - User login attempt failed.
+2022-07-22 17:50:56 WARN  AuthController:56 - Exception occurred when assigning User object at login: java.lang.NullPointerException
+2022-07-22 17:50:56 WARN  AuthController:72 - User login attempt failed.

@@ -53,7 +53,7 @@ public class AuthController {
 			user = authService.login(loginDTO.getUsername(), loginDTO.getPassword());
 		} catch (Exception e) {
 			
-			log.warn("Exception occured when assinging User object at login: " + e);
+			log.warn("Exception occurred when assigning User object at login: " + e);
 			e.printStackTrace();
 		}
 		
