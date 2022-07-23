@@ -17,6 +17,8 @@ import com.revature.utils.ConnectionUtil;
 import io.javalin.Javalin;
 
 public class Launcher {
+	
+	static final Logger log = LogManager.getLogger();
 
 	public static void main(String[] args) {
 		
@@ -28,12 +30,11 @@ public class Launcher {
 	//Establishing conenction
 	public static void establishConnection() {
 		try(Connection connection = ConnectionUtil.getConnection()) {
-			System.out.println("Connection established.");
+			
+			log.info("Connection with DB established.");
 		} catch (SQLException e) {
-			System.out.println("Failed getting Customers. SQL Exception occured.");
-			e.printStackTrace();
-		} catch (Exception e) {
-			System.out.println("Failed getting Customers. Other Exception occured.");
+			
+			log.warn("Connection to DB failed to establish: " + e);
 			e.printStackTrace();
 		}
 	}

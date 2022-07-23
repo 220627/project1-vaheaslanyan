@@ -1,2 +1,3 @@
 2022-07-22 17:50:56 WARN  AuthController:56 - Exception occurred when assigning User object at login: java.lang.NullPointerException
 2022-07-22 17:50:56 WARN  AuthController:72 - User login attempt failed.
+2022-07-22 18:10:31 INFO  Launcher:34 - Connection with DB established.
