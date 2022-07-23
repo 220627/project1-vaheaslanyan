@@ -1,10 +1,33 @@
+/* Variables */
 :root {
   --offcanvas-width: 270px;
   --topNavbarHeight: 56px;
 }
 
+/* Sidebar */
 .sidebar-nav {
   width: var(--offcanvas-width);
+}
+
+@media (min-width: 992px) {
+  body {
+    overflow: auto !important;
+  }
+
+  /* .offcanvas-backdrop::before {
+    display: none;
+  } */
+  
+  main.sidebar-present-content {
+    margin-left: var(--offcanvas-width);
+  }
+  
+  .sidebar-nav {
+    transform: none;
+    visibility: visible !important;
+    top: var(--topNavbarHeight);
+    height: calc (100% - var(--topNavbarHeight));
+  }
 }
 
 .sidebar-link {
@@ -21,7 +44,15 @@
   transform: rotate(180deg);
 }
 
+/* Global */
+
 main {
   margin-top: var(--topNavbarHeight);
   padding: 1rem 0 0 1rem;
+}
+
+/* Login and Register */
+
+main.login-and-logout form {
+  margin-top: 5rem;
 }

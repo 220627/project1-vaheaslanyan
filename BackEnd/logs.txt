@@ -38,3 +38,60 @@
 2022-07-23 14:15:45 WARN  AuthController:74 - User login attempt failed.
 2022-07-23 14:15:53 INFO  AuthController:64 - User login successful.
 2022-07-23 14:15:57 INFO  AuthController:64 - User login successful.
+2022-07-23 14:22:15 INFO  AuthController:64 - User login successful.
+2022-07-23 15:28:10 INFO  AuthController:64 - User login successful.
+2022-07-23 15:29:01 INFO  Launcher:34 - Connection with DB established.
+2022-07-23 15:29:24 WARN  AuthController:74 - User login attempt failed.
+2022-07-23 15:29:31 WARN  AuthController:74 - User login attempt failed.
+2022-07-23 15:29:44 INFO  AuthController:64 - User login successful.
+2022-07-23 15:31:15 WARN  AuthController:74 - User login attempt failed.
+2022-07-23 15:31:19 WARN  AuthController:74 - User login attempt failed.
+2022-07-23 15:31:45 INFO  AuthController:64 - User login successful.
+2022-07-23 15:32:28 INFO  AuthController:64 - User login successful.
+2022-07-23 15:34:17 WARN  AuthController:74 - User login attempt failed.
+2022-07-23 15:34:20 WARN  AuthController:74 - User login attempt failed.
+2022-07-23 15:34:23 WARN  AuthController:74 - User login attempt failed.
+2022-07-23 15:34:24 WARN  AuthController:74 - User login attempt failed.
+2022-07-23 15:34:25 WARN  AuthController:74 - User login attempt failed.
+2022-07-23 15:34:25 WARN  AuthController:74 - User login attempt failed.
+2022-07-23 15:34:26 WARN  AuthController:74 - User login attempt failed.
+2022-07-23 15:34:27 WARN  AuthController:74 - User login attempt failed.
+2022-07-23 15:34:28 WARN  AuthController:74 - User login attempt failed.
+2022-07-23 15:34:29 WARN  AuthController:74 - User login attempt failed.
+2022-07-23 15:34:30 WARN  AuthController:74 - User login attempt failed.
+2022-07-23 15:34:31 WARN  AuthController:74 - User login attempt failed.
+2022-07-23 15:34:32 WARN  AuthController:74 - User login attempt failed.
+2022-07-23 15:34:34 WARN  AuthController:74 - User login attempt failed.
+2022-07-23 15:34:35 WARN  AuthController:74 - User login attempt failed.
+2022-07-23 15:34:41 WARN  AuthController:74 - User login attempt failed.
+2022-07-23 15:34:49 WARN  AuthController:74 - User login attempt failed.
+2022-07-23 15:35:00 WARN  AuthController:74 - User login attempt failed.
+2022-07-23 15:35:20 WARN  AuthController:74 - User login attempt failed.
+2022-07-23 15:35:31 WARN  AuthController:74 - User login attempt failed.
+2022-07-23 15:36:53 WARN  AuthController:74 - User login attempt failed.
+2022-07-23 15:36:59 WARN  AuthController:74 - User login attempt failed.
+2022-07-23 15:37:09 INFO  AuthController:64 - User login successful.
+2022-07-23 15:38:00 INFO  AuthController:64 - User login successful.
+2022-07-23 15:38:14 WARN  AuthController:74 - User login attempt failed.
+2022-07-23 15:38:15 WARN  AuthController:74 - User login attempt failed.
+2022-07-23 15:38:16 WARN  AuthController:74 - User login attempt failed.
+2022-07-23 15:38:17 WARN  AuthController:74 - User login attempt failed.
+2022-07-23 15:38:45 INFO  AuthController:64 - User login successful.
+2022-07-23 15:39:02 INFO  AuthController:64 - User login successful.
+2022-07-23 15:39:32 INFO  AuthController:64 - User login successful.
+2022-07-23 15:39:35 WARN  AuthController:74 - User login attempt failed.
+2022-07-23 15:39:36 WARN  AuthController:74 - User login attempt failed.
+2022-07-23 15:40:09 INFO  AuthController:64 - User login successful.
+2022-07-23 15:40:57 INFO  AuthController:64 - User login successful.
+2022-07-23 15:41:22 INFO  AuthController:64 - User login successful.
+2022-07-23 15:42:01 INFO  AuthController:64 - User login successful.
+2022-07-23 15:48:38 INFO  Launcher:34 - Connection with DB established.
+2022-07-23 15:49:29 INFO  Launcher:34 - Connection with DB established.
+2022-07-23 15:58:58 WARN  AuthController:74 - User login attempt failed.
+2022-07-23 15:59:05 WARN  AuthController:74 - User login attempt failed.
+2022-07-23 15:59:12 INFO  AuthController:64 - User login successful.
+2022-07-23 15:59:45 INFO  AuthController:64 - User login successful.
+2022-07-23 16:00:12 INFO  AuthController:64 - User login successful.
+2022-07-23 16:18:27 INFO  AuthController:64 - User login successful.
+2022-07-23 16:19:31 INFO  AuthController:64 - User login successful.
+2022-07-23 16:20:29 INFO  AuthController:64 - User login successful.
