@@ -3,6 +3,9 @@ package com.revature;
 import java.sql.Connection;
 import java.sql.SQLException;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import com.revature.controllers.AuthController;
 import com.revature.controllers.ReimbController;
 import com.revature.controllers.ReimbTypeController;
