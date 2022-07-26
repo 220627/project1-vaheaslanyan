@@ -66,7 +66,7 @@ public class AuthController {
 			String userJson = gson.toJson(user);
 			String userId = String.valueOf(user.getUser_id());
 			
-			ctx.cookie("userid", userId);
+//			ctx.cookie("userid", userId);
 			ctx.result(userJson);
 			ctx.status(200);
 			

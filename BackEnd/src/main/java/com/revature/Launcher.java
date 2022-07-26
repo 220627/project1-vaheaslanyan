@@ -13,11 +13,9 @@ import com.revature.controllers.ReimbController;
 import com.revature.controllers.ReimbTypeController;
 import com.revature.controllers.UserController;
 import com.revature.controllers.UserRoleController;
-import com.revature.daos.UserDAO;
 import com.revature.utils.ConnectionUtil;
 
 import io.javalin.Javalin;
-import io.javalin.http.sse.SseHandler;
 
 public class Launcher {
 	
