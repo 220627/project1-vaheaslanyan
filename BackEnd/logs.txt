@@ -95,3 +95,7 @@
 2022-07-23 16:18:27 INFO  AuthController:64 - User login successful.
 2022-07-23 16:19:31 INFO  AuthController:64 - User login successful.
 2022-07-23 16:20:29 INFO  AuthController:64 - User login successful.
+2022-07-25 14:45:33 INFO  Launcher:34 - Connection with DB established.
+2022-07-25 14:49:00 WARN  AuthController:74 - User login attempt failed.
+2022-07-25 14:49:02 WARN  AuthController:74 - User login attempt failed.
+2022-07-25 14:49:07 INFO  AuthController:64 - User login successful.

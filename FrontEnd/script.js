@@ -41,8 +41,8 @@ async function loginFunction() {
 
 async function takeToDashboard(userData) {
     if (userData.user_role_id_fk == 1) {
-        window.location.href = "manager_dashboard.html";
+        window.location.href = "manager_portal.html";
     } else {
-        window.location.href = "employee_dashboard.html";
+        window.location.href = "employee_portal.html";
     }
 }
