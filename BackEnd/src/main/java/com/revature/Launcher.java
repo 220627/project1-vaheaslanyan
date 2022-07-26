@@ -2,9 +2,11 @@ package com.revature;
 
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.function.Supplier;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.eclipse.jetty.server.session.SessionHandler;
 
 import com.revature.controllers.AuthController;
 import com.revature.controllers.ReimbController;
@@ -15,6 +17,7 @@ import com.revature.daos.UserDAO;
 import com.revature.utils.ConnectionUtil;
 
 import io.javalin.Javalin;
+import io.javalin.http.sse.SseHandler;
 
 public class Launcher {
 	
@@ -55,6 +58,8 @@ public class Launcher {
 				config -> {
 					//Enabling HTTP requests from any origin
 					config.enableCorsForAllOrigins();
+					//Setting more secure cookie settings with supplier created below in our code
+					config.sessionHandler(sessionHandlerSupplier());
 				}
 				
 				).start(3000);
@@ -88,6 +93,16 @@ public class Launcher {
 		app.get("/reimbs/:reimb_id", reimbController.getReimbByIdHandler);
 		app.post("/reimbs", reimbController.insertReimbHandler);
 		app.delete("/reimbs/:reimb_id", reimbController.deleteReimbHandler);
+	}
+	
+	//Configuring supplier for  more secure cookie settings
+	private static Supplier<SessionHandler> sessionHandlerSupplier() {
+		final SessionHandler sessionHandler = new SessionHandler();
+		// [..] add persistence DB etc. management here [..]
+		sessionHandler.getSessionCookieConfig().setHttpOnly(true);
+		sessionHandler.getSessionCookieConfig().setSecure(true);
+		sessionHandler.getSessionCookieConfig().setComment("__SAME_SITE_STRICT__");
+		return () -> sessionHandler;
 	}
 	
 }

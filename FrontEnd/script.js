@@ -46,3 +46,4 @@ async function takeToDashboard(userData) {
         window.location.href = "employee_portal.html";
     }
 }
+

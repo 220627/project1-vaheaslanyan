@@ -64,11 +64,15 @@ public class AuthController {
 			log.info("User login successful.");
 			
 			String userJson = gson.toJson(user);
+			String userId = String.valueOf(user.getUser_id());
 			
+			ctx.cookie("userid", userId);
 			ctx.result(userJson);
 			ctx.status(200);
 			
-			session = ctx.req.getSession();
+			//Creating a session and setting userId attribute
+			session = ctx.req.getSession(true);
+			session.setAttribute("userId", userId); //will need the following to get userId later session.getAttribute("userName");
 		} else {
 			
 			log.warn("User login attempt failed.");
