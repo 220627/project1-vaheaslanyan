@@ -44,6 +44,10 @@
   transform: rotate(180deg);
 }
 
+.pressed-button {
+  background-color: #5a6269;
+}
+
 /* Global */
 
 main {

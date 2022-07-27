@@ -1,6 +1,5 @@
 'use strict';
-
-const url = "http://localhost:3000";
+// const url = "http://localhost:3000";
 
 document.getElementById("loginButton").onclick = loginFunction;
 let userData;
