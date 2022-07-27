@@ -3,22 +3,24 @@
 //User ID variable that is populated in Page Setup section
 let userId;
 
+//Saving elements to vars
 let mainHeader = document.getElementById("mainHeader");
-
 let dashboardButton = document.getElementById("dashboardButton");
 let newExpenseButton = document.getElementById("newExpenseButton");
 let reimbsButton = document.getElementById("reimbsButton");
 
+//Setting up event listeners
+document.addEventListener("DOMContentLoaded", setupLoadedPage);
 dashboardButton.addEventListener("click", function(){offcanvasButtonPressed(dashboardButton)});
 newExpenseButton.addEventListener("click", function(){offcanvasButtonPressed(newExpenseButton)});
 reimbsButton.addEventListener("click", function(){offcanvasButtonPressed(reimbsButton)});
 
-document.addEventListener("DOMContentLoaded", function () {
+/* MARK: - Page Setup -------------------------------------------------------------------------------*/
+
+function setupLoadedPage() {
   userId = getCookie("userId");
   getUser();
-});
-
-/* MARK: - Page Setup -------------------------------------------------------------------------------*/
+}
 
 async function getUser() {
   let response = await fetch(url + `/users/${userId}`);
