@@ -9,11 +9,11 @@ let newExpenseDiv = document.getElementById("newExpenseDiv");
 let reimbsDiv = document.getElementById("reimbsDiv");
 
 let mainHeader = document.getElementById("mainHeader");
+let reimbsTable = document.getElementById("reimbsTable");
+
 let dashboardButton = document.getElementById("dashboardButton");
 let newExpenseButton = document.getElementById("newExpenseButton");
 let reimbsButton = document.getElementById("reimbsButton");
-
-let reimbsTable = document.getElementById("reimbsTable");
 
 //Setting up event listeners
 document.addEventListener("DOMContentLoaded", setupLoadedPage);
@@ -25,10 +25,6 @@ reimbsButton.addEventListener("click", function(){offcanvasButtonPressed(reimbsB
 function setupLoadedPage() {
   userId = getCookie("userId");
   getUser();
-
-  //TEMPORARY CODE
-  dasboardDiv.style.display = 'none';  
-  newExpenseDiv.style.display = 'block';
 }
 
 async function getUser() {
@@ -70,12 +66,16 @@ function dashboardButtonPressed() {
   newExpenseDiv.style.display = 'none';
   reimbsDiv.style.display = 'none';
   dasboardDiv.style.display = 'block';
+
+  mainHeader.innerHTML = "Dashboard"
 }
 
 function newExpenseButtonPressed() {
   dasboardDiv.style.display = "none";
   reimbsDiv.style.display = 'none';
   newExpenseDiv.style.display = 'block';
+
+  mainHeader.innerHTML = "New Expense"
 }
 
 function reimbsButtonPressed() {
