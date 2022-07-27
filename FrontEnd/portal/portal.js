@@ -22,6 +22,10 @@ reimbsButton.addEventListener("click", function(){offcanvasButtonPressed(reimbsB
 function setupLoadedPage() {
   userId = getCookie("userId");
   getUser();
+
+  //TEMPORARY CODE
+  dasboardDiv.style.display = 'none';  
+  newExpenseDiv.style.display = 'block';
 }
 
 async function getUser() {
