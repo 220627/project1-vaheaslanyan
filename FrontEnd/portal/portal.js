@@ -54,23 +54,35 @@ function offcanvasButtonPressed(button) {
 
   switch (button) {
     case dashboardButton:
-      newExpenseDiv.style.display = 'none';
-      reimbsDiv.style.display = 'none';
-      dasboardDiv.style.display = 'block';
+        dashboardButtonPressed();
       break;
     case newExpenseButton:
-      dasboardDiv.style.display = "none";
-      reimbsDiv.style.display = 'none';
-      newExpenseDiv.style.display = 'block';
+        newExpenseButtonPressed();
       break;
     case reimbsButton:
-      dasboardDiv.style.display = 'none';
-      newExpenseDiv.style.display = 'none';
-      reimbsDiv.style.display = 'block';
-      loadReimbs()
+        reimbsButtonPressed();
       break;
 
   }
+}
+
+function dashboardButtonPressed() {
+  newExpenseDiv.style.display = 'none';
+  reimbsDiv.style.display = 'none';
+  dasboardDiv.style.display = 'block';
+}
+
+function newExpenseButtonPressed() {
+  dasboardDiv.style.display = "none";
+  reimbsDiv.style.display = 'none';
+  newExpenseDiv.style.display = 'block';
+}
+
+function reimbsButtonPressed() {
+  dasboardDiv.style.display = 'none';
+  newExpenseDiv.style.display = 'none';
+  reimbsDiv.style.display = 'block';
+  loadReimbs()
 }
 
 async function loadReimbs() {
