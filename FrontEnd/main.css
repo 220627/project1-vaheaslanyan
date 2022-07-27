@@ -4,6 +4,14 @@
   --topNavbarHeight: 56px;
 }
 
+/* For toggling element visibility
+.visible {
+  visibility: visible !important;
+}
+.invisible {
+  visibility: hidden !important;
+} */
+
 /* Sidebar */
 .sidebar-nav {
   width: var(--offcanvas-width);

@@ -16,7 +16,7 @@
 
   <!-- CSS -->
   <link href="/main.css" rel="stylesheet" />
-  <link href="/dashboard.css" rel="stylesheet" />
+  <link href="/portal/protal.css" rel="stylesheet" />
 
   <title>Employee Reimbursment System</title>
 </head>
@@ -37,13 +37,13 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <form class="d-flex ms-auto">
-          <!-- <div class="input-group my-3 my-lg-0">
+          <div class="input-group my-3 my-lg-0">
             <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username"
               aria-describedby="button-addon2" />
             <button class="btn btn-primary" type="button" id="button-addon2">
               <i class="bi bi-search"></i>
             </button>
-          </div> -->
+          </div>
         </form>
         <ul class="navbar-nav mb-2 mb-lg-0">
           <li class="nav-item dropdown">
@@ -69,34 +69,124 @@
 
   <!-- Offcanvas -->
 
-  <div class="offcanvas offcanvas-start bg-dark text-light sidebar-nav" data-bs-scroll="true" data-bs-backdrop="true"
+  <div class="offcanvas offcanvas-start bg-dark text-light sidebar-nav" data-bs-scroll="true" data-bs-backdrop="false"
     bindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
     <div class="offcanvas-body p-0">
       <nac class="navbar-dark">
         <ul class="navbar-nav">
           <li>
-            <div class="text-muted small fw-bold text-uppercase px-3 mt-3">
-              Expenses
+            <div class="text-muted small fw-bold text-uppercase px-3">
+              Home
             </div>
           </li>
-          <li id="dashboardButton">
+          <li>
             <a href="#" class="nav-link px-3 active">
               <span class="me-2"><i class="bi bi-speedometer2"></i></span>
               <span>Dashboard</span>
             </a>
           </li>
-          <li id="newExpenseButton">
-            <a href="#" class="nav-link px-3 active">
-              <span class="me-2"><i class="bi bi-speedometer2"></i></span>
-              <span>New Expense</span>
+          <li>
+            <a class="nav-link px-3 sidebar-link" data-bs-toggle="collapse" href="#collapseExample" role="button"
+              aria-expanded="false" aria-controls="collapseExample">
+              <span class="me-2">
+                <i class="bi bi-speedometer2"></i>
+              </span>
+              <span>Associates</span>
+              <span class="right-icon ms-auto"><i class="bi bi-chevron-down"></i></span>
             </a>
+            <div class="collapse" id="collapseExample">
+              <div>
+                <ul class="navbar-nav ps-3">
+                  <li>
+                    <a href="#" class="nav-link px-3">
+                      <span class="me-2">
+                        <i class="bi bi-layout-split"></i>
+                      </span>
+                      <span>All Associates</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" class="nav-link px-3">
+                      <span class="me-2">
+                        <i class="bi bi-layout-split"></i>
+                      </span>
+                      <span>Add Associate</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" class="nav-link px-3">
+                      <span class="me-2">
+                        <i class="bi bi-layout-split"></i>
+                      </span>
+                      <span>Remove Associate</span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
           </li>
-          <li id="reimbsButton">
-            <a href="#" class="nav-link px-3 active">
-              <span class="me-2"><i class="bi bi-speedometer2"></i></span>
-              <span>Reimbursments</span>
+          <li class="my-4">
+            <hr class="dropdown-divider">
+          </li>
+          <li>
+            <div class="text-muted small fw-bold text-uppercase px-3">
+              Reimbursments
+            </div>
+          </li>
+          <li>
+            <li>
+              <a href="#" class="nav-link px-3 active">
+                <span class="me-2"><i class="bi bi-speedometer2"></i></span>
+                <span>Pending Requests</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="nav-link px-3 active">
+                <span class="me-2"><i class="bi bi-speedometer2"></i></span>
+                <span>Completed Requests</span>
+              </a>
+            </li>
+          <li class="my-4">
+            <hr class="dropdown-divider">
+          </li>
+          <li>
+            <div class="text-muted small fw-bold text-uppercase px-3">
+              Settings
+            </div>
+          </li>
+          <li>
+            <a class="nav-link px-3 sidebar-link" data-bs-toggle="collapse" href="#collapseExample" role="button"
+              aria-expanded="false" aria-controls="collapseExample">
+              <span class="me-2">
+                <i class="bi bi-speedometer2"></i>
+              </span>
+              <span>Account</span>
+              <span class="right-icon ms-auto"><i class="bi bi-chevron-down"></i></span>
             </a>
+            <div class="collapse" id="collapseExample">
+              <div>
+                <ul class="navbar-nav ps-3">
+                  <li>
+                    <a href="#" class="nav-link px-3">
+                      <span class="me-2">
+                        <i class="bi bi-layout-split"></i>
+                      </span>
+                      <span>Profile</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" class="nav-link px-3">
+                      <span class="me-2">
+                        <i class="bi bi-layout-split"></i>
+                      </span>
+                      <span>Logout</span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
           </li>
+
         </ul>
         </nav>
     </div>
@@ -104,10 +194,10 @@
 
   <!-- Main Content -->
   <main class="sidebar-present-content">
-    <div class="container-fluid" id="dashboardDiv">
+    <div class="container-fluid">
       <div class="row">
         <div class="col-md-12 fw-bold fs-3">
-          <h2 id="mainHeader"></h2>
+          Dashboard
         </div>
       </div>
       <div class="row">
@@ -131,7 +221,7 @@
     crossorigin="anonymous"></script>
   <!-- JS -->
   <script src="/script.js"></script>
-  <script src="/portal.js"></script>
+  <script src="/portal/portal.js"></script>
 </body>
 
 </html>

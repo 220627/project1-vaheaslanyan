@@ -4,6 +4,9 @@
 let userId;
 
 //Saving elements to vars
+let dasboardDiv = document.getElementById("dashboardDiv");
+let newExpenseDiv = document.getElementById("newExpenseDiv");
+
 let mainHeader = document.getElementById("mainHeader");
 let dashboardButton = document.getElementById("dashboardButton");
 let newExpenseButton = document.getElementById("newExpenseButton");
@@ -16,7 +19,6 @@ newExpenseButton.addEventListener("click", function(){offcanvasButtonPressed(new
 reimbsButton.addEventListener("click", function(){offcanvasButtonPressed(reimbsButton)});
 
 /* MARK: - Page Setup -------------------------------------------------------------------------------*/
-
 function setupLoadedPage() {
   userId = getCookie("userId");
   getUser();
@@ -42,7 +44,22 @@ function offcanvasButtonPressed(button) {
   reimbsButton.classList.remove("pressed-button");
 
   button.classList.add("pressed-button");
-  console.log("clicked")
+
+  switch (button) {
+    case dashboardButton:
+      newExpenseDiv.style.display = 'none';  
+      dasboardDiv.style.display = 'block';
+      break;
+    case newExpenseButton:
+      dasboardDiv.style.display = "none";
+      newExpenseDiv.style.display = 'block';
+      break;
+    case reimbsButton:
+      dasboardDiv.style.display = 'none';
+      newExpenseDiv.style.display = 'none';
+      break;
+
+  }
 }
 
 /* MARK: - Miscellaneous -----------------------------------------------------------------------------*/
