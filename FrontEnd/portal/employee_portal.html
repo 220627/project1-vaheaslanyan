@@ -94,7 +94,7 @@
           <li id="reimbsButton">
             <a href="#" class="nav-link px-3 active">
               <span class="me-2"><i class="bi bi-speedometer2"></i></span>
-              <span>Reimbursments</span>
+              <span>Reimbursements</span>
             </a>
           </li>
         </ul>
@@ -136,12 +136,12 @@
             <div class="col">
               <div class="card card-registration my-4">
                 <div class="row g-0">
-                  
+
                   <!-- Fields -->
                   <div class="col-xl-6">
                     <div class="card-body p-md-5 text-black">
                       <h3 class="mb-5">Tell us about your expense</h3>
-      
+
                       <div class="row">
                         <div class="form-outline mb-4">
                           <input type="text" id="form3Example8" class="form-control form-control-lg" />
@@ -152,16 +152,18 @@
                           <label class="form-label" for="form3Example8">Descrition</label>
                         </div>
                       </div>
-      
+
                       <div class="row">
-                        <select class="form-select mb-4" aria-label="Default select example">
-                          <option selected>Expense type</option>
-                          <option value="1">Lodging</option>
-                          <option value="2">Travel</option>
-                          <option value="3">Food</option>
-                          <option value="4">Other</option>
-                        </select>
-                      </div>      
+                        <div class="form-outline mb-4">
+                          <select class="form-select mb-4" aria-label="Default select example">
+                            <option selected>Expense type</option>
+                            <option value="1">Lodging</option>
+                            <option value="2">Travel</option>
+                            <option value="3">Food</option>
+                            <option value="4">Other</option>
+                          </select>
+                        </div>
+                      </div>
                     </div>
                   </div>
                   <!-- Receipt window -->
@@ -181,6 +183,22 @@
           </div>
         </div>
       </section>
+    </div>
+
+    <!-- Reimbursements div-->
+    <div class="container-fluid" id="reimbsDiv">
+      <table class="table" id="reimbsTable">
+        <thead>
+          <tr>
+            <th scope="col">Amount</th>
+            <th scope="col">Type</th>
+            <th scope="col">Descrition</th>
+            <th scope="col">Submitted</th>
+            <th scope="col">Status</th>
+          </tr>
+        </thead>
+        <!-- tbody is inserted in portal.js loadReimbs() function -->
+      </table>
     </div>
   </main>
 

@@ -6,11 +6,14 @@ let userId;
 //Saving elements to vars
 let dasboardDiv = document.getElementById("dashboardDiv");
 let newExpenseDiv = document.getElementById("newExpenseDiv");
+let reimbsDiv = document.getElementById("reimbsDiv");
 
 let mainHeader = document.getElementById("mainHeader");
 let dashboardButton = document.getElementById("dashboardButton");
 let newExpenseButton = document.getElementById("newExpenseButton");
 let reimbsButton = document.getElementById("reimbsButton");
+
+let reimbsTable = document.getElementById("reimbsTable");
 
 //Setting up event listeners
 document.addEventListener("DOMContentLoaded", setupLoadedPage);
@@ -51,18 +54,72 @@ function offcanvasButtonPressed(button) {
 
   switch (button) {
     case dashboardButton:
-      newExpenseDiv.style.display = 'none';  
+      newExpenseDiv.style.display = 'none';
+      reimbsDiv.style.display = 'none';
       dasboardDiv.style.display = 'block';
       break;
     case newExpenseButton:
       dasboardDiv.style.display = "none";
+      reimbsDiv.style.display = 'none';
       newExpenseDiv.style.display = 'block';
       break;
     case reimbsButton:
       dasboardDiv.style.display = 'none';
       newExpenseDiv.style.display = 'none';
+      reimbsDiv.style.display = 'block';
+      loadReimbs()
       break;
 
+  }
+}
+
+async function loadReimbs() {
+
+  // Removing any previous tbody
+  if (reimbsTable.childElementCount > 1) {
+    reimbsTable.removeChild(reimbsTable.lastChild);
+  }
+  
+  // Creating a tbody that will be appended a child at the end of this function
+  let reimbsTableBody = document.createElement("tbody");
+
+  // Sending fetch request to back-end
+  let response = await fetch(url + "/reimbs");
+
+  if (response.status >= 200 && response.status < 300) {
+
+    let data = await response.json();
+
+    for(let reimb of data) {
+
+      // Creating a row and cells for every data
+      let row = document.createElement("tr");
+      let amountCell = document.createElement("td");
+      let typeCell = document.createElement("td");
+      let descriptionCell = document.createElement("td");
+      let submittedCell = document.createElement("td");
+      let statusCell = document.createElement("td");
+
+      // Populating cells
+      amountCell.innerHTML = reimb.reimb_amount;
+      typeCell.innerHTML = reimb.reimbType.reimb_type_name;
+      descriptionCell.innerHTML = reimb.reimb_description;
+      submittedCell.innerHTML = reimb.reimb_submitted;
+      statusCell.innerHTML = reimb.reimb_is_approved;
+
+      // Appendning cells to the row
+      row.appendChild(amountCell);
+      row.appendChild(typeCell);
+      row.appendChild(descriptionCell);
+      row.appendChild(submittedCell);
+      row.appendChild(statusCell);
+
+      // Appending the row to the table body
+      reimbsTableBody.appendChild(row);
+    }
+
+    // Appending the table body to the table
+    reimbsTable.appendChild(reimbsTableBody);
   }
 }
 
