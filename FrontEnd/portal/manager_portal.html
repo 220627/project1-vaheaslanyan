@@ -22,7 +22,7 @@
 </head>
 
 <body>
-  <!-- Navbar -->
+  <!-- MARK: - Navbar ------------------------------------------------------------------------------->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container-fluid">
       <!-- Offcanvas toggle button -->
@@ -30,35 +30,25 @@
         aria-controls="offcanvasExample">
         <span class="navbar-toggler-icon" data-bs-target="offcanvasExample"></span>
       </button>
-      <a class="navbar-brand fw-bold text-uppercase me-auto" href="#">Navbar</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <form class="d-flex ms-auto">
-          <div class="input-group my-3 my-lg-0">
-            <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username"
-              aria-describedby="button-addon2" />
-            <button class="btn btn-primary" type="button" id="button-addon2">
-              <i class="bi bi-search"></i>
-            </button>
-          </div>
-        </form>
+      <a class="navbar-brand fw-bold text-uppercase me-auto" href="#">ERS</a>
+      <div> 
         <ul class="navbar-nav mb-2 mb-lg-0">
+          <li class="nav-item my-auto">
+            <a class="navbar-brand disabled" id="navbarUserName"></a>
+          </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
-              aria-expanded="false">
+            aria-expanded="false">
               <i class="bi bi-person-fill"></i>
             </a>
-            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="#">Action</a></li>
-              <li><a class="dropdown-item" href="#">Another action</a></li>
+            <ul class="dropdown-menu  dropdown-menu-end popout" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="#">Profile</a></li>
+              <li><a class="dropdown-item" href="#">Settings</a></li>
               <li>
                 <hr class="dropdown-divider" />
               </li>
               <li>
-                <a class="dropdown-item" href="#">Something else here</a>
+                <a class="dropdown-item" href="#">Logout</a>
               </li>
             </ul>
           </li>
@@ -67,23 +57,37 @@
     </div>
   </nav>
 
-  <!-- Offcanvas -->
+  <!-- MARK: - Offcanvas ------------------------------------------------------------------------------->
 
-  <div class="offcanvas offcanvas-start bg-dark text-light sidebar-nav" data-bs-scroll="true" data-bs-backdrop="false"
+  <div class="offcanvas offcanvas-start bg-dark text-light sidebar-nav" data-bs-scroll="true" data-bs-backdrop="true"
     bindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
     <div class="offcanvas-body p-0">
       <nac class="navbar-dark">
         <ul class="navbar-nav">
           <li>
-            <div class="text-muted small fw-bold text-uppercase px-3">
-              Home
+            <div class="text-muted small fw-bold text-uppercase px-3 mt-3">
+              Reimbursements
             </div>
           </li>
-          <li>
+          <li id="dashboardButton">
             <a href="#" class="nav-link px-3 active">
               <span class="me-2"><i class="bi bi-speedometer2"></i></span>
               <span>Dashboard</span>
             </a>
+          </li>
+          <li id="newExpenseButton">
+            <a href="#" class="nav-link px-3 active">
+              <span class="me-2"><i class="bi bi-speedometer2"></i></span>
+              <span>Requests</span>
+            </a>
+          </li>
+          <li class="mt-5">
+            <hr class="dropdown-divider">
+          </li>
+          <li>
+            <div class="text-muted small fw-bold text-uppercase px-3 mt-3">
+              Team
+            </div>
           </li>
           <li>
             <a class="nav-link px-3 sidebar-link" data-bs-toggle="collapse" href="#collapseExample" role="button"
@@ -91,7 +95,7 @@
               <span class="me-2">
                 <i class="bi bi-speedometer2"></i>
               </span>
-              <span>Associates</span>
+              <span>Assiciates</span>
               <span class="right-icon ms-auto"><i class="bi bi-chevron-down"></i></span>
             </a>
             <div class="collapse" id="collapseExample">
@@ -125,81 +129,24 @@
               </div>
             </div>
           </li>
-          <li class="my-4">
-            <hr class="dropdown-divider">
-          </li>
-          <li>
-            <div class="text-muted small fw-bold text-uppercase px-3">
-              Reimbursments
-            </div>
-          </li>
-          <li>
-            <li>
-              <a href="#" class="nav-link px-3 active">
-                <span class="me-2"><i class="bi bi-speedometer2"></i></span>
-                <span>Pending Requests</span>
-              </a>
-            </li>
-            <li>
-              <a href="#" class="nav-link px-3 active">
-                <span class="me-2"><i class="bi bi-speedometer2"></i></span>
-                <span>Completed Requests</span>
-              </a>
-            </li>
-          <li class="my-4">
-            <hr class="dropdown-divider">
-          </li>
-          <li>
-            <div class="text-muted small fw-bold text-uppercase px-3">
-              Settings
-            </div>
-          </li>
-          <li>
-            <a class="nav-link px-3 sidebar-link" data-bs-toggle="collapse" href="#collapseExample" role="button"
-              aria-expanded="false" aria-controls="collapseExample">
-              <span class="me-2">
-                <i class="bi bi-speedometer2"></i>
-              </span>
-              <span>Account</span>
-              <span class="right-icon ms-auto"><i class="bi bi-chevron-down"></i></span>
-            </a>
-            <div class="collapse" id="collapseExample">
-              <div>
-                <ul class="navbar-nav ps-3">
-                  <li>
-                    <a href="#" class="nav-link px-3">
-                      <span class="me-2">
-                        <i class="bi bi-layout-split"></i>
-                      </span>
-                      <span>Profile</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" class="nav-link px-3">
-                      <span class="me-2">
-                        <i class="bi bi-layout-split"></i>
-                      </span>
-                      <span>Logout</span>
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </li>
-
         </ul>
         </nav>
     </div>
   </div>
 
-  <!-- Main Content -->
+  <!-- MARK: - Main Content ------------------------------------------------------------------------------->
+
   <main class="sidebar-present-content">
-    <div class="container-fluid">
+    <div class="container-fluid my-3">
       <div class="row">
         <div class="col-md-12 fw-bold fs-3">
-          Dashboard
+          <h2 id="mainHeader"></h2>
         </div>
       </div>
+    </div>
+
+    <!-- Dashboard Div -->
+    <div class="container-fluid" id="dashboardDiv">
       <div class="row">
         <div class="col-md-4 mb-3">
           <div class="card text-white bg-primary mb-3 h-100" style="max-width: 18rem;">
@@ -213,6 +160,22 @@
         </div>
       </div>
     </div>
+
+    <!--   div-->
+    <div class="container-fluid" id="reimbsDiv">
+      <table class="table" id="reimbsTable">
+        <thead>
+          <tr>
+            <th scope="col">Amount</th>
+            <th scope="col">Type</th>
+            <th scope="col">Descrition</th>
+            <th scope="col">Submitted</th>
+            <th scope="col">Status</th>
+          </tr>
+        </thead>
+        <!-- tbody is inserted in portal.js loadReimbs() function -->
+      </table>
+    </div>
   </main>
 
   <!-- Bootstrap JS -->
@@ -220,8 +183,9 @@
     integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
     crossorigin="anonymous"></script>
   <!-- JS -->
-  <script src="/script.js"></script>
-  <script src="/portal/portal.js"></script>
+  <script type="text/javascript" src="/script.js"></script>
+  <script type="text/javascript" src="/portal/portal.js"></script>
+  <script type="text/javascript" src="/portal/manager-portal.js"></script>
 </body>
 
 </html>
