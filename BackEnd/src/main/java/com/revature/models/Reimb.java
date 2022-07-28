@@ -40,15 +40,25 @@ public class Reimb {
 	}
 
 	//For inserting reimb
+//	public Reimb(double reimb_amount, String reimb_description, String reimb_receipt_url, int reimb_type_id_fk,
+//			int reimb_author_id_fk, int reimb_resolver_id_fk) {
+//		super();
+//		this.reimb_amount = reimb_amount;
+//		this.reimb_description = reimb_description;
+//		this.reimb_receipt_url = reimb_receipt_url;
+//		this.reimb_type_id_fk = reimb_type_id_fk;
+//		this.reimb_author_id_fk = reimb_author_id_fk;
+//		this.reimb_resolver_id_fk = reimb_resolver_id_fk;
+//	}
+	
 	public Reimb(double reimb_amount, String reimb_description, String reimb_receipt_url, int reimb_type_id_fk,
-			int reimb_author_id_fk, int reimb_resolver_id_fk) {
+			int reimb_author_id_fk) {
 		super();
 		this.reimb_amount = reimb_amount;
 		this.reimb_description = reimb_description;
 		this.reimb_receipt_url = reimb_receipt_url;
 		this.reimb_type_id_fk = reimb_type_id_fk;
 		this.reimb_author_id_fk = reimb_author_id_fk;
-		this.reimb_resolver_id_fk = reimb_resolver_id_fk;
 	}
 	
 	/* MARK: - Getters and Setters ---------------------------------------------------------------- */

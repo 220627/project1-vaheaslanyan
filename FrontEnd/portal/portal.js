@@ -1,4 +1,4 @@
-'use strict'
+"use strict";
 
 //User ID variable that is populated in Page Setup section
 let userId;
@@ -14,21 +14,43 @@ let reimbsTable = document.getElementById("reimbsTable");
 let dashboardButton = document.getElementById("dashboardButton");
 let newExpenseButton = document.getElementById("newExpenseButton");
 let reimbsButton = document.getElementById("reimbsButton");
+let submitExpenseButton = document.getElementById("submitExpenseButton");
+
+let expenseAmountInput = document.getElementById("expenseAmountInput");
+let expenseDescriptionInput = document.getElementById(
+  "expenseDescriptionInput"
+);
+let expenseTypeSelector = document.getElementById("expenseTypeSelector");
 
 //Setting up event listeners
 document.addEventListener("DOMContentLoaded", setupLoadedPage);
-dashboardButton.addEventListener("click", function(){offcanvasButtonPressed(dashboardButton)});
-newExpenseButton.addEventListener("click", function(){offcanvasButtonPressed(newExpenseButton)});
-reimbsButton.addEventListener("click", function(){offcanvasButtonPressed(reimbsButton)});
+
+dashboardButton.addEventListener("click", function () {
+  offcanvasButtonPressed(dashboardButton);
+});
+newExpenseButton.addEventListener("click", function () {
+  offcanvasButtonPressed(newExpenseButton);
+});
+reimbsButton.addEventListener("click", function () {
+  offcanvasButtonPressed(reimbsButton);
+});
+submitExpenseButton.onclick = submitExpenseButtonPressed;
 
 /* MARK: - Page Setup -------------------------------------------------------------------------------*/
 function setupLoadedPage() {
   userId = getCookie("userId");
   getUser();
+  dashboardButtonPressed();
+
+  //TEMPORARY CODE
+  newExpenseButtonPressed();
 }
 
 async function getUser() {
-  let response = await fetch(url + `/users/${userId}`);
+  let response = await fetch(url + `/users/${userId}`, {
+    // credentials: "include"
+  });
+
   setUserName(response);
 }
 
@@ -41,7 +63,6 @@ async function setUserName(response) {
 
 /* MARK: - Handling Navigation -----------------------------------------------------------------------*/
 function offcanvasButtonPressed(button) {
-
   dashboardButton.classList.remove("pressed-button");
   newExpenseButton.classList.remove("pressed-button");
   reimbsButton.classList.remove("pressed-button");
@@ -50,60 +71,94 @@ function offcanvasButtonPressed(button) {
 
   switch (button) {
     case dashboardButton:
-        dashboardButtonPressed();
+      dashboardButtonPressed();
       break;
     case newExpenseButton:
-        newExpenseButtonPressed();
+      newExpenseButtonPressed();
       break;
     case reimbsButton:
-        reimbsButtonPressed();
+      reimbsButtonPressed();
       break;
-
   }
 }
 
 function dashboardButtonPressed() {
-  newExpenseDiv.style.display = 'none';
-  reimbsDiv.style.display = 'none';
-  dasboardDiv.style.display = 'block';
+  newExpenseDiv.style.display = "none";
+  reimbsDiv.style.display = "none";
+  dasboardDiv.style.display = "block";
 
-  mainHeader.innerHTML = "Dashboard"
+  mainHeader.innerHTML = "Dashboard";
 }
 
 function newExpenseButtonPressed() {
   dasboardDiv.style.display = "none";
-  reimbsDiv.style.display = 'none';
-  newExpenseDiv.style.display = 'block';
+  reimbsDiv.style.display = "none";
+  newExpenseDiv.style.display = "block";
 
-  mainHeader.innerHTML = "New Expense"
+  mainHeader.innerHTML = "New Expense";
 }
 
 function reimbsButtonPressed() {
-  dasboardDiv.style.display = 'none';
-  newExpenseDiv.style.display = 'none';
-  reimbsDiv.style.display = 'block';
-  loadReimbs()
+  dasboardDiv.style.display = "none";
+  newExpenseDiv.style.display = "none";
+  reimbsDiv.style.display = "block";
+  loadReimbs();
 }
 
-async function loadReimbs() {
+/* MARK: - New Expense -------------------------------------------------------------------------------*/
 
+async function submitExpenseButtonPressed() {
+
+  let expenseAmount = expenseAmountInput.value;
+  let expenseDescription = expenseDescriptionInput.value;
+  let expenseTypeIndex = expenseTypeSelector.value;
+
+  console.log(
+    expenseAmount + " " + expenseDescription + " " + expenseTypeIndex
+  );
+
+  let newExpenseJson = JSON.stringify({
+    reimb_amount: expenseAmount,
+    reimb_description: expenseDescription,
+    reimb_receipt_url: "url_here",
+    reimb_type_id_fk: expenseTypeIndex,
+    reimb_author_id_fk: userId
+    // reimb_resolver_id_fk: 1,
+  });
+
+  let response = await fetch(url + "/reimbs", {
+    method: "POST", //send a PUT request (check the endpoint handler in the launcher, it takes a PUT to /roles/:title)
+    body: newExpenseJson, //no need to turn this into JSON, it's just one number
+    // credentials: "include"
+  });
+
+  if (response.status >= 200 && response.status < 300) {
+    console.log("success");
+  } else {
+    console.log("messup");
+  }
+}
+
+/* MARK: - Reimbursements ----------------------------------------------------------------------------*/
+
+async function loadReimbs() {
   // Removing any previous tbody
   if (reimbsTable.childElementCount > 1) {
     reimbsTable.removeChild(reimbsTable.lastChild);
   }
-  
+
   // Creating a tbody that will be appended a child at the end of this function
   let reimbsTableBody = document.createElement("tbody");
 
   // Sending fetch request to back-end
-  let response = await fetch(url + "/reimbs");
+  let response = await fetch(url + "/reimbs", {
+    // credentials: "include"
+  });
 
   if (response.status >= 200 && response.status < 300) {
-
     let data = await response.json();
 
-    for(let reimb of data) {
-
+    for (let reimb of data) {
       // Creating a row and cells for every data
       let row = document.createElement("tr");
       let amountCell = document.createElement("td");

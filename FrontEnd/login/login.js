@@ -31,8 +31,8 @@ async function loginFunction() {
 
         let userData = await response.json();
 
-        //Saving userId cookie and redirecting user to appropriate dashboard
-        document.cookie = `userId=${userData.user_id}`
+        //Saving userId cookie for entire domain and redirecting user to appropriate dashboard
+        document.cookie = `userId=${userData.user_id}; path=/`;
         takeToDashboard(userData);
     } else {
         alert("Login failed");

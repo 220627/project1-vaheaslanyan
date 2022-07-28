@@ -72,7 +72,7 @@ public class AuthController {
 			
 			//Creating a session and setting userId attribute
 			session = ctx.req.getSession(true);
-			session.setAttribute("userId", userId); //will need the following to get userId later session.getAttribute("userName");
+//			session.setAttribute("userId", userId); //will need the following to get userId later session.getAttribute("userName");
 		} else {
 			
 			log.warn("User login attempt failed.");

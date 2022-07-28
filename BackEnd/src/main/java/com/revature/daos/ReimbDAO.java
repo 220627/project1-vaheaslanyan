@@ -115,7 +115,7 @@ public class ReimbDAO implements ReimbDAOInterface {
 		try (Connection connection = ConnectionUtil.getConnection()) {
 			
 			String sql = "INSERT INTO reimbs (reimb_amount, reimb_description, reimb_receipt_url, reimb_type_id_fk, reimb_author_id_fk) "
-					+ "(?, ?, ?, ?, ?);";
+					+ "VALUES (?, ?, ?, ?, ?);";
 			
 			PreparedStatement preparedStatement = connection.prepareStatement(sql);
 			preparedStatement.setDouble(1, reimb.getReimb_amount());
@@ -125,7 +125,7 @@ public class ReimbDAO implements ReimbDAOInterface {
 			preparedStatement.setInt(5, reimb.getReimb_author_id_fk());
 			
 			preparedStatement.executeUpdate();
-			System.out.println("Reimb with ID " + reimb.getReimb_id() + " successfully added");
+			System.out.println("Reimb with author ID " + reimb.getReimb_author_id_fk() + " successfully added");
 			
 			return true;
 			
