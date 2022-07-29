@@ -8,6 +8,16 @@ let userRoleId;
 let navbarUserName = document.getElementById("navbarUserName");
 let mainHeader = document.getElementById("mainHeader");
 
+let reimbCardIdSpan = document.getElementById("reimbCardIdSpan");
+let reimbCardDescriptionP = document.getElementById("reimbCardDescriptionP");
+let reimbCardAmountSpan = document.getElementById("reimbCardAmountSpan");
+let reimbCardTypeSpan = document.getElementById("reimbCardTypeSpan");
+let reimbCardSubmittedSpan = document.getElementById("reimbCardSubmittedSpan");
+let reimbCardResolvedSpan = document.getElementById("reimbCardResolvedSpan");
+let reimbCardResolverSpan = document.getElementById("reimbCardResolverSpan");
+let reimbCardAuthorSpan = document.getElementById("reimbCardAuthorSpan");
+let reimbCardStatusSpan = document.getElementById("reimbCardStatusSpan");
+
 //Setting up event listeners
 dashboardButton.addEventListener("click", function () {
   offcanvasButtonPressed(dashboardButton);
@@ -153,10 +163,34 @@ function createTableHead() {
      return reimbsTableHead;
 }
 
-function tableRowPressed(reimbId) {
-  console.log(reimbId);
-}
+// Reimb Card
 
+
+async function loadReimbCard(reimbId) {
+  console.log(reimbId);
+
+  // Sending fetch request to back-end
+  let response = await fetch(url + `/reimbs/${reimbId}`, {
+    // credentials: "include"
+  });
+
+  if (response.status >= 200 && response.status < 300) {
+    let data = await response.json();
+    console.log(data);
+
+    reimbCardIdSpan.innerHTML = data.reimb_id;
+    reimbCardDescriptionP.innerHTML = data.reimb_description;
+    reimbCardAmountSpan.innerHTML = data.reimb_amount;
+    reimbCardTypeSpan.innerHTML = data.reimbType.reimb_type_name;
+    reimbCardSubmittedSpan.innerHTML = data.reimb_submitted;
+    reimbCardResolvedSpan.innerHTML = data.reimb_resolved ? data.reimb_resolved : "Pending";
+    reimbCardResolverSpan.innerHTML = data.reimb_resolver_id_fk ? data.reimbResolver.user_first_name : "Pending";
+    reimbCardAuthorSpan.innerHTML = data.reimbAuthor.user_first_name;
+    reimbCardStatusSpan.innerHTML = data.reimbStatus.reimb_status_name;
+
+    
+  }
+}
 
 /* MARK: - Miscellaneous -----------------------------------------------------------------------------*/
 //Function to get cookie value by name

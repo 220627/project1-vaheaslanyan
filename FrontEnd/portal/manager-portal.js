@@ -8,6 +8,7 @@ let requestsDiv = document.getElementById("requestsDiv");
 
 let dashboardButton = document.getElementById("dashboardButton");
 let requestsButton = document.getElementById("requestsButton");
+let requestCardDiv = document.getElementById("requestCardDiv");
 
 //Setting up event listeners
 document.addEventListener("DOMContentLoaded", setupLoadedPage);
@@ -48,6 +49,7 @@ function offcanvasButtonPressed(button) {
 
 function dashboardButtonPressed() {
   requestsDiv.style.display = "none";
+  requestCardDiv.style.display = "none";
   dasboardDiv.style.display = "block";
 
   mainHeader.innerHTML = "Dashboard"; //PJS
@@ -55,9 +57,18 @@ function dashboardButtonPressed() {
 
 function requestsButtonPressed() {
   dasboardDiv.style.display = "none";
+  requestCardDiv.style.display = "none";
   requestsDiv.style.display = "block";
 
   mainHeader.innerHTML = "Requests"; //PJS
 
   loadReimbsTable(); //PJS
+}
+
+function tableRowPressed(reimbId) {
+  dasboardDiv.style.display = "none";
+  requestsDiv.style.display = "none";
+  requestCardDiv.style.display = "block";
+  
+  loadReimbCard(reimbId); //PJS
 }

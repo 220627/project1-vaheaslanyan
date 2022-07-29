@@ -177,17 +177,17 @@
       <div class="card" style="width: 30rem;">
         <img src="/assets/receipt.jpg" class="card-img-top" alt="">
         <div class="card-body">
-          <h5 class="card-title">Request ID: 1</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <h5 class="card-title d-flex"><span class="me-auto">Request ID:</span><span id="reimbCardIdSpan"></span></h5>
+          <p class="card-text" id="reimbCardDescriptionP"></p>
         </div>
         <ul class="list-group list-group-flush">
-          <li class="list-group-item d-flex"><span class="me-auto">Amount:</span><span>157.99</span></li>
-          <li class="list-group-item d-flex"><span class="me-auto">Category:</span><span>Food</span></li>
-          <li class="list-group-item d-flex"><span class="me-auto">Submitted:</span><span>Date</span></li>
-          <li class="list-group-item d-flex"><span class="me-auto">Resolved:</span><span>Date</span></li>
-          <li class="list-group-item d-flex"><span class="me-auto">Resolver:</span><span>Name</span></li>
-          <li class="list-group-item d-flex"><span class="me-auto">Employee:</span><span>Name</span></li>
-          <li class="list-group-item d-flex"><span class="me-auto">Status:</span><span>Pending</span></li>
+          <li class="list-group-item d-flex"><span class="me-auto">Amount:</span><span id="reimbCardAmountSpan"></span></li>
+          <li class="list-group-item d-flex"><span class="me-auto">Category:</span><span id="reimbCardTypeSpan"></span></li>
+          <li class="list-group-item d-flex"><span class="me-auto">Submitted:</span><span id="reimbCardSubmittedSpan"></span></li>
+          <li class="list-group-item d-flex"><span class="me-auto">Resolved:</span><span id="reimbCardResolvedSpan"></span></li>
+          <li class="list-group-item d-flex"><span class="me-auto">Resolver:</span><span id="reimbCardResolverSpan"></span></li>
+          <li class="list-group-item d-flex"><span class="me-auto">Employee:</span><span id="reimbCardAuthorSpan"></span></li>
+          <li class="list-group-item d-flex"><span class="me-auto">Status:</span><span id="reimbCardStatusSpan"></span></li>
         </ul>
         <div class="card-body">
           <button type="button" class="btn btn-danger">Deny</button>
