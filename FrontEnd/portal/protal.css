@@ -1,0 +1,4 @@
+/* Setting cursor to pointer as our table rows are clickable */
+tbody tr {
+    cursor: pointer;
+}

@@ -8,6 +8,11 @@ let userRoleId;
 let navbarUserName = document.getElementById("navbarUserName");
 let mainHeader = document.getElementById("mainHeader");
 
+//Setting up event listeners
+dashboardButton.addEventListener("click", function () {
+  offcanvasButtonPressed(dashboardButton);
+});
+
 /* MARK: - Page Setup -------------------------------------------------------------------------------*/
 async function getUser() {
   userId = getCookie("userId");
@@ -49,8 +54,12 @@ async function loadReimbsTable() {
       reimbsTableHead = createTableHead();
   
       for (let reimb of data) {
-        // Creating a row and cells for every data
+        // Creating a row setting onClick attribute
+        let rowAnchor = document.createElement("a");
         let bodyRow = document.createElement("tr");
+        bodyRow.setAttribute("onClick", `tableRowPressed(${reimb.reimb_id})`)
+
+        //Creating cells that will be appended to the row
         let requestIdCell = document.createElement("td");
         let amountCell = document.createElement("td");
         let typeCell = document.createElement("td");
@@ -142,6 +151,10 @@ function createTableHead() {
      reimbsTableHead.appendChild(headRow);
 
      return reimbsTableHead;
+}
+
+function tableRowPressed(reimbId) {
+  console.log(reimbId);
 }
 
 
