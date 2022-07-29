@@ -51,6 +51,7 @@ async function loadReimbsTable() {
       for (let reimb of data) {
         // Creating a row and cells for every data
         let bodyRow = document.createElement("tr");
+        let requestIdCell = document.createElement("td");
         let amountCell = document.createElement("td");
         let typeCell = document.createElement("td");
         let descriptionCell = document.createElement("td");
@@ -61,6 +62,8 @@ async function loadReimbsTable() {
         let statusCell = document.createElement("td");
   
         // Populating cells
+
+        requestIdCell.innerHTML = reimb.reimb_id;
         amountCell.innerHTML = reimb.reimb_amount;
         typeCell.innerHTML = reimb.reimbType.reimb_type_name;
         descriptionCell.innerHTML = reimb.reimb_description;
@@ -71,6 +74,7 @@ async function loadReimbsTable() {
         statusCell.innerHTML = reimb.reimb_is_approved;
   
         // Appendning cells to the row
+        bodyRow.appendChild(requestIdCell);
         bodyRow.appendChild(amountCell);
         bodyRow.appendChild(typeCell);
         bodyRow.appendChild(descriptionCell);
@@ -99,6 +103,7 @@ function createTableHead() {
 
      // Creating table head
      let headRow = document.createElement("tr");
+     let requestIdHead = document.createElement("th");
      let amountHead = document.createElement("th");
      let typeHead = document.createElement("th");
      let descriptionHead = document.createElement("th");
@@ -110,6 +115,7 @@ function createTableHead() {
      // ADD receipt pictre?
  
      // Populating head cells
+     requestIdHead.innerHTML = "ID";
      amountHead.innerHTML = "Amount";
      typeHead.innerHTML = "Type";
      descriptionHead.innerHTML = "Description";
@@ -120,6 +126,7 @@ function createTableHead() {
      statusHead.innerHTML = "Status";
  
      // Appending cells to the row
+     headRow.appendChild(requestIdHead);
      headRow.appendChild(amountHead);
      headRow.appendChild(typeHead);
      headRow.appendChild(descriptionHead);
