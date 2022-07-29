@@ -87,7 +87,7 @@ function reimbsButtonPressed() {
 
   mainHeader.innerHTML = "Reimbursements"; //PJS
 
-  loadReimbs();
+  loadReimbsTable();
 }
 
 /* MARK: - New Expense -------------------------------------------------------------------------------*/
@@ -120,55 +120,5 @@ async function submitExpenseButtonPressed() {
     console.log("success");
   } else {
     console.log("messup");
-  }
-}
-
-/* MARK: - Reimbursements ----------------------------------------------------------------------------*/
-async function loadReimbs() {
-  // Removing any previous tbody
-  if (reimbsTable.childElementCount > 1) {
-    reimbsTable.removeChild(reimbsTable.lastChild);
-  }
-
-  // Creating a tbody that will be appended a child at the end of this function
-  let reimbsTableBody = document.createElement("tbody");
-
-  // Sending fetch request to back-end
-  let response = await fetch(url + "/reimbs", {
-    // credentials: "include"
-  });
-
-  if (response.status >= 200 && response.status < 300) {
-    let data = await response.json();
-
-    for (let reimb of data) {
-      // Creating a row and cells for every data
-      let row = document.createElement("tr");
-      let amountCell = document.createElement("td");
-      let typeCell = document.createElement("td");
-      let descriptionCell = document.createElement("td");
-      let submittedCell = document.createElement("td");
-      let statusCell = document.createElement("td");
-
-      // Populating cells
-      amountCell.innerHTML = reimb.reimb_amount;
-      typeCell.innerHTML = reimb.reimbType.reimb_type_name;
-      descriptionCell.innerHTML = reimb.reimb_description;
-      submittedCell.innerHTML = reimb.reimb_submitted;
-      statusCell.innerHTML = reimb.reimb_is_approved;
-
-      // Appendning cells to the row
-      row.appendChild(amountCell);
-      row.appendChild(typeCell);
-      row.appendChild(descriptionCell);
-      row.appendChild(submittedCell);
-      row.appendChild(statusCell);
-
-      // Appending the row to the table body
-      reimbsTableBody.appendChild(row);
-    }
-
-    // Appending the table body to the table
-    reimbsTable.appendChild(reimbsTableBody);
   }
 }
