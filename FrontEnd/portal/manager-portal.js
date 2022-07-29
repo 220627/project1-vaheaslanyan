@@ -58,4 +58,6 @@ function requestsButtonPressed() {
   requestsDiv.style.display = "block";
 
   mainHeader.innerHTML = "Requests"; //PJS
+
+  loadReimbsTable(); //PJS
 }

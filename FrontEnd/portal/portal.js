@@ -1,6 +1,6 @@
 "use strict";
 
-//User ID variable that is populated in Page Setup section in subsequent js files
+//User ID variable that is populated in Page Setup section
 let userId;
 let userRoleId;
 
@@ -55,6 +55,9 @@ async function loadReimbsTable() {
         let typeCell = document.createElement("td");
         let descriptionCell = document.createElement("td");
         let submittedCell = document.createElement("td");
+        let resolvedCell = document.createElement("td");
+        let resolverCell = document.createElement("td");
+        let authorCell = document.createElement("td");
         let statusCell = document.createElement("td");
   
         // Populating cells
@@ -62,6 +65,9 @@ async function loadReimbsTable() {
         typeCell.innerHTML = reimb.reimbType.reimb_type_name;
         descriptionCell.innerHTML = reimb.reimb_description;
         submittedCell.innerHTML = reimb.reimb_submitted;
+        resolvedCell.innerHTML = reimb.reimb_resolved ? reimb.reimb_resolved : "Pending";
+        resolverCell.innerHTML = reimb.reimb_resolver_id_fk ? reimb.reimbResolver.user_first_name : "Pending";
+        authorCell.innerHTML = reimb.reimbAuthor.user_first_name;
         statusCell.innerHTML = reimb.reimb_is_approved;
   
         // Appendning cells to the row
@@ -69,6 +75,11 @@ async function loadReimbsTable() {
         bodyRow.appendChild(typeCell);
         bodyRow.appendChild(descriptionCell);
         bodyRow.appendChild(submittedCell);
+        bodyRow.appendChild(resolvedCell);
+        bodyRow.appendChild(resolverCell);
+        if (userRoleId == 1) { // If manager also append employee name
+            bodyRow.appendChild(authorCell);
+        }
         bodyRow.appendChild(statusCell);
   
         // Appending the row to the table body
@@ -113,7 +124,7 @@ function createTableHead() {
      headRow.appendChild(typeHead);
      headRow.appendChild(descriptionHead);
      headRow.appendChild(submittedHead);
-     headRow.appendChild(resolverHead);
+     headRow.appendChild(reoslvedHead);
      headRow.appendChild(resolverHead);
      if (userRoleId == 1) { // If manager also append employee name
        headRow.appendChild(authorHead);
