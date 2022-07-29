@@ -71,7 +71,7 @@ async function loadReimbsTable() {
         resolvedCell.innerHTML = reimb.reimb_resolved ? reimb.reimb_resolved : "Pending";
         resolverCell.innerHTML = reimb.reimb_resolver_id_fk ? reimb.reimbResolver.user_first_name : "Pending";
         authorCell.innerHTML = reimb.reimbAuthor.user_first_name;
-        statusCell.innerHTML = reimb.reimb_is_approved;
+        statusCell.innerHTML = reimb.reimbStatus.reimb_status_name;
   
         // Appendning cells to the row
         bodyRow.appendChild(requestIdCell);

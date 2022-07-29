@@ -3,6 +3,7 @@ package com.revature.daos;
 import java.util.ArrayList;
 
 import com.revature.models.Reimb;
+import com.revature.models.ReimbStatus;
 import com.revature.models.ReimbType;
 import com.revature.models.User;
 
@@ -19,6 +20,9 @@ public interface ReimbDAOInterface {
 	
 	//Delete Reimb with ID
 	boolean deleteReimbWithId(int reimb_id);
+	
+	//Get ReimbStatus for Reimb
+	ReimbStatus getReimbStatus(Reimb reimb);
 	
 	//Get ReimbType for Reimb
 	ReimbType getReimbType(Reimb reimb);

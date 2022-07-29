@@ -1467,3 +1467,13 @@
 2022-07-28 19:07:23 INFO  ReimbController:31 - GET Request for all Reimbs successful
 2022-07-28 19:09:00 INFO  UserController:50 - GET Request for User with ID successful.
 2022-07-28 19:09:00 INFO  ReimbController:31 - GET Request for all Reimbs successful
+2022-07-28 19:51:22 INFO  Launcher:35 - Connection with DB established.
+2022-07-28 19:51:41 INFO  AuthController:64 - User login successful.
+2022-07-28 19:51:41 INFO  UserController:50 - GET Request for User with ID successful.
+2022-07-28 19:51:41 INFO  ReimbController:31 - GET Request for all Reimbs successful
+2022-07-28 19:52:29 INFO  UserController:50 - GET Request for User with ID successful.
+2022-07-28 19:52:29 INFO  ReimbController:31 - GET Request for all Reimbs successful
+2022-07-28 19:52:47 INFO  UserController:50 - GET Request for User with ID successful.
+2022-07-28 19:52:48 INFO  ReimbController:31 - GET Request for all Reimbs successful
+2022-07-28 19:52:48 INFO  UserController:50 - GET Request for User with ID successful.
+2022-07-28 19:52:48 INFO  ReimbController:31 - GET Request for all Reimbs successful

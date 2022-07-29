@@ -8,6 +8,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 import com.revature.models.Reimb;
+import com.revature.models.ReimbStatus;
 import com.revature.models.ReimbType;
 import com.revature.models.User;
 import com.revature.models.UserRole;
@@ -36,15 +37,17 @@ public class ReimbDAO implements ReimbDAOInterface {
 						resultSet.getString("reimb_resolved"), 
 						resultSet.getString("reimb_description"), 
 						resultSet.getString("reimb_receipt_url"), 
-						resultSet.getBoolean("reimb_is_approved"), 
+						resultSet.getInt("reimb_status_id_fk"), 
 						resultSet.getInt("reimb_type_id_fk"), 
 						resultSet.getInt("reimb_author_id_fk"), 
 						resultSet.getInt("reimb_resolver_id_fk"), 
+						null, //reimbStatus
 						null, //reimbType 
 						null, //author
 						null //resolver
 						);
 				
+				reimb.setReimbStatus(this.getReimbStatus(reimb));
 				reimb.setReimbType(this.getReimbType(reimb));
 				reimb.setReimbAuthor(this.getReimbAuthor(reimb));
 				reimb.setReimbResolver(this.getReimbResolver(reimb));
@@ -84,15 +87,17 @@ public class ReimbDAO implements ReimbDAOInterface {
 						resultSet.getString("reimb_resolved"), 
 						resultSet.getString("reimb_description"), 
 						resultSet.getString("reimb_receipt_url"), 
-						resultSet.getBoolean("reimb_is_approved"), 
+						resultSet.getInt("reimb_status_id_fk"), 
 						resultSet.getInt("reimb_type_id_fk"), 
 						resultSet.getInt("reimb_author_id_fk"), 
 						resultSet.getInt("reimb_resolver_id_fk"), 
+						null, //reimbStatus
 						null, //reimbType 
 						null, //author
 						null //resolver
 						);
 				
+				reimb.setReimbStatus(this.getReimbStatus(reimb));
 				reimb.setReimbType(this.getReimbType(reimb));
 				reimb.setReimbAuthor(this.getReimbAuthor(reimb));
 				reimb.setReimbResolver(this.getReimbResolver(reimb));
@@ -162,6 +167,15 @@ public class ReimbDAO implements ReimbDAOInterface {
 	
 	/* MARK: - Helper Methods --------------------------------------------------------------------- */
 
+	@Override
+	public ReimbStatus getReimbStatus(Reimb reimb) {
+		
+		ReimbStatusDAO reimbStatusDAO = new ReimbStatusDAO();
+		ReimbStatus reimbStatus = reimbStatusDAO.getReimbStatusById(reimb.getReimb_status_id_fk());
+		
+		return reimbStatus;
+	}
+	
 	@Override
 	public ReimbType getReimbType(Reimb reimb) {
 		
