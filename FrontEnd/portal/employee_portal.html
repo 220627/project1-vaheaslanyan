@@ -189,6 +189,45 @@
         <!-- tbody is inserted in portal.js loadReimbs() function -->
       </table>
     </div>
+
+    <!-- Request Card div -->
+    <div class="container-fluid" id="requestCardDiv">
+      <!-- Back button. Click handled in portal.js -->
+      <div class="d-flex justify-content-start my-2">
+        <button type="button" class="btn btn-warning btn-lg" id="reimbCardBackButton">Back</button>
+      </div>
+      <!-- Card. Populated in portal.js -->
+      <div class="row">
+        <div class="col">
+          <div class="card" style="width: 30rem;">
+            <img src="/assets/receipt.jpg" class="card-img-top" alt="">
+            <div class="card-body">
+              <h5 class="card-title d-flex"><span class="me-auto">Request ID:</span><span id="reimbCardIdSpan"></span>
+              </h5>
+              <p class="card-text" id="reimbCardDescriptionP"></p>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item d-flex"><span class="me-auto">Amount:</span><span
+                  id="reimbCardAmountSpan"></span></li>
+              <li class="list-group-item d-flex"><span class="me-auto">Category:</span><span
+                  id="reimbCardTypeSpan"></span></li>
+              <li class="list-group-item d-flex"><span class="me-auto">Submitted:</span><span
+                  id="reimbCardSubmittedSpan"></span></li>
+              <li class="list-group-item d-flex"><span class="me-auto">Resolved:</span><span
+                  id="reimbCardResolvedSpan"></span></li>
+              <li class="list-group-item d-flex"><span class="me-auto">Resolver:</span><span
+                  id="reimbCardResolverSpan"></span></li>
+              <li class="list-group-item d-flex"><span class="me-auto">Employee:</span><span
+                  id="reimbCardAuthorSpan"></span></li>
+              <li class="list-group-item d-flex"><span class="me-auto">Status:</span><span
+                  id="reimbCardStatusSpan"></span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
   </main>
 
   <!-- Bootstrap JS -->

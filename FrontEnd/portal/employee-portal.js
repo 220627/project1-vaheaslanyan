@@ -1,6 +1,6 @@
 "use strict";
 
-//NOTE: PJS mark indicates that variable or function is created in portal.js file
+//NOTE: PJS* mark indicates that variable or function is created in portal.js file
 
 //Saving elements to vars
 let dasboardDiv = document.getElementById("dashboardDiv");
@@ -9,7 +9,7 @@ let reimbsDiv = document.getElementById("reimbsDiv");
 
 let reimbsTable = document.getElementById("reimbsTable");
 
-let dashboardButton = document.getElementById("dashboardButton");
+// let dashboardButton = document.getElementById("dashboardButton");
 let newExpenseButton = document.getElementById("newExpenseButton");
 let reimbsButton = document.getElementById("reimbsButton");
 let submitExpenseButton = document.getElementById("submitExpenseButton");
@@ -36,7 +36,7 @@ submitExpenseButton.onclick = submitExpenseButtonPressed;
 
 /* MARK: - Page Setup -------------------------------------------------------------------------------*/
 function setupLoadedPage() {
-  getUser(); //PJS
+  getUser(); //PJS*
 
   dashboardButtonPressed();
   //TEMPORARY CODE
@@ -69,7 +69,7 @@ function dashboardButtonPressed() {
   reimbsDiv.style.display = "none";
   dasboardDiv.style.display = "block";
 
-  mainHeader.innerHTML = "Dashboard"; //PJS
+  mainHeader.innerHTML = "Dashboard"; //PJS*
 }
 
 function newExpenseButtonPressed() {
@@ -77,7 +77,7 @@ function newExpenseButtonPressed() {
   reimbsDiv.style.display = "none";
   newExpenseDiv.style.display = "block";
 
-  mainHeader.innerHTML = "New Expense"; //PJS
+  mainHeader.innerHTML = "New Expense"; //PJS*
 }
 
 function reimbsButtonPressed() {
@@ -85,7 +85,7 @@ function reimbsButtonPressed() {
   newExpenseDiv.style.display = "none";
   reimbsDiv.style.display = "block";
 
-  mainHeader.innerHTML = "Reimbursements"; //PJS
+  mainHeader.innerHTML = "Reimbursements"; //PJS*
 
   loadReimbsTable();
 }

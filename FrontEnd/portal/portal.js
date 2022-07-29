@@ -1,8 +1,11 @@
 "use strict";
 
+//NOTE: SJS* mark indicates that variable or function is created in subsequent .js files, e.g. manager-portal.js or employee-portal.js
+
 //User ID variable that is populated in Page Setup section
 let userId;
 let userRoleId;
+let activeReimbId; // Gets populated in loadReimbCard to allow manager manipulate reimb.
 
 //Saving elements to vars
 let navbarUserName = document.getElementById("navbarUserName");
@@ -18,10 +21,17 @@ let reimbCardResolverSpan = document.getElementById("reimbCardResolverSpan");
 let reimbCardAuthorSpan = document.getElementById("reimbCardAuthorSpan");
 let reimbCardStatusSpan = document.getElementById("reimbCardStatusSpan");
 
+let reimbCardBackButton = document.getElementById("reimbCardBackButton");
+
 //Setting up event listeners
 dashboardButton.addEventListener("click", function () {
-  offcanvasButtonPressed(dashboardButton);
+  offcanvasButtonPressed(dashboardButton); //SJS*
 });
+
+reimbCardBackButton.addEventListener("click", function () {
+  activeReimbId = 0;
+  reimbsButtonPressed() //SJS*
+})
 
 /* MARK: - Page Setup -------------------------------------------------------------------------------*/
 async function getUser() {
@@ -41,7 +51,7 @@ async function setUserName(response) {
   }
 }
 
-/* MARK: - Reimbursements ----------------------------------------------------------------------------*/
+/* MARK: - Reimbursements Table -----------------------------------------------------------------------*/
 // Creates different thead depending on user role and iterates through data to populate tbody 
 async function loadReimbsTable() {
     // Removing any previous thead and tbody
@@ -67,6 +77,7 @@ async function loadReimbsTable() {
         // Creating a row setting onClick attribute
         let rowAnchor = document.createElement("a");
         let bodyRow = document.createElement("tr");
+        // Setting onClick for the row, tableRowPressed is SJS*
         bodyRow.setAttribute("onClick", `tableRowPressed(${reimb.reimb_id})`)
 
         //Creating cells that will be appended to the row
@@ -163,11 +174,10 @@ function createTableHead() {
      return reimbsTableHead;
 }
 
-// Reimb Card
+/* MARK: - Reimbursement Card -----------------------------------------------------------------------*/
 
-
+//This function is called in SJS* when user clicks
 async function loadReimbCard(reimbId) {
-  console.log(reimbId);
 
   // Sending fetch request to back-end
   let response = await fetch(url + `/reimbs/${reimbId}`, {
@@ -176,8 +186,10 @@ async function loadReimbCard(reimbId) {
 
   if (response.status >= 200 && response.status < 300) {
     let data = await response.json();
-    console.log(data);
 
+    reimbId = data.reimb_id;
+
+    //Populating elements with data
     reimbCardIdSpan.innerHTML = data.reimb_id;
     reimbCardDescriptionP.innerHTML = data.reimb_description;
     reimbCardAmountSpan.innerHTML = data.reimb_amount;
@@ -188,7 +200,9 @@ async function loadReimbCard(reimbId) {
     reimbCardAuthorSpan.innerHTML = data.reimbAuthor.user_first_name;
     reimbCardStatusSpan.innerHTML = data.reimbStatus.reimb_status_name;
 
-    
+    if (userRoleId != 1) {
+      reimbCardAuthorSpan.style.display = "none";
+    }
   }
 }
 
