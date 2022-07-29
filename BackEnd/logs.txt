@@ -1524,3 +1524,133 @@
 2022-07-29 10:25:14 INFO  ReimbController:31 - GET Request for all Reimbs successful
 2022-07-29 10:25:27 INFO  ReimbController:68 - POST Request for Reimb successful.
 2022-07-29 10:25:30 INFO  ReimbController:31 - GET Request for all Reimbs successful
+2022-07-29 10:27:18 INFO  UserController:50 - GET Request for User with ID successful.
+2022-07-29 10:27:20 INFO  ReimbController:31 - GET Request for all Reimbs successful
+2022-07-29 10:29:11 INFO  AuthController:64 - User login successful.
+2022-07-29 10:29:11 INFO  UserController:50 - GET Request for User with ID successful.
+2022-07-29 10:29:12 INFO  ReimbController:31 - GET Request for all Reimbs successful
+2022-07-29 10:30:42 INFO  UserController:50 - GET Request for User with ID successful.
+2022-07-29 10:30:42 INFO  ReimbController:31 - GET Request for all Reimbs successful
+2022-07-29 10:30:53 INFO  UserController:50 - GET Request for User with ID successful.
+2022-07-29 10:30:53 INFO  ReimbController:31 - GET Request for all Reimbs successful
+2022-07-29 10:31:10 INFO  UserController:50 - GET Request for User with ID successful.
+2022-07-29 10:31:11 INFO  ReimbController:31 - GET Request for all Reimbs successful
+2022-07-29 10:33:42 INFO  UserController:50 - GET Request for User with ID successful.
+2022-07-29 10:33:42 INFO  ReimbController:31 - GET Request for all Reimbs successful
+2022-07-29 10:34:23 INFO  UserController:50 - GET Request for User with ID successful.
+2022-07-29 10:34:24 INFO  ReimbController:31 - GET Request for all Reimbs successful
+2022-07-29 10:34:40 INFO  UserController:50 - GET Request for User with ID successful.
+2022-07-29 10:34:40 INFO  ReimbController:31 - GET Request for all Reimbs successful
+2022-07-29 10:34:57 INFO  UserController:50 - GET Request for User with ID successful.
+2022-07-29 10:34:57 INFO  ReimbController:31 - GET Request for all Reimbs successful
+2022-07-29 10:35:32 INFO  UserController:50 - GET Request for User with ID successful.
+2022-07-29 10:35:32 INFO  ReimbController:31 - GET Request for all Reimbs successful
+2022-07-29 10:35:56 INFO  UserController:50 - GET Request for User with ID successful.
+2022-07-29 10:35:56 INFO  ReimbController:31 - GET Request for all Reimbs successful
+2022-07-29 10:36:01 INFO  UserController:50 - GET Request for User with ID successful.
+2022-07-29 10:36:02 INFO  ReimbController:31 - GET Request for all Reimbs successful
+2022-07-29 10:36:39 INFO  UserController:50 - GET Request for User with ID successful.
+2022-07-29 10:36:40 INFO  ReimbController:31 - GET Request for all Reimbs successful
+2022-07-29 10:37:42 INFO  UserController:50 - GET Request for User with ID successful.
+2022-07-29 10:37:42 INFO  ReimbController:31 - GET Request for all Reimbs successful
+2022-07-29 10:37:48 INFO  UserController:50 - GET Request for User with ID successful.
+2022-07-29 10:37:48 INFO  ReimbController:31 - GET Request for all Reimbs successful
+2022-07-29 10:38:02 INFO  UserController:50 - GET Request for User with ID successful.
+2022-07-29 10:38:03 INFO  ReimbController:31 - GET Request for all Reimbs successful
+2022-07-29 10:38:22 INFO  UserController:50 - GET Request for User with ID successful.
+2022-07-29 10:38:22 INFO  ReimbController:31 - GET Request for all Reimbs successful
+2022-07-29 10:38:53 INFO  UserController:50 - GET Request for User with ID successful.
+2022-07-29 10:38:53 INFO  ReimbController:31 - GET Request for all Reimbs successful
+2022-07-29 10:39:01 INFO  UserController:50 - GET Request for User with ID successful.
+2022-07-29 10:39:01 INFO  ReimbController:31 - GET Request for all Reimbs successful
+2022-07-29 10:39:04 INFO  UserController:50 - GET Request for User with ID successful.
+2022-07-29 10:39:04 INFO  ReimbController:31 - GET Request for all Reimbs successful
+2022-07-29 10:40:01 INFO  UserController:50 - GET Request for User with ID successful.
+2022-07-29 10:40:01 INFO  ReimbController:31 - GET Request for all Reimbs successful
+2022-07-29 10:40:16 INFO  UserController:50 - GET Request for User with ID successful.
+2022-07-29 10:40:16 INFO  ReimbController:31 - GET Request for all Reimbs successful
+2022-07-29 10:40:29 INFO  UserController:50 - GET Request for User with ID successful.
+2022-07-29 10:40:29 INFO  ReimbController:31 - GET Request for all Reimbs successful
+2022-07-29 10:40:32 INFO  UserController:50 - GET Request for User with ID successful.
+2022-07-29 10:40:32 INFO  ReimbController:31 - GET Request for all Reimbs successful
+2022-07-29 10:41:09 INFO  UserController:50 - GET Request for User with ID successful.
+2022-07-29 10:41:09 INFO  ReimbController:31 - GET Request for all Reimbs successful
+2022-07-29 10:41:20 INFO  UserController:50 - GET Request for User with ID successful.
+2022-07-29 10:41:20 INFO  ReimbController:31 - GET Request for all Reimbs successful
+2022-07-29 10:41:51 INFO  ReimbController:31 - GET Request for all Reimbs successful
+2022-07-29 10:42:22 INFO  UserController:50 - GET Request for User with ID successful.
+2022-07-29 10:42:22 INFO  ReimbController:31 - GET Request for all Reimbs successful
+2022-07-29 10:42:50 INFO  UserController:50 - GET Request for User with ID successful.
+2022-07-29 10:42:51 INFO  ReimbController:31 - GET Request for all Reimbs successful
+2022-07-29 10:42:52 INFO  UserController:50 - GET Request for User with ID successful.
+2022-07-29 10:42:52 INFO  ReimbController:31 - GET Request for all Reimbs successful
+2022-07-29 10:42:52 INFO  UserController:50 - GET Request for User with ID successful.
+2022-07-29 10:42:53 INFO  ReimbController:31 - GET Request for all Reimbs successful
+2022-07-29 10:43:03 INFO  UserController:50 - GET Request for User with ID successful.
+2022-07-29 10:43:03 INFO  ReimbController:31 - GET Request for all Reimbs successful
+2022-07-29 10:43:15 INFO  UserController:50 - GET Request for User with ID successful.
+2022-07-29 10:43:15 INFO  ReimbController:31 - GET Request for all Reimbs successful
+2022-07-29 10:43:20 INFO  UserController:50 - GET Request for User with ID successful.
+2022-07-29 10:43:20 INFO  ReimbController:31 - GET Request for all Reimbs successful
+2022-07-29 10:43:28 INFO  UserController:50 - GET Request for User with ID successful.
+2022-07-29 10:43:28 INFO  ReimbController:31 - GET Request for all Reimbs successful
+2022-07-29 10:43:55 INFO  UserController:50 - GET Request for User with ID successful.
+2022-07-29 10:43:56 INFO  ReimbController:31 - GET Request for all Reimbs successful
+2022-07-29 10:44:01 INFO  UserController:50 - GET Request for User with ID successful.
+2022-07-29 10:44:01 INFO  ReimbController:31 - GET Request for all Reimbs successful
+2022-07-29 10:44:15 INFO  UserController:50 - GET Request for User with ID successful.
+2022-07-29 10:44:15 INFO  ReimbController:31 - GET Request for all Reimbs successful
+2022-07-29 10:44:19 INFO  UserController:50 - GET Request for User with ID successful.
+2022-07-29 10:44:20 INFO  ReimbController:31 - GET Request for all Reimbs successful
+2022-07-29 10:44:34 INFO  UserController:50 - GET Request for User with ID successful.
+2022-07-29 10:44:34 INFO  ReimbController:31 - GET Request for all Reimbs successful
+2022-07-29 10:45:01 INFO  UserController:50 - GET Request for User with ID successful.
+2022-07-29 10:45:01 INFO  ReimbController:31 - GET Request for all Reimbs successful
+2022-07-29 10:45:55 INFO  UserController:50 - GET Request for User with ID successful.
+2022-07-29 10:45:55 INFO  ReimbController:31 - GET Request for all Reimbs successful
+2022-07-29 10:46:11 INFO  UserController:50 - GET Request for User with ID successful.
+2022-07-29 10:46:11 INFO  ReimbController:31 - GET Request for all Reimbs successful
+2022-07-29 10:46:13 INFO  UserController:50 - GET Request for User with ID successful.
+2022-07-29 10:46:13 INFO  ReimbController:31 - GET Request for all Reimbs successful
+2022-07-29 10:46:14 INFO  UserController:50 - GET Request for User with ID successful.
+2022-07-29 10:46:14 INFO  ReimbController:31 - GET Request for all Reimbs successful
+2022-07-29 10:46:30 INFO  UserController:50 - GET Request for User with ID successful.
+2022-07-29 10:46:31 INFO  ReimbController:31 - GET Request for all Reimbs successful
+2022-07-29 10:46:32 INFO  UserController:50 - GET Request for User with ID successful.
+2022-07-29 10:46:32 INFO  ReimbController:31 - GET Request for all Reimbs successful
+2022-07-29 10:47:17 INFO  UserController:50 - GET Request for User with ID successful.
+2022-07-29 10:47:17 INFO  ReimbController:31 - GET Request for all Reimbs successful
+2022-07-29 10:47:21 INFO  UserController:50 - GET Request for User with ID successful.
+2022-07-29 10:47:21 INFO  ReimbController:31 - GET Request for all Reimbs successful
+2022-07-29 10:47:48 INFO  UserController:50 - GET Request for User with ID successful.
+2022-07-29 10:47:48 INFO  ReimbController:31 - GET Request for all Reimbs successful
+2022-07-29 10:48:11 INFO  UserController:50 - GET Request for User with ID successful.
+2022-07-29 10:48:11 INFO  ReimbController:31 - GET Request for all Reimbs successful
+2022-07-29 10:48:19 INFO  UserController:50 - GET Request for User with ID successful.
+2022-07-29 10:48:19 INFO  ReimbController:31 - GET Request for all Reimbs successful
+2022-07-29 10:48:23 INFO  UserController:50 - GET Request for User with ID successful.
+2022-07-29 10:48:23 INFO  ReimbController:31 - GET Request for all Reimbs successful
+2022-07-29 10:50:51 INFO  UserController:50 - GET Request for User with ID successful.
+2022-07-29 10:50:51 INFO  ReimbController:31 - GET Request for all Reimbs successful
+2022-07-29 10:50:57 INFO  UserController:50 - GET Request for User with ID successful.
+2022-07-29 10:50:57 INFO  ReimbController:31 - GET Request for all Reimbs successful
+2022-07-29 10:51:37 INFO  UserController:50 - GET Request for User with ID successful.
+2022-07-29 10:51:37 INFO  ReimbController:31 - GET Request for all Reimbs successful
+2022-07-29 10:51:43 INFO  UserController:50 - GET Request for User with ID successful.
+2022-07-29 10:51:43 INFO  ReimbController:31 - GET Request for all Reimbs successful
+2022-07-29 10:51:55 INFO  UserController:50 - GET Request for User with ID successful.
+2022-07-29 10:51:55 INFO  ReimbController:31 - GET Request for all Reimbs successful
+2022-07-29 10:52:14 INFO  UserController:50 - GET Request for User with ID successful.
+2022-07-29 10:52:14 INFO  ReimbController:31 - GET Request for all Reimbs successful
+2022-07-29 10:52:32 INFO  UserController:50 - GET Request for User with ID successful.
+2022-07-29 10:52:32 INFO  ReimbController:31 - GET Request for all Reimbs successful
+2022-07-29 10:52:43 INFO  UserController:50 - GET Request for User with ID successful.
+2022-07-29 10:52:43 INFO  ReimbController:31 - GET Request for all Reimbs successful
+2022-07-29 10:52:52 INFO  UserController:50 - GET Request for User with ID successful.
+2022-07-29 10:52:52 INFO  ReimbController:31 - GET Request for all Reimbs successful
+2022-07-29 10:52:57 INFO  UserController:50 - GET Request for User with ID successful.
+2022-07-29 10:52:57 INFO  ReimbController:31 - GET Request for all Reimbs successful
+2022-07-29 10:53:32 INFO  UserController:50 - GET Request for User with ID successful.
+2022-07-29 10:53:33 INFO  ReimbController:31 - GET Request for all Reimbs successful
+2022-07-29 10:53:37 INFO  UserController:50 - GET Request for User with ID successful.
+2022-07-29 10:53:37 INFO  ReimbController:31 - GET Request for all Reimbs successful
