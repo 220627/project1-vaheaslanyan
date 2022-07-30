@@ -11,6 +11,8 @@ let activeReimbId; // Gets populated in loadReimbCard to allow manager manipulat
 let navbarUserName = document.getElementById("navbarUserName");
 let mainHeader = document.getElementById("mainHeader");
 
+let requestCardDiv = document.getElementById("requestCardDiv");
+
 let reimbCardIdSpan = document.getElementById("reimbCardIdSpan");
 let reimbCardDescriptionP = document.getElementById("reimbCardDescriptionP");
 let reimbCardAmountSpan = document.getElementById("reimbCardAmountSpan");
@@ -48,6 +50,8 @@ async function setUserName(response) {
     let data = await response.json();
     navbarUserName.innerHTML = `Hi, ${data.user_first_name}`;
     // mainHeader.innerText = `Welcome ${data.user_first_name}`;
+  } else {
+    // IMPLEMENT ELSE
   }
 }
 
@@ -123,6 +127,8 @@ async function loadReimbsTable() {
       // Appending the table head and body to the table
       reimbsTable.appendChild(reimbsTableHead);
       reimbsTable.appendChild(reimbsTableBody);
+    } else {
+      // IMPLEMENT ELSE
     }
 }
 
@@ -187,7 +193,7 @@ async function loadReimbCard(reimbId) {
   if (response.status >= 200 && response.status < 300) {
     let data = await response.json();
 
-    reimbId = data.reimb_id;
+    activeReimbId = data.reimb_id;
 
     //Populating elements with data
     reimbCardIdSpan.innerHTML = data.reimb_id;
@@ -203,6 +209,11 @@ async function loadReimbCard(reimbId) {
     if (userRoleId != 1) {
       reimbCardAuthorSpan.style.display = "none";
     }
+
+    //Div visibility toggled here to avoid it loading before the above code completes
+    requestCardDiv.style.display = "block";
+  } else {
+    // IMPLEMENT ELSE
   }
 }
 

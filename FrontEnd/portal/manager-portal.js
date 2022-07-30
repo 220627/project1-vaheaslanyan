@@ -7,7 +7,6 @@ let dasboardDiv = document.getElementById("dashboardDiv");
 let requestsDiv = document.getElementById("requestsDiv");
 
 let reimbsButton = document.getElementById("reimbsButton"); // Called Requests in the UI
-let requestCardDiv = document.getElementById("requestCardDiv");
 let reimbDenyButton = document.getElementById("reimbDenyButton");
 let reimbApproveButton = document.getElementById("reimbApproveButton");
 
@@ -22,7 +21,13 @@ reimbsButton.addEventListener("click", function () {
   offcanvasButtonPressed(reimbsButton);
 });
 
-reimbDenyButton.onclick(reimbDenyButtonPressed);
+reimbDenyButton.addEventListener("click", function () {
+  updateReimbStatus(2);
+});
+
+reimbApproveButton.addEventListener("click", function () {
+  updateReimbStatus(3);
+});
 
 /* MARK: - Page Setup -------------------------------------------------------------------------------*/
 function setupLoadedPage() {
@@ -52,7 +57,7 @@ function offcanvasButtonPressed(button) {
 
 function dashboardButtonPressed() {
   requestsDiv.style.display = "none";
-  requestCardDiv.style.display = "none";
+  requestCardDiv.style.display = "none"; //PJS*
   dasboardDiv.style.display = "block";
 
   mainHeader.innerHTML = "Dashboard"; //PJS*
@@ -60,7 +65,7 @@ function dashboardButtonPressed() {
 
 function reimbsButtonPressed() {
   dasboardDiv.style.display = "none";
-  requestCardDiv.style.display = "none";
+  requestCardDiv.style.display = "none"; //PJS*
   requestsDiv.style.display = "block";
 
   mainHeader.innerHTML = "Requests"; //PJS*
@@ -72,11 +77,20 @@ function reimbsButtonPressed() {
 function tableRowPressed(reimbId) {
   dasboardDiv.style.display = "none";
   requestsDiv.style.display = "none";
-  requestCardDiv.style.display = "block";
-  
+  // requestCardDiv visibility is toggled in portal.js to make sure the data is received before it is rendered
+
   loadReimbCard(reimbId); //PJS*
 }
 
-function reimbDenyButtonPressed() {
-  
+async function updateReimbStatus(reimbStatusIdFK) {
+  let response = await fetch(url + `/reimbs/${activeReimbId}`, {
+    method: "PUT",
+    body: JSON.stringify(reimbStatusIdFK)
+  });
+
+  if (response.status >= 200 && response.status < 300) {
+    console.log("updated");
+  } else {
+    alert("Login failed");
+  }
 }
