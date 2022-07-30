@@ -141,6 +141,30 @@ public class ReimbDAO implements ReimbDAOInterface {
 		
 		return false;
 	}
+	
+	@Override
+	public boolean updateReimbStatus(int reimb_id, int new_reimb_status_id_fk) {
+		
+		try (Connection connection = ConnectionUtil.getConnection()) {
+			
+			String sql = "UPDATE reimbs SET reimb_status_id_fk = ? WHERE reimb_id = ?;";
+			
+			PreparedStatement preparedStatement = connection.prepareStatement(sql);
+			preparedStatement.setInt(1, new_reimb_status_id_fk);
+			preparedStatement.setInt(2, reimb_id);
+			
+			preparedStatement.executeUpdate();
+			System.out.println("Status for Reimb with ID " + reimb_id + " successfully updated");
+			
+			return true;
+			
+		} catch (SQLException e) {
+			System.out.println("Failed to Update Reimb Status: SQL Exception occured.");
+			e.printStackTrace();
+		}
+		
+		return false;
+	}
 
 	@Override
 	public boolean deleteReimbWithId(int reimb_id) {
@@ -164,6 +188,7 @@ public class ReimbDAO implements ReimbDAOInterface {
 		
 		return false;
 	}
+	
 	
 	/* MARK: - Helper Methods --------------------------------------------------------------------- */
 

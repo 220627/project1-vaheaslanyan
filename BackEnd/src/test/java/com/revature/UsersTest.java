@@ -19,18 +19,18 @@ import com.revature.models.User;
 public class UsersTest {
 	
 	static private UserDAO mockUserDAO;
+	static private ArrayList<User> mockUserList;
 	
 	@BeforeAll
 	static public void setup() {
 		mockUserDAO = spy(new UserDAO());
-		
+		mockUserList = mock(ArrayList.class);
 	}
 	
 	
 	@Test
 	public void testGetAllUsers() {
-		
-		ArrayList<User> mockUserList = mock(ArrayList.class);
+
 		
 		OngoingStubbing<ArrayList<User>> mockReturnedList = when(mockUserDAO.getAllUsers()).thenReturn(mockUserList);
 		

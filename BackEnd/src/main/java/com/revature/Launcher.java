@@ -91,6 +91,7 @@ public class Launcher {
 		app.get("/reimbs/:reimb_id", reimbController.getReimbByIdHandler);
 		app.post("/reimbs", reimbController.insertReimbHandler);
 		app.delete("/reimbs/:reimb_id", reimbController.deleteReimbHandler);
+		app.put("/reimbs/:reimb_id", reimbController.updateReimbStatusHandler);
 	}
 	
 	//Configuring supplier for  more secure cookie settings

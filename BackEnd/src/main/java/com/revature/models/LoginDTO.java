@@ -5,6 +5,8 @@ public class LoginDTO {
 	private String username; //Can also be email
 	private String password;
 	
+	/* MARK: - Constructors --------------------------------------------------------------------- */
+	
 	public LoginDTO(String username, String password) {
 		super();
 		this.username = username;

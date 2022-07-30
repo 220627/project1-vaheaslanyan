@@ -18,6 +18,9 @@ public interface ReimbDAOInterface {
 	//Insert a new Reimb
 	boolean insertReimb(Reimb reimb);
 	
+	//Update Reimb Status
+	boolean updateReimbStatus(int reimb_id, int new_reimb_status_id);
+	
 	//Delete Reimb with ID
 	boolean deleteReimbWithId(int reimb_id);
 	

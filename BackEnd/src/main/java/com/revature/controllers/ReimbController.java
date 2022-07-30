@@ -8,6 +8,7 @@ import org.apache.logging.log4j.Logger;
 import com.google.gson.Gson;
 import com.revature.daos.ReimbDAO;
 import com.revature.models.Reimb;
+//import com.revature.models.StatusForReimbDTO;
 
 import io.javalin.http.Handler;
 
@@ -77,6 +78,44 @@ public class ReimbController {
 			ctx.status(406);
 		}
 	};
+	
+	public Handler updateReimbStatusHandler = (ctx) -> {
+		
+		if (!AuthController.isLoggedIn(ctx)) {
+			return;
+		}
+		
+		int reimbId = Integer.parseInt(ctx.pathParam("reimb_id"));
+		String reimbStatusIdFK = ctx.body();
+		
+		if (reimbDAO.updateReimbStatus(reimbId, Integer.parseInt(reimbStatusIdFK))) {
+			
+			log.info("PUT Request for Status for a Reimb successful.");
+			
+			ctx.result("Status for Reimb with ID " + reimbId + " successfully updated.");
+			ctx.status(200);
+		}
+		
+	};
+	
+//	public Handler updateReimbStatusHandler = (ctx) -> {
+//		
+//		if (!AuthController.isLoggedIn(ctx)) {
+//			return;
+//		}
+//		
+//		String body = ctx.body();
+//		StatusForReimbDTO statusForReimbDTO = gson.fromJson(body,  StatusForReimbDTO.class);
+//		
+//		if (reimbDAO.updateReimbStatus(statusForReimbDTO.getReimb_id(), statusForReimbDTO.getReimb_status_id_fk())) {
+//			
+//			log.info("PUT Request for Status for a Reimb successful.");
+//			
+//			ctx.result("Status for Reimb with ID " + statusForReimbDTO.getReimb_id() + " successfully updated.");
+//			ctx.status(200);
+//		}
+//		
+//	};
 	
 	public Handler deleteReimbHandler = (ctx) -> {
 	

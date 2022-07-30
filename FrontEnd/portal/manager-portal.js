@@ -6,7 +6,7 @@
 let dasboardDiv = document.getElementById("dashboardDiv");
 let requestsDiv = document.getElementById("requestsDiv");
 
-let reimbsButton = document.getElementById("reimbsButton");
+let reimbsButton = document.getElementById("reimbsButton"); // Called Requests in the UI
 let requestCardDiv = document.getElementById("requestCardDiv");
 let reimbDenyButton = document.getElementById("reimbDenyButton");
 let reimbApproveButton = document.getElementById("reimbApproveButton");
@@ -21,6 +21,8 @@ dashboardButton.addEventListener("click", function () {
 reimbsButton.addEventListener("click", function () {
   offcanvasButtonPressed(reimbsButton);
 });
+
+reimbDenyButton.onclick(reimbDenyButtonPressed);
 
 /* MARK: - Page Setup -------------------------------------------------------------------------------*/
 function setupLoadedPage() {
@@ -73,4 +75,8 @@ function tableRowPressed(reimbId) {
   requestCardDiv.style.display = "block";
   
   loadReimbCard(reimbId); //PJS*
+}
+
+function reimbDenyButtonPressed() {
+  
 }
