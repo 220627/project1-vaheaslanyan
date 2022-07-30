@@ -78,6 +78,13 @@ async function loadReimbsTable() {
       reimbsTableHead = createTableHead();
   
       for (let reimb of data) {
+
+        if (userRoleId != 1) {
+         if (reimb.reimb_author_id_fk != userId) {
+          continue;
+         } 
+        }
+
         // Creating a row setting onClick attribute
         let rowAnchor = document.createElement("a");
         let bodyRow = document.createElement("tr");

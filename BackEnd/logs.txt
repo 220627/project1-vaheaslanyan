@@ -2338,3 +2338,25 @@
 2022-07-29 19:07:17 INFO  ReimbController:51 - GET Request for Reimb by ID successful
 2022-07-29 19:07:19 INFO  ReimbController:93 - PUT Request for Status for a Reimb successful.
 2022-07-29 19:07:19 INFO  ReimbController:32 - GET Request for all Reimbs successful
+2022-07-29 19:13:49 INFO  UserController:50 - GET Request for User with ID successful.
+2022-07-29 19:13:49 INFO  ReimbController:32 - GET Request for all Reimbs successful
+2022-07-29 19:16:40 INFO  Launcher:35 - Connection with DB established.
+2022-07-29 19:17:32 WARN  AuthController:31 - User access denied: Login required.
+2022-07-29 19:17:32 WARN  AuthController:31 - User access denied: Login required.
+2022-07-29 19:17:42 INFO  Launcher:35 - Connection with DB established.
+2022-07-29 19:17:56 INFO  AuthController:64 - User login successful.
+2022-07-29 19:18:04 INFO  UserController:50 - GET Request for User with ID successful.
+2022-07-29 19:18:04 INFO  ReimbController:32 - GET Request for all Reimbs successful
+2022-07-29 19:18:10 INFO  ReimbController:51 - GET Request for Reimb by ID successful
+2022-07-29 19:18:11 INFO  ReimbController:93 - PUT Request for Status for a Reimb successful.
+2022-07-29 19:18:12 INFO  ReimbController:32 - GET Request for all Reimbs successful
+2022-07-29 19:20:08 INFO  UserController:50 - GET Request for User with ID successful.
+2022-07-29 19:20:09 INFO  ReimbController:32 - GET Request for all Reimbs successful
+2022-07-29 19:36:23 INFO  Launcher:35 - Connection with DB established.
+2022-07-29 19:36:38 INFO  AuthController:64 - User login successful.
+2022-07-29 19:36:38 INFO  UserController:50 - GET Request for User with ID successful.
+2022-07-29 19:36:39 INFO  ReimbController:32 - GET Request for all Reimbs successful
+2022-07-29 19:36:58 INFO  AuthController:64 - User login successful.
+2022-07-29 19:36:58 INFO  UserController:50 - GET Request for User with ID successful.
+2022-07-29 19:37:01 INFO  ReimbController:32 - GET Request for all Reimbs successful
+2022-07-29 19:37:04 INFO  ReimbController:32 - GET Request for all Reimbs successful

@@ -64,7 +64,9 @@ public class AuthController {
 			log.info("User login successful.");
 			
 			String userJson = gson.toJson(user);
-			String userId = String.valueOf(user.getUser_id());
+			int userId = user.getUser_id();
+			int userRoleId = user.getUser_role_id_fk();
+			
 			
 			ctx.result(userJson);
 			ctx.status(200);
@@ -72,6 +74,7 @@ public class AuthController {
 			//Creating a session and setting userId attribute
 			session = ctx.req.getSession(true);
 			session.setAttribute("userId", userId);
+			session.setAttribute("userRoleId", userRoleId);
 		} else {
 			
 			log.warn("User login attempt failed.");

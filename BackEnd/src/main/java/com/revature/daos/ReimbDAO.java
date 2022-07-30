@@ -22,12 +22,30 @@ public class ReimbDAO implements ReimbDAOInterface {
 		
 		try (Connection connection = ConnectionUtil.getConnection()) {
 		
+			//These vars are used below to check if user is not admin only their reimbs will be shown
+			int userId = (int) AuthController.session.getAttribute("userId");
+			int userRoleId = (int) AuthController.session.getAttribute("userRoleId");
+			
 			ArrayList <Reimb> reimbList = new ArrayList<>();
 			
-			String sql = "SELECT * FROM reimbs;";
+			String sql = "";
 			
-			Statement statement = connection.createStatement();
-			ResultSet resultSet = statement.executeQuery(sql);
+			// If user is admin show all otherwise filter by user
+			if (userRoleId == 1) {
+				 sql = "SELECT * FROM reimbs;";
+			} else {
+				 sql = "SELECT * FROM reimbs WHERE reimb_author_id_fk = ?;";
+				 
+			}
+			
+			PreparedStatement preparedStatement = connection.prepareStatement(sql);
+			
+			// If user not admin set the userId in statement
+			if (userRoleId != 1) {
+				preparedStatement.setInt(1, userId);
+			}
+			
+			ResultSet resultSet = preparedStatement.executeQuery();
 			
 			while (resultSet.next()) {
 				
@@ -148,7 +166,7 @@ public class ReimbDAO implements ReimbDAOInterface {
 		
 		try (Connection connection = ConnectionUtil.getConnection()) {
 			
-			Integer userId = Integer.valueOf((String) AuthController.session.getAttribute("userId"));
+			int userId = (int) AuthController.session.getAttribute("userId");
 			
 			String sql = "UPDATE reimbs SET reimb_status_id_fk = ?, reimb_resolver_id_fk = ?, reimb_resolved = NOW() WHERE reimb_id = ?;";
 			
