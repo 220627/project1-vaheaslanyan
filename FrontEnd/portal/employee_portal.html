@@ -33,14 +33,14 @@
       <a class="navbar-brand fw-bold text-uppercase me-auto" href="#">ERS</a>
       <div>
         <li class="nav-item my-auto">
-            <a class="navbar-brand disabled" id="navbarUserName"></a>
-          </li>
+          <a class="navbar-brand disabled" id="navbarUserName"></a>
+        </li>
       </div>
-      <div> 
+      <div>
         <ul class="navbar-nav mb-2 mb-lg-0">
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
-            aria-expanded="false">
+              aria-expanded="false">
               <i class="bi bi-person-fill"></i>
             </a>
             <ul class="dropdown-menu  dropdown-menu-end popout" aria-labelledby="navbarDropdown">
@@ -136,7 +136,8 @@
                       <div class="row">
                         <div class="form-outline mb-4">
                           <label class="form-label" for="expenseAmountInput">Amount</label>
-                          <input type="number" min="0.00" id="expenseAmountInput" class="form-control form-control-lg" />
+                          <input type="number" min="0.00" id="expenseAmountInput"
+                            class="form-control form-control-lg" />
                         </div>
                         <div class="form-outline mb-4">
                           <label class="form-label" for="expenseDescriptionInput">Description</label>
@@ -174,20 +175,23 @@
       </section>
     </div>
 
-    <!-- Reimbursements div-->
-    <div class="container-fluid" id="reimbsDiv">
-      <table class="table table-hover" id="reimbsTable">
-        <!-- <thead>
-          <tr>
-            <th scope="col">Amount</th>
-            <th scope="col">Type</th>
-            <th scope="col">Descrition</th>
-            <th scope="col">Submitted</th>
-            <th scope="col">Status</th>
-          </tr>
-        </thead> -->
-        <!-- tbody is inserted in portal.js loadReimbs() function -->
-      </table>
+    <!--  Reimbursements div-->
+    <div class="container-fluid" id="requestsDiv">
+      <div class="row">
+        <div class="d-flex justify-content-end my-2">
+          <button type="button" class="btn btn-warning btn-lg ms-1" id="filterReimbsPendingButton">Pending</button>
+          <button type="button" class="btn btn-warning btn-lg ms-1" id="filterReimbsDeniedButton">Denied</button>
+          <button type="button" class="btn btn-warning btn-lg ms-1" id="filterReimbsApprovedButton">Approved</button>
+          <button type="button" class="btn btn-warning btn-lg ms-1" id="filterReimbsResetButton">Reset</button>
+        </div>
+      </div>
+      <div class="row">
+        <table class="table table-hover" id="reimbsTable">
+          <thead>
+          </thead>
+          <!-- tbody is inserted in portal.js loadReimbs() function -->
+        </table>
+      </div>
     </div>
 
     <!-- Request Card div -->
@@ -217,7 +221,7 @@
                   id="reimbCardResolvedSpan"></span></li>
               <li class="list-group-item d-flex"><span class="me-auto">Resolver:</span><span
                   id="reimbCardResolverSpan"></span></li>
-              <li class="list-group-item d-flex"><span class="me-auto">Employee:</span><span
+              <li class="list-group-item d-flex" id="reimbCardAuthorLi"><span class="me-auto">Employee:</span><span
                   id="reimbCardAuthorSpan"></span></li>
               <li class="list-group-item d-flex"><span class="me-auto">Status:</span><span
                   id="reimbCardStatusSpan"></span></li>

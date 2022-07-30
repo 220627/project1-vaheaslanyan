@@ -169,6 +169,7 @@
           <button type="button" class="btn btn-warning btn-lg ms-1" id="filterReimbsPendingButton">Pending</button>
           <button type="button" class="btn btn-warning btn-lg ms-1" id="filterReimbsDeniedButton">Denied</button>
           <button type="button" class="btn btn-warning btn-lg ms-1" id="filterReimbsApprovedButton">Approved</button>
+          <button type="button" class="btn btn-warning btn-lg ms-1" id="filterReimbsResetButton">Reset</button>
         </div>
       </div>
       <div class="row">
@@ -177,7 +178,7 @@
           </thead>
           <!-- tbody is inserted in portal.js loadReimbs() function -->
         </table>
-      </div>     
+      </div>
     </div>
 
     <!-- Request Card div -->
@@ -207,7 +208,7 @@
                   id="reimbCardResolvedSpan"></span></li>
               <li class="list-group-item d-flex"><span class="me-auto">Resolver:</span><span
                   id="reimbCardResolverSpan"></span></li>
-              <li class="list-group-item d-flex"><span class="me-auto">Employee:</span><span
+              <li class="list-group-item d-flex" id="reimbCardAuthorLi"><span class="me-auto">Employee:</span><span
                   id="reimbCardAuthorSpan"></span></li>
               <li class="list-group-item d-flex"><span class="me-auto">Status:</span><span
                   id="reimbCardStatusSpan"></span></li>

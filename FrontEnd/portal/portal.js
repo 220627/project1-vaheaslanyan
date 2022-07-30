@@ -1,18 +1,20 @@
 "use strict";
 
-//NOTE: SJS* mark indicates that variable or function is created in subsequent .js files, e.g. manager-portal.js or employee-portal.js
+// NOTE: SJS* mark indicates that variable or function is created in subsequent .js files, e.g. manager-portal.js or employee-portal.js
 
-//User ID variable that is populated in Page Setup section
+// User ID variable that is populated in Page Setup section
 let userId;
 let userRoleId;
 let activeReimbId; // Gets populated in loadReimbCard to allow manager manipulate reimb.
 
-//Saving elements to vars
+/* MARK: - Saving elements to vars ---------------------------------------------------------------*/
 let navbarUserName = document.getElementById("navbarUserName");
 let mainHeader = document.getElementById("mainHeader");
 
+// Divs
 let requestCardDiv = document.getElementById("requestCardDiv");
 
+// Reimb Card elements
 let reimbCardIdSpan = document.getElementById("reimbCardIdSpan");
 let reimbCardDescriptionP = document.getElementById("reimbCardDescriptionP");
 let reimbCardAmountSpan = document.getElementById("reimbCardAmountSpan");
@@ -23,12 +25,16 @@ let reimbCardResolverSpan = document.getElementById("reimbCardResolverSpan");
 let reimbCardAuthorSpan = document.getElementById("reimbCardAuthorSpan");
 let reimbCardStatusSpan = document.getElementById("reimbCardStatusSpan");
 
+let reimbCardAuthorLi = document.getElementById("reimbCardAuthorLi");
+
+// Buttons
 let reimbCardBackButton = document.getElementById("reimbCardBackButton");
 let filterReimbsPendingButton = document.getElementById("filterReimbsPendingButton");
 let filterReimbsDeniedButton = document.getElementById("filterReimbsDeniedButton");
 let filterReimbsApprovedButton = document.getElementById("filterReimbsApprovedButton");
+let filterReimbsResetButton = document.getElementById("filterReimbsResetButton");
 
-//Setting up event listeners
+/* MARK: - Adding Event Listeners ------------------------------------------------------------------*/
 dashboardButton.addEventListener("click", function () {
   offcanvasButtonPressed(dashboardButton); //SJS*
 });
@@ -38,6 +44,7 @@ reimbCardBackButton.addEventListener("click", function () {
   reimbsButtonPressed() //SJS*
 });
 
+// Reimb table filter buttons
 filterReimbsPendingButton.addEventListener("click", function () {
   reimbsButtonPressed(1); //SJS*
 });
@@ -48,6 +55,10 @@ filterReimbsDeniedButton.addEventListener("click", function () {
 
 filterReimbsApprovedButton.addEventListener("click", function () {
   reimbsButtonPressed(3); //SJS*
+});
+
+filterReimbsResetButton.addEventListener("click", function () {
+  reimbsButtonPressed(); //SJS*
 });
 
 /* MARK: - Page Setup -------------------------------------------------------------------------------*/
@@ -94,7 +105,7 @@ async function loadReimbsTable(filter) {
   
       for (let reimb of data) {
 
-        //If filter is passed this statement will skip iteration if not matching filter: 1-Pending, 2-Denied, 3-Approved
+        // If filter is passed this statement will skip iteration if not matching filter: 1-Pending, 2-Denied, 3-Approved
         if (filter) {
           if (reimb.reimb_status_id_fk != filter) {
             continue;
@@ -107,7 +118,7 @@ async function loadReimbsTable(filter) {
         // Setting onClick for the row, tableRowPressed is SJS*
         bodyRow.setAttribute("onClick", `tableRowPressed(${reimb.reimb_id})`)
 
-        //Creating cells that will be appended to the row
+        // Creating cells that will be appended to the row
         let requestIdCell = document.createElement("td");
         let amountCell = document.createElement("td");
         let typeCell = document.createElement("td");
@@ -204,8 +215,7 @@ function createTableHead() {
 }
 
 /* MARK: - Reimbursement Card -----------------------------------------------------------------------*/
-
-//This function is called in SJS* when user clicks
+// This function is called in SJS* when user clicks
 async function loadReimbCard(reimbId) {
 
   // Sending fetch request to back-end
@@ -218,7 +228,7 @@ async function loadReimbCard(reimbId) {
 
     activeReimbId = data.reimb_id;
 
-    //Populating elements with data
+    // Populating elements with data
     reimbCardIdSpan.innerHTML = data.reimb_id;
     reimbCardDescriptionP.innerHTML = data.reimb_description;
     reimbCardAmountSpan.innerHTML = data.reimb_amount;
@@ -229,11 +239,13 @@ async function loadReimbCard(reimbId) {
     reimbCardAuthorSpan.innerHTML = data.reimbAuthor.user_first_name;
     reimbCardStatusSpan.innerHTML = data.reimbStatus.reimb_status_name;
 
+    // If user is not admin the author (Employee) field is hidden
     if (userRoleId != 1) {
-      reimbCardAuthorSpan.style.display = "none";
+      reimbCardAuthorLi.classList.remove("d-flex");
+      reimbCardAuthorLi.style.display = "none";
     }
 
-    //Div visibility toggled here to avoid it loading before the above code completes
+    // Div visibility toggled here to avoid it loading before the above code completes
     requestCardDiv.style.display = "block";
   } else {
     // IMPLEMENT ELSE
@@ -241,7 +253,7 @@ async function loadReimbCard(reimbId) {
 }
 
 /* MARK: - Miscellaneous -----------------------------------------------------------------------------*/
-//Function to get cookie value by name
+// Function to get cookie value by name
 function getCookie(name) {
   // Split cookie string and get all individual name=value pairs in an array
   var cookieArr = document.cookie.split(";");
@@ -257,7 +269,6 @@ function getCookie(name) {
       return decodeURIComponent(cookiePair[1]);
     }
   }
-
   // Return null if not found
   return null;
 }

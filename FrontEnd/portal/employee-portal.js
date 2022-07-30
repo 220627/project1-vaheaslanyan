@@ -5,7 +5,7 @@
 //Saving elements to vars
 let dasboardDiv = document.getElementById("dashboardDiv");
 let newExpenseDiv = document.getElementById("newExpenseDiv");
-let reimbsDiv = document.getElementById("reimbsDiv");
+let requestsDiv = document.getElementById("requestsDiv");
 
 let reimbsTable = document.getElementById("reimbsTable");
 
@@ -66,7 +66,8 @@ function offcanvasButtonPressed(button) {
 
 function dashboardButtonPressed() {
   newExpenseDiv.style.display = "none";
-  reimbsDiv.style.display = "none";
+  requestsDiv.style.display = "none";
+  requestCardDiv.style.display = "none"; //PJS*
   dasboardDiv.style.display = "block";
 
   mainHeader.innerHTML = "Dashboard"; //PJS*
@@ -74,20 +75,32 @@ function dashboardButtonPressed() {
 
 function newExpenseButtonPressed() {
   dasboardDiv.style.display = "none";
-  reimbsDiv.style.display = "none";
+  requestsDiv.style.display = "none";
+  requestCardDiv.style.display = "none"; //PJS*
   newExpenseDiv.style.display = "block";
 
   mainHeader.innerHTML = "New Expense"; //PJS*
 }
 
-function reimbsButtonPressed() {
+function reimbsButtonPressed(filter) {
   dasboardDiv.style.display = "none";
   newExpenseDiv.style.display = "none";
-  reimbsDiv.style.display = "block";
+  requestsDiv.style.display = "block";
+  requestCardDiv.style.display = "none"; //PJS*
 
   mainHeader.innerHTML = "Reimbursements"; //PJS*
 
-  loadReimbsTable();
+  loadReimbsTable(filter);
+}
+
+//This function is called via onClick attribute in HTML
+function tableRowPressed(reimbId) {
+  dasboardDiv.style.display = "none";
+  requestsDiv.style.display = "none";
+  newExpenseDiv.style.display = "none";
+  // requestCardDiv visibility is toggled in portal.js to make sure the data is received before it is rendered
+
+  loadReimbCard(reimbId); //PJS*
 }
 
 /* MARK: - New Expense -------------------------------------------------------------------------------*/
