@@ -150,7 +150,7 @@ public class ReimbDAO implements ReimbDAOInterface {
 			
 			Integer userId = Integer.valueOf((String) AuthController.session.getAttribute("userId"));
 			
-			String sql = "UPDATE reimbs SET reimb_status_id_fk = ?, reimb_resolver_id_fk = ? WHERE reimb_id = ?;";
+			String sql = "UPDATE reimbs SET reimb_status_id_fk = ?, reimb_resolver_id_fk = ?, reimb_resolved = NOW() WHERE reimb_id = ?;";
 			
 			PreparedStatement preparedStatement = connection.prepareStatement(sql);
 			preparedStatement.setInt(1, new_reimb_status_id_fk);

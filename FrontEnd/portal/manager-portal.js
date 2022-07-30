@@ -93,4 +93,6 @@ async function updateReimbStatus(reimbStatusIdFK) {
   } else {
     alert("Login failed");
   }
+
+  reimbsButtonPressed();
 }
