@@ -64,7 +64,7 @@ public class Launcher {
 		
 		/* Handling HTTP requests --------------------------------------------------------- */
 		
-		//Handling user login
+		//Handling user auth
 		app.post("/login", authController.loginHandler);
 		app.post("/logout", authController.logoutHandler);
 		

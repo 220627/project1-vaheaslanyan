@@ -2,15 +2,16 @@
 
 //NOTE: PJS* mark indicates that variable or function is created in portal.js file
 
-//Saving elements to vars
+/* MARK: - Saving elements to vars ---------------------------------------------------------------*/
 let dasboardDiv = document.getElementById("dashboardDiv");
 let requestsDiv = document.getElementById("requestsDiv");
 
+// Buttons
 let reimbsButton = document.getElementById("reimbsButton"); // Called Requests in the UI
 let reimbDenyButton = document.getElementById("reimbDenyButton");
 let reimbApproveButton = document.getElementById("reimbApproveButton");
 
-//Setting up event listeners
+/* MARK: - Adding Event Listeners ------------------------------------------------------------------*/
 document.addEventListener("DOMContentLoaded", setupLoadedPage);
 
 dashboardButton.addEventListener("click", function () {
@@ -73,11 +74,11 @@ function reimbsButtonPressed(filter) {
   loadReimbsTable(filter); //PJS*
 }
 
-//This function is called via onClick attribute in HTML
+// This function is called via onClick attribute in HTML
 function tableRowPressed(reimbId) {
   dasboardDiv.style.display = "none";
   requestsDiv.style.display = "none";
-  // requestCardDiv visibility is toggled in portal.js to make sure the data is received before it is rendered
+  // RequestCardDiv visibility is toggled in portal.js to make sure the data is received before it is rendered
 
   loadReimbCard(reimbId); //PJS*
 }
@@ -85,7 +86,7 @@ function tableRowPressed(reimbId) {
 async function updateReimbStatus(reimbStatusIdFK) {
   let response = await fetch(url + `/reimbs/${activeReimbId}`, {
     method: "PUT",
-    body: JSON.stringify(reimbStatusIdFK)
+    body: JSON.stringify(reimbStatusIdFK),
   });
 
   if (response.status >= 200 && response.status < 300) {

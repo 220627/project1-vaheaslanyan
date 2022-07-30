@@ -2,25 +2,24 @@
 
 //NOTE: PJS* mark indicates that variable or function is created in portal.js file
 
-//Saving elements to vars
+/* MARK: - Saving elements to vars ---------------------------------------------------------------*/
 let dasboardDiv = document.getElementById("dashboardDiv");
 let newExpenseDiv = document.getElementById("newExpenseDiv");
 let requestsDiv = document.getElementById("requestsDiv");
 
 let reimbsTable = document.getElementById("reimbsTable");
 
+// Buttons
 // let dashboardButton = document.getElementById("dashboardButton");
 let newExpenseButton = document.getElementById("newExpenseButton");
 let reimbsButton = document.getElementById("reimbsButton");
 let submitExpenseButton = document.getElementById("submitExpenseButton");
 
 let expenseAmountInput = document.getElementById("expenseAmountInput");
-let expenseDescriptionInput = document.getElementById(
-  "expenseDescriptionInput"
-);
+let expenseDescriptionInput = document.getElementById("expenseDescriptionInput");
 let expenseTypeSelector = document.getElementById("expenseTypeSelector");
 
-//Setting up event listeners
+/* MARK: - Adding Event Listeners ------------------------------------------------------------------*/
 document.addEventListener("DOMContentLoaded", setupLoadedPage);
 
 dashboardButton.addEventListener("click", function () {
@@ -105,7 +104,6 @@ function tableRowPressed(reimbId) {
 
 /* MARK: - New Expense -------------------------------------------------------------------------------*/
 async function submitExpenseButtonPressed() {
-
   let expenseAmount = expenseAmountInput.value;
   let expenseDescription = expenseDescriptionInput.value;
   let expenseTypeIndex = expenseTypeSelector.value;
@@ -119,7 +117,7 @@ async function submitExpenseButtonPressed() {
     reimb_description: expenseDescription,
     reimb_receipt_url: "url_here",
     reimb_type_id_fk: expenseTypeIndex,
-    reimb_author_id_fk: userId
+    reimb_author_id_fk: userId,
     // reimb_resolver_id_fk: 1,
   });
 
