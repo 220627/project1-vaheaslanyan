@@ -24,6 +24,9 @@ let reimbCardAuthorSpan = document.getElementById("reimbCardAuthorSpan");
 let reimbCardStatusSpan = document.getElementById("reimbCardStatusSpan");
 
 let reimbCardBackButton = document.getElementById("reimbCardBackButton");
+let filterReimbsPendingButton = document.getElementById("filterReimbsPendingButton");
+let filterReimbsDeniedButton = document.getElementById("filterReimbsDeniedButton");
+let filterReimbsApprovedButton = document.getElementById("filterReimbsApprovedButton");
 
 //Setting up event listeners
 dashboardButton.addEventListener("click", function () {
@@ -33,7 +36,19 @@ dashboardButton.addEventListener("click", function () {
 reimbCardBackButton.addEventListener("click", function () {
   activeReimbId = 0;
   reimbsButtonPressed() //SJS*
-})
+});
+
+filterReimbsPendingButton.addEventListener("click", function () {
+  reimbsButtonPressed(1); //SJS*
+});
+
+filterReimbsDeniedButton.addEventListener("click", function () {
+  reimbsButtonPressed(2); //SJS*
+});
+
+filterReimbsApprovedButton.addEventListener("click", function () {
+  reimbsButtonPressed(3); //SJS*
+});
 
 /* MARK: - Page Setup -------------------------------------------------------------------------------*/
 async function getUser() {
@@ -57,7 +72,7 @@ async function setUserName(response) {
 
 /* MARK: - Reimbursements Table -----------------------------------------------------------------------*/
 // Creates different thead depending on user role and iterates through data to populate tbody 
-async function loadReimbsTable() {
+async function loadReimbsTable(filter) {
     // Removing any previous thead and tbody
     while (reimbsTable.childElementCount > 0) {
       reimbsTable.removeChild(reimbsTable.lastChild);
@@ -79,10 +94,11 @@ async function loadReimbsTable() {
   
       for (let reimb of data) {
 
-        if (userRoleId != 1) {
-         if (reimb.reimb_author_id_fk != userId) {
-          continue;
-         } 
+        //If filter is passed this statement will skip iteration if not matching filter: 1-Pending, 2-Denied, 3-Approved
+        if (filter) {
+          if (reimb.reimb_status_id_fk != filter) {
+            continue;
+          }
         }
 
         // Creating a row setting onClick attribute

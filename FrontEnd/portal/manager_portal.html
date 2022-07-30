@@ -164,11 +164,20 @@
 
     <!--  Reimbursements div-->
     <div class="container-fluid" id="requestsDiv">
-      <table class="table table-hover" id="reimbsTable">
-        <thead>
-        </thead>
-        <!-- tbody is inserted in portal.js loadReimbs() function -->
-      </table>
+      <div class="row">
+        <div class="d-flex justify-content-end my-2">
+          <button type="button" class="btn btn-warning btn-lg ms-1" id="filterReimbsPendingButton">Pending</button>
+          <button type="button" class="btn btn-warning btn-lg ms-1" id="filterReimbsDeniedButton">Denied</button>
+          <button type="button" class="btn btn-warning btn-lg ms-1" id="filterReimbsApprovedButton">Approved</button>
+        </div>
+      </div>
+      <div class="row">
+        <table class="table table-hover" id="reimbsTable">
+          <thead>
+          </thead>
+          <!-- tbody is inserted in portal.js loadReimbs() function -->
+        </table>
+      </div>     
     </div>
 
     <!-- Request Card div -->

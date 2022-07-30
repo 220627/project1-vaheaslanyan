@@ -63,14 +63,14 @@ function dashboardButtonPressed() {
   mainHeader.innerHTML = "Dashboard"; //PJS*
 }
 
-function reimbsButtonPressed() {
+function reimbsButtonPressed(filter) {
   dasboardDiv.style.display = "none";
   requestCardDiv.style.display = "none"; //PJS*
   requestsDiv.style.display = "block";
 
   mainHeader.innerHTML = "Requests"; //PJS*
 
-  loadReimbsTable(); //PJS*
+  loadReimbsTable(filter); //PJS*
 }
 
 //This function is called via onClick attribute in HTML
