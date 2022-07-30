@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
+import com.revature.controllers.AuthController;
 import com.revature.models.Reimb;
 import com.revature.models.ReimbStatus;
 import com.revature.models.ReimbType;
@@ -147,11 +148,14 @@ public class ReimbDAO implements ReimbDAOInterface {
 		
 		try (Connection connection = ConnectionUtil.getConnection()) {
 			
-			String sql = "UPDATE reimbs SET reimb_status_id_fk = ? WHERE reimb_id = ?;";
+			Integer userId = Integer.valueOf((String) AuthController.session.getAttribute("userId"));
+			
+			String sql = "UPDATE reimbs SET reimb_status_id_fk = ?, reimb_resolver_id_fk = ? WHERE reimb_id = ?;";
 			
 			PreparedStatement preparedStatement = connection.prepareStatement(sql);
 			preparedStatement.setInt(1, new_reimb_status_id_fk);
-			preparedStatement.setInt(2, reimb_id);
+			preparedStatement.setInt(2, userId);
+			preparedStatement.setInt(3, reimb_id);
 			
 			preparedStatement.executeUpdate();
 			System.out.println("Status for Reimb with ID " + reimb_id + " successfully updated");

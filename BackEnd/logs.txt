@@ -2274,3 +2274,44 @@
 2022-07-29 18:47:09 INFO  ReimbController:51 - GET Request for Reimb by ID successful
 2022-07-29 18:47:12 INFO  ReimbController:93 - PUT Request for Status for a Reimb successful.
 2022-07-29 18:47:13 INFO  ReimbController:32 - GET Request for all Reimbs successful
+2022-07-29 18:50:31 INFO  Launcher:35 - Connection with DB established.
+2022-07-29 18:50:46 INFO  AuthController:64 - User login successful.
+2022-07-29 18:50:46 INFO  UserController:50 - GET Request for User with ID successful.
+2022-07-29 18:50:46 INFO  ReimbController:32 - GET Request for all Reimbs successful
+2022-07-29 18:50:47 INFO  ReimbController:51 - GET Request for Reimb by ID successful
+2022-07-29 18:50:50 INFO  ReimbController:93 - PUT Request for Status for a Reimb successful.
+2022-07-29 18:52:59 INFO  Launcher:35 - Connection with DB established.
+2022-07-29 18:53:18 INFO  AuthController:64 - User login successful.
+2022-07-29 18:53:19 INFO  UserController:50 - GET Request for User with ID successful.
+2022-07-29 18:53:19 INFO  ReimbController:32 - GET Request for all Reimbs successful
+2022-07-29 18:53:20 INFO  ReimbController:51 - GET Request for Reimb by ID successful
+2022-07-29 18:55:25 INFO  Launcher:35 - Connection with DB established.
+2022-07-29 18:55:39 INFO  AuthController:64 - User login successful.
+2022-07-29 18:55:39 INFO  UserController:50 - GET Request for User with ID successful.
+2022-07-29 18:55:39 INFO  ReimbController:32 - GET Request for all Reimbs successful
+2022-07-29 18:55:40 INFO  ReimbController:51 - GET Request for Reimb by ID successful
+2022-07-29 18:57:43 INFO  Launcher:35 - Connection with DB established.
+2022-07-29 18:57:45 INFO  AuthController:64 - User login successful.
+2022-07-29 18:57:45 INFO  UserController:50 - GET Request for User with ID successful.
+2022-07-29 18:57:45 INFO  ReimbController:32 - GET Request for all Reimbs successful
+2022-07-29 18:57:46 INFO  ReimbController:51 - GET Request for Reimb by ID successful
+2022-07-29 18:58:43 INFO  Launcher:35 - Connection with DB established.
+2022-07-29 18:58:53 INFO  AuthController:64 - User login successful.
+2022-07-29 18:58:53 INFO  UserController:50 - GET Request for User with ID successful.
+2022-07-29 18:58:54 INFO  ReimbController:32 - GET Request for all Reimbs successful
+2022-07-29 18:58:54 INFO  ReimbController:51 - GET Request for Reimb by ID successful
+2022-07-29 18:59:45 INFO  Launcher:35 - Connection with DB established.
+2022-07-29 18:59:54 INFO  AuthController:64 - User login successful.
+2022-07-29 18:59:55 INFO  UserController:50 - GET Request for User with ID successful.
+2022-07-29 18:59:55 INFO  ReimbController:32 - GET Request for all Reimbs successful
+2022-07-29 18:59:56 INFO  ReimbController:51 - GET Request for Reimb by ID successful
+2022-07-29 18:59:57 INFO  ReimbController:93 - PUT Request for Status for a Reimb successful.
+2022-07-29 19:00:00 INFO  ReimbController:32 - GET Request for all Reimbs successful
+2022-07-29 19:00:01 INFO  ReimbController:51 - GET Request for Reimb by ID successful
+2022-07-29 19:00:06 INFO  ReimbController:32 - GET Request for all Reimbs successful
+2022-07-29 19:00:06 INFO  ReimbController:51 - GET Request for Reimb by ID successful
+2022-07-29 19:00:10 INFO  ReimbController:32 - GET Request for all Reimbs successful
+2022-07-29 19:00:11 INFO  ReimbController:51 - GET Request for Reimb by ID successful
+2022-07-29 19:00:14 INFO  ReimbController:93 - PUT Request for Status for a Reimb successful.
+2022-07-29 19:00:15 INFO  ReimbController:32 - GET Request for all Reimbs successful
+2022-07-29 19:00:16 INFO  ReimbController:51 - GET Request for Reimb by ID successful
