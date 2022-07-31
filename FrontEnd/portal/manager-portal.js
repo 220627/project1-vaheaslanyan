@@ -7,7 +7,7 @@ let dasboardDiv = document.getElementById("dashboardDiv");
 let requestsDiv = document.getElementById("requestsDiv");
 
 // Buttons
-let reimbsButton = document.getElementById("reimbsButton"); // Called Requests in the UI
+// let reimbsButton = document.getElementById("reimbsButton"); // Called Requests in the UI
 let reimbDenyButton = document.getElementById("reimbDenyButton");
 let reimbApproveButton = document.getElementById("reimbApproveButton");
 
@@ -30,14 +30,8 @@ reimbApproveButton.addEventListener("click", function () {
   updateReimbStatus(3);
 });
 
-/* MARK: - Page Setup -------------------------------------------------------------------------------*/
-function setupLoadedPage() {
-  getUser(); //PJS*
-  dashboardButtonPressed();
-}
-
 /* MARK: - Handling Navigation -----------------------------------------------------------------------*/
-function offcanvasButtonPressed(button) {
+function offcanvasButtonPressed(button, reimbTableFilter) {
   dashboardButton.classList.remove("pressed-button");
   reimbsButton.classList.remove("pressed-button");
 
@@ -48,18 +42,18 @@ function offcanvasButtonPressed(button) {
       dashboardButtonPressed();
       break;
     case reimbsButton:
-      reimbsButtonPressed();
+      reimbsButtonPressed(reimbTableFilter);
       break;
   }
 }
 
-function dashboardButtonPressed(filter) {
+function dashboardButtonPressed() {
   requestsDiv.style.display = "none";
   requestCardDiv.style.display = "none"; //PJS*
   dasboardDiv.style.display = "block";
 
   mainHeader.innerHTML = "Dashboard"; //PJS*
-  setupDashboard(filter)
+  setupDashboard() //PJS*
 }
 
 function reimbsButtonPressed(filter) {

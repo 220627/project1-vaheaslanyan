@@ -12,7 +12,7 @@ let reimbsTable = document.getElementById("reimbsTable");
 // Buttons
 // let dashboardButton = document.getElementById("dashboardButton");
 let newExpenseButton = document.getElementById("newExpenseButton");
-let reimbsButton = document.getElementById("reimbsButton");
+// let reimbsButton = document.getElementById("reimbsButton");
 let submitExpenseButton = document.getElementById("submitExpenseButton");
 
 let expenseAmountInput = document.getElementById("expenseAmountInput");
@@ -35,17 +35,8 @@ reimbsButton.addEventListener("click", function () {
 });
 submitExpenseButton.onclick = submitExpenseButtonPressed;
 
-/* MARK: - Page Setup -------------------------------------------------------------------------------*/
-function setupLoadedPage() {
-  getUser(); //PJS*
-
-  dashboardButtonPressed();
-  //TEMPORARY CODE
-  newExpenseButtonPressed();
-}
-
 /* MARK: - Handling Navigation -----------------------------------------------------------------------*/
-function offcanvasButtonPressed(button) {
+function offcanvasButtonPressed(button, reimbsTableFilter) {
   dashboardButton.classList.remove("pressed-button");
   newExpenseButton.classList.remove("pressed-button");
   reimbsButton.classList.remove("pressed-button");
@@ -60,7 +51,7 @@ function offcanvasButtonPressed(button) {
       newExpenseButtonPressed();
       break;
     case reimbsButton:
-      reimbsButtonPressed();
+      reimbsButtonPressed(reimbsTableFilter);
       break;
   }
 }
@@ -72,6 +63,7 @@ function dashboardButtonPressed() {
   dasboardDiv.style.display = "block";
 
   mainHeader.innerHTML = "Dashboard"; //PJS*
+  setupDashboard(); //PJS
 }
 
 function newExpenseButtonPressed() {

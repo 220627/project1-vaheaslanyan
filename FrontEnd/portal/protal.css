@@ -3,9 +3,8 @@ tbody tr {
     cursor: pointer;
 }
 
-#dashCardHeader {
-    /* display: block; */
-    /* justify-content: center; */
+#dashboardDiv .card {
+    cursor: pointer !important;
 }
 
 #dashCardHeader h4 {
@@ -21,14 +20,15 @@ tbody tr {
     justify-content: center;
 }
 
-#reimbReceiptUploadImg {
-    max-height: 40rem;
+#requestCardDiv {
+    max-width: 40rem;
 }
 
+/* MARK: - Employee Portal Exclusives -------------------------------------------------------------------------- */
 #newExpenseDiv {
     max-width: 50rem;
 }
 
-#requestCardDiv {
-    max-width: 40rem;
+#reimbReceiptUploadImg {
+    max-height: 40rem;
 }

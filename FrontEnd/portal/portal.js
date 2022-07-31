@@ -37,6 +37,8 @@ let reimbCardStatusSpan = document.getElementById("reimbCardStatusSpan");
 let reimbCardAuthorLi = document.getElementById("reimbCardAuthorLi");
 
 // Buttons
+let dashboardButton = document.getElementById("dashboardButton");
+let reimbsButton = document.getElementById("reimbsButton");
 let reimbCardBackButton = document.getElementById("reimbCardBackButton");
 let filterReimbsPendingButton = document.getElementById(
   "filterReimbsPendingButton"
@@ -59,15 +61,15 @@ dashboardButton.addEventListener("click", function () {
 
 // Dash card buttons
 pendingDashCard.addEventListener("click", function () {
-  reimbsButtonPressed(1); //SJS*
+  offcanvasButtonPressed(reimbsButton, 1); //SJS*
 });
 
 deniedDashCard.addEventListener("click", function () {
-  reimbsButtonPressed(2); //SJS*
+  offcanvasButtonPressed(reimbsButton, 2); //SJS*
 });
 
 approvedDashCard.addEventListener("click", function () {
-  reimbsButtonPressed(3); //SJS*
+  offcanvasButtonPressed(reimbsButton, 3); //SJS*
 });
 
 // Reimb card button. Approve and Deny buttons are defined in manager portal .js
@@ -98,6 +100,11 @@ logoutButton.addEventListener("click", function (){
 });
 
 /* MARK: - Page Setup -------------------------------------------------------------------------------*/
+function setupLoadedPage() {
+  getUser(); //PJS*
+  offcanvasButtonPressed(dashboardButton);
+}
+
 async function getUser() {
   userId = getCookie("userId");
   userRoleId = getCookie("userRoleId");

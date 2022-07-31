@@ -107,12 +107,29 @@
     <div class="container-fluid" id="dashboardDiv">
       <div class="row">
         <div class="col-md-4 mb-3">
-          <div class="card text-white bg-primary mb-3 h-100" style="max-width: 18rem;">
-            <div class="card-header">Header</div>
+          <div class="card text-white bg-primary mb-3 h-100 mx-auto" style="max-width: 18rem;" id="pendingDashCard">
+            <div class="card-header" id="dashCardHeader"><h4 id="pendingDashCardH"></h4><h5 >Requests</h5></div>
             <div class="card-body">
-              <h5 class="card-title">Primary card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-                content.</p>
+              <h5 class="card-title">Need your attention</h5>
+              <p class="card-text">Click on the card to check them out.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-3">
+          <div class="card text-white bg-primary mb-3 h-100 mx-auto" style="max-width: 18rem;" id="deniedDashCard">
+            <div class="card-header" id="dashCardHeader"><h4 id="deniedDashCardH"></h4><h5>Requests</h5></div>
+            <div class="card-body">
+              <h5 class="card-title">Need your attention</h5>
+              <p class="card-text">Click on the card to check them out.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-3">
+          <div class="card text-white bg-primary mb-3 h-100 mx-auto" style="max-width: 18rem;" id="approvedDashCard">
+            <div class="card-header" id="dashCardHeader"><h4 id="approvedDashCardH"></h4><h5>Requests</h5></div>
+            <div class="card-body">
+              <h5 class="card-title">Need your attention</h5>
+              <p class="card-text">Click on the card to check them out.</p>
             </div>
           </div>
         </div>
@@ -125,6 +142,7 @@
         <div class="container h-100">
           <div class="row d-flex justify-content-center align-items-center h-100">
             <div class="col">
+              <form>
               <div class="card card-registration my-4">
                 <div class="row g-0">
 
@@ -132,12 +150,11 @@
                   <div class="col">
                     <div class="card-body p-md-5 text-black">
                       <h3 class="mb-5">Tell us about your expense</h3>
-
                       <div class="row">
                         <div class="form-outline mb-4">
                           <label class="form-label" for="expenseAmountInput">Amount</label>
                           <input type="number" min="0.00" id="expenseAmountInput"
-                            class="form-control form-control-lg" />
+                            class="form-control form-control-lg" required/>
                         </div>
                         <div class="form-outline mb-4">
                           <label class="form-label" for="expenseDescriptionInput">Description</label>
@@ -146,8 +163,9 @@
                       </div>
                       <div class="row">
                         <div class="form-outline mb-4">
-                          <select class="form-select mb-4" aria-label="Default select example" id="expenseTypeSelector">
-                            <option selected disabled>Expense type</option>
+                          <label class="form-label" for="expenseTypeSelector">Select expense category</label>
+                          <select class="form-select mb-4" aria-label="Default select example" id="expenseTypeSelector" required>
+                            <option disabled>Expense category</option>
                             <option value="1">Lodging</option>
                             <option value="2">Travel</option>
                             <option value="3">Food</option>
@@ -157,9 +175,9 @@
                       </div>
                       <div>
                         <label class="form-label" for="customFile">Upload your receipt</label>
-                        <input type="file" accept="image/png, image/gif, image/jpeg" class="form-control mb-4" id="receiptImageInput" />
+                        <input type="file" accept="image/png, image/gif, image/jpeg" class="form-control mb-4" id="receiptImageInput" required/>
                       </div> 
-                      <button type="button" class="btn btn-warning btn-lg" id="submitExpenseButton">Submit</button>
+                      <button type="submit" class="btn btn-warning btn-lg" id="submitExpenseButton">Submit</button>
                     </div>
                   </div>
                   <!-- Receipt window -->
@@ -171,6 +189,7 @@
                   <!-- Submit Buttons -->
                 </div>
               </div>
+            </form>
             </div>
           </div>
         </div>
