@@ -34,9 +34,6 @@ reimbApproveButton.addEventListener("click", function () {
 function setupLoadedPage() {
   getUser(); //PJS*
   dashboardButtonPressed();
-
-  //TEMPORARY CODE
-  reimbsButtonPressed();
 }
 
 /* MARK: - Handling Navigation -----------------------------------------------------------------------*/
@@ -56,12 +53,13 @@ function offcanvasButtonPressed(button) {
   }
 }
 
-function dashboardButtonPressed() {
+function dashboardButtonPressed(filter) {
   requestsDiv.style.display = "none";
   requestCardDiv.style.display = "none"; //PJS*
   dasboardDiv.style.display = "block";
 
   mainHeader.innerHTML = "Dashboard"; //PJS*
+  setupDashboard(filter)
 }
 
 function reimbsButtonPressed(filter) {

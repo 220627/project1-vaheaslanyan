@@ -91,7 +91,7 @@ function reimbsButtonPressed(filter) {
 
   mainHeader.innerHTML = "Reimbursements"; //PJS*
 
-  loadReimbsTable(filter);
+  loadReimbsTable(filter); //PJS*
 }
 
 //This function is called via onClick attribute in HTML

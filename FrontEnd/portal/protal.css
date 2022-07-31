@@ -3,6 +3,24 @@ tbody tr {
     cursor: pointer;
 }
 
+#dashCardHeader {
+    /* display: block; */
+    /* justify-content: center; */
+}
+
+#dashCardHeader h4 {
+    font-size: 10rem;
+    display: flex;
+    justify-content: center;
+}
+
+#dashCardHeader h5 {
+    font-weight: 300;
+    font-size: 1.5rem;
+    display: flex;
+    justify-content: center;
+}
+
 #reimbReceiptUploadImg {
     max-height: 40rem;
 }
@@ -12,5 +30,5 @@ tbody tr {
 }
 
 #requestCardDiv {
-    max-width: 50rem;
+    max-width: 40rem;
 }

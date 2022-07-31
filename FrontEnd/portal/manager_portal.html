@@ -150,12 +150,29 @@
     <div class="container-fluid" id="dashboardDiv">
       <div class="row">
         <div class="col-md-4 mb-3">
-          <div class="card text-white bg-primary mb-3 h-100" style="max-width: 18rem;">
-            <div class="card-header">Header</div>
+          <div class="card text-white bg-primary mb-3 h-100 mx-auto" style="max-width: 18rem;" id="pendingDashCard">
+            <div class="card-header" id="dashCardHeader"><h4 id="pendingDashCardH"></h4><h5 >Requests</h5></div>
             <div class="card-body">
-              <h5 class="card-title">Primary card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-                content.</p>
+              <h5 class="card-title">Need your attention</h5>
+              <p class="card-text">Click on the card to check them out.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-3">
+          <div class="card text-white bg-primary mb-3 h-100 mx-auto" style="max-width: 18rem;" id="deniedDashCard">
+            <div class="card-header" id="dashCardHeader"><h4 id="deniedDashCardH"></h4><h5>Requests</h5></div>
+            <div class="card-body">
+              <h5 class="card-title">Need your attention</h5>
+              <p class="card-text">Click on the card to check them out.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-3">
+          <div class="card text-white bg-primary mb-3 h-100 mx-auto" style="max-width: 18rem;" id="approvedDashCard">
+            <div class="card-header" id="dashCardHeader"><h4 id="approvedDashCardH"></h4><h5>Requests</h5></div>
+            <div class="card-body">
+              <h5 class="card-title">Need your attention</h5>
+              <p class="card-text">Click on the card to check them out.</p>
             </div>
           </div>
         </div>
@@ -190,8 +207,8 @@
       <!-- Card. Populated in portal.js -->
       <div class="row">
         <div class="col">
-          <div class="card" style="width: 30rem;">
-            <img src="/assets/receipt.jpg" class="card-img-top" alt="">
+          <div class="card">
+            <img src="/assets/receipt.jpg" class="card-img-top" alt="receipt-image"  id="receiptImageImg">
             <div class="card-body">
               <h5 class="card-title d-flex"><span class="me-auto">Request ID:</span><span id="reimbCardIdSpan"></span>
               </h5>
@@ -213,7 +230,6 @@
               <li class="list-group-item d-flex"><span class="me-auto">Status:</span><span
                   id="reimbCardStatusSpan"></span></li>
             </ul>
-            <!-- This section is only for manager portal -->
             <div class="card-body">
               <button type="button" class="btn btn-danger" id="reimbDenyButton">Deny</button>
               <button type="button" class="btn btn-success" id="reimbApproveButton">Approve</button>

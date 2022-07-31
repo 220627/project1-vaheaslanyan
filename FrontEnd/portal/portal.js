@@ -14,6 +14,14 @@ let mainHeader = document.getElementById("mainHeader");
 // Divs
 let requestCardDiv = document.getElementById("requestCardDiv");
 
+// Dash elements
+let pendingDashCard = document.getElementById("pendingDashCard");
+let deniedDashCard = document.getElementById("deniedDashCard");
+let approvedDashCard = document.getElementById("approvedDashCard");
+let pendingDashCardH = document.getElementById("pendingDashCardH");
+let deniedDashCardH = document.getElementById("deniedDashCardH");
+let approvedDashCardH = document.getElementById("approvedDashCardH");
+
 // Reimb Card elements
 let receiptImageImg = document.getElementById("receiptImageImg");
 let reimbCardIdSpan = document.getElementById("reimbCardIdSpan");
@@ -49,6 +57,20 @@ dashboardButton.addEventListener("click", function () {
   offcanvasButtonPressed(dashboardButton); //SJS*
 });
 
+// Dash card buttons
+pendingDashCard.addEventListener("click", function () {
+  reimbsButtonPressed(1); //SJS*
+});
+
+deniedDashCard.addEventListener("click", function () {
+  reimbsButtonPressed(2); //SJS*
+});
+
+approvedDashCard.addEventListener("click", function () {
+  reimbsButtonPressed(3); //SJS*
+});
+
+// Reimb card button. Approve and Deny buttons are defined in manager portal .js
 reimbCardBackButton.addEventListener("click", function () {
   activeReimbId = 0;
   reimbsButtonPressed(); //SJS*
@@ -95,6 +117,44 @@ async function setUserName(response) {
   }
 }
 
+/* MARK: - Dashboard ----------------------------------------------------------------------------------*/
+async function setupDashboard() {
+
+  let pendingCounter = 0;
+  let approvedCounter = 0;
+  let deniedCounter = 0;
+
+  // Back-end automatically returns only reimbs for current user if user is not manager
+  let response = await fetch(url + "/reimbs", {
+    // credentials: "include"
+  });
+
+  if (response.status >= 200 && response.status < 300) {
+    let data = await response.json();
+
+    for (let reimb of data) {
+
+      switch (reimb.reimb_status_id_fk) {
+        case 1:
+          pendingCounter++;
+          break;
+        case 2:
+          deniedCounter++;
+          break;
+        case 3:
+          approvedCounter++
+          break;
+      }
+    }
+
+    pendingDashCardH.innerHTML = pendingCounter;
+    deniedDashCardH.innerHTML = deniedCounter;
+    approvedDashCardH.innerHTML = approvedCounter;
+
+  }
+
+}
+
 /* MARK: - Reimbursements Table -----------------------------------------------------------------------*/
 // Creates different thead depending on user role and iterates through data to populate tbody
 async function loadReimbsTable(filter) {
@@ -107,7 +167,7 @@ async function loadReimbsTable(filter) {
   let reimbsTableHead = document.createElement("thead");
   let reimbsTableBody = document.createElement("tbody");
 
-  // Sending fetch request to back-end
+  // Back-end automatically returns only reimbs for current user if user is not manager
   let response = await fetch(url + "/reimbs", {
     // credentials: "include"
   });

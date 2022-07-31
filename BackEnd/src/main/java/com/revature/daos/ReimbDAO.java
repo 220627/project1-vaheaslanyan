@@ -135,34 +135,6 @@ public class ReimbDAO implements ReimbDAOInterface {
 		
 		return null;
 	}
-
-//	@Override
-//	public boolean insertReimb(Reimb reimb) {
-//		
-//		try (Connection connection = ConnectionUtil.getConnection()) {
-//			
-//			String sql = "INSERT INTO reimbs (reimb_amount, reimb_description, reimb_receipt_url, reimb_type_id_fk, reimb_author_id_fk) "
-//					+ "VALUES (?, ?, ?, ?, ?);";
-//			
-//			PreparedStatement preparedStatement = connection.prepareStatement(sql);
-//			preparedStatement.setDouble(1, reimb.getReimb_amount());
-//			preparedStatement.setString(2, reimb.getReimb_description());
-//			preparedStatement.setString(3, reimb.getReimb_receipt_url());
-//			preparedStatement.setInt(4,  reimb.getReimb_type_id_fk());
-//			preparedStatement.setInt(5, reimb.getReimb_author_id_fk());
-//			
-//			preparedStatement.executeUpdate();
-//			System.out.println("Reimb with author ID " + reimb.getReimb_author_id_fk() + " successfully added");
-//			
-//			return true;
-//			
-//		} catch (SQLException e) {
-//			System.out.println("Failed to insert Reimb: SQL Exception occured.");
-//			e.printStackTrace();
-//		}
-//		
-//		return false;
-//	}
 	
 	@Override
 	public boolean insertReimb(Reimb reimb) {
