@@ -29,6 +29,21 @@ tbody tr {
     font-weight: 400;
 }
 
+.reimb-pending-label {
+    font-weight: 300;
+    color: #b5b5b5;
+}
+
+.reimb-approved-label {
+    font-weight: 300;
+    color: #7a0800;
+}
+
+.reimb-denied-label {
+    font-weight: 300;
+    color: #004d06;
+}
+
 /* MARK: - Employee Portal Exclusives -------------------------------------------------------------------------- */
 #newExpenseDiv {
     max-width: 50rem;

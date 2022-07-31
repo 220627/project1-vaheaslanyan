@@ -214,6 +214,21 @@ async function loadReimbsTable(filter) {
 
       // Styling
       requestIdCell.classList.add("tableIdColumn");
+      if (reimb.reimb_status_id_fk == 2) {
+        statusCell.classList.add("reimb-approved-label");
+      } else if (reimb.reimb_status_id_fk == 3) {
+        statusCell.classList.add("reimb-denied-label");
+      } else {
+        statusCell.classList.add("reimb-pending-label");
+      }
+
+      if (!reimb.reimb_resolved) {
+        resolvedCell.classList.add("reimb-pending-label");
+      }
+
+      if (!reimb.reimb_resolver_id_fk) {
+        resolverCell.classList.add("reimb-pending-label");
+      }
 
       // Populating cells
       requestIdCell.innerHTML = reimb.reimb_id;
@@ -317,6 +332,15 @@ async function loadReimbCard(reimbId) {
     let data = await response.json();
 
     activeReimbId = data.reimb_id;
+
+    // Styling
+    if (data.reimb_status_id_fk == 2) {
+      reimbCardStatusSpan.classList.add("reimb-approved-label");
+    } else if (data.reimb_status_id_fk == 3) {
+      reimbCardStatusSpan.classList.add("reimb-denied-label");
+    } else {
+      reimbCardStatusSpan.classList.add("reimb-pending-label");
+    }
 
     // Populating elements with data
     receiptImageImg.src = data.reimb_receipt_url ? data.reimb_receipt_url :  "/assets/no-image.jpg";
