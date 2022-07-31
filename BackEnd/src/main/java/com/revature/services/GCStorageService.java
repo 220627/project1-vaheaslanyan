@@ -20,50 +20,31 @@ import java.util.Base64;
 
 //In order for this service to function an env var needs to be set
 public class GCStorageService {
-//	public static void uploadObject(String objectName, String filePath) throws IOException {
-//		
-//			String projectId = "soy-pillar-356718";
-//			String bucketName = "soy-pillar-356718-receipts";		    
-//
-//		    Storage storage = StorageOptions.newBuilder().setProjectId(projectId).build().getService();
-//		    BlobId blobId = BlobId.of(bucketName, objectName);
-//		    BlobInfo blobInfo = BlobInfo.newBuilder(blobId).build();
-//		    storage.create(blobInfo, Files.readAllBytes(Paths.get(filePath)));
-//
-//		    System.out.println(
-//		        "File " + filePath + " uploaded to bucket " + bucketName + " as " + objectName);
-//		  }
 	
 	public static void uploadObjectFromMemory(String objectName, String contents) throws IOException {
+		
 		String projectId = "soy-pillar-356718";
 		String bucketName = "soy-pillar-356718-receipts";
-			// The ID of your GCP project
-		    // String projectId = "your-project-id";
+
+		// Removing metadata from contents if present to be able to add it to GCStorage
 		if (contents.contains(",")) {
 			contents = contents.split(",")[1];
 		}
-		    // The ID of your GCS bucket
-		    // String bucketName = "your-unique-bucket-name";
 
-		    // The ID of your GCS object
-		    // String objectName = "your-object-name";
+		
+	    Storage storage = StorageOptions.newBuilder().setProjectId(projectId).build().getService();
+	    BlobId blobId = BlobId.of(bucketName, objectName);
+	    BlobInfo blobInfo = BlobInfo.newBuilder(blobId).setContentType("image/jpeg").build();
+	    byte[] content = Base64.getDecoder().decode(contents);
+	    storage.createFrom(blobInfo, new ByteArrayInputStream(content));
 
-		    // The string of contents you wish to upload
-		    // String contents = "Hello world!";
-
-		    Storage storage = StorageOptions.newBuilder().setProjectId(projectId).build().getService();
-		    BlobId blobId = BlobId.of(bucketName, objectName);
-		    BlobInfo blobInfo = BlobInfo.newBuilder(blobId).setContentType("image/jpeg").build(); //.newBuilder(blobId).build();
-		    byte[] content = Base64.getDecoder().decode(contents); //getDecoder().decode(contents.getBytes()); //contents.getBytes(StandardCharsets.UTF_8);
-		    storage.createFrom(blobInfo, new ByteArrayInputStream(content));
-
-		    System.out.println(
-		        "Object "
-		            + objectName
-		            + " uploaded to bucket "
-		            + bucketName
-		            + " with contents "
-		            + contents);
-		  }
+	    System.out.println(
+	        "Object "
+	            + objectName
+	            + " uploaded to bucket "
+	            + bucketName
+	            + " with contents "
+	            + contents);
+	}
 
 }

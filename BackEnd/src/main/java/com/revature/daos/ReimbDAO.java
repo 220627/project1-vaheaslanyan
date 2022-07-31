@@ -169,18 +169,21 @@ public class ReimbDAO implements ReimbDAOInterface {
 		
 		try (Connection connection = ConnectionUtil.getConnection()) {
 			
+			// Creating a name for the file and getting base64 that front-end passed as receipt_url
 			String receiptImageName = UUID.randomUUID().toString() + ".jpeg";
-			
 			String receiptImageBase64 = reimb.getReimb_receipt_url();
 			
+			// Saving image to GCStorage
 			try {
 				GCStorageService.uploadObjectFromMemory(receiptImageName, receiptImageBase64);
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
+				
+				// NEED TO ADD LOGGING
 				e.printStackTrace();
 				return false;
 			}
 			
+			// Creating string with URL to the file in storage to add to the record in DB
 			String storageReceiptURL = "https://storage.googleapis.com/soy-pillar-356718-receipts/" + receiptImageName;
 			
 			String sql = "INSERT INTO reimbs (reimb_amount, reimb_description, reimb_receipt_url, reimb_type_id_fk, reimb_author_id_fk) "

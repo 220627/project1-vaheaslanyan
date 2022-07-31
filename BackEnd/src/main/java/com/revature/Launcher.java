@@ -1,3 +1,5 @@
+// If redownloading the project, make sure Google Cloud Storage is set up, env variable with key is set and project and bucket names are up to date in GCStorageService.java
+
 package com.revature;
 
 import java.io.IOException;
@@ -23,21 +25,14 @@ public class Launcher {
 	
 	static final Logger log = LogManager.getLogger();
 
-
 	public static void main(String[] args) {
 		
 		establishConnection();
 		setUpJavalin();
-//		try {
-//			GCStorageService.uploadObjectFromMemory("MEMORY_test13.jpeg");
-//		} catch (IOException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
 			
 	}
 	
-	//Establishing conenction
+	//Establishing connection
 	public static void establishConnection() {
 		try(Connection connection = ConnectionUtil.getConnection()) {
 			
@@ -49,7 +44,7 @@ public class Launcher {
 		}
 	}
 	
-	//Setting up Javalin server and HTTP endpoints
+	//Setting up Javalin server and HTTP end-points
 	public static void setUpJavalin() {
 		//Initializing Controllers
 		AuthController authController = new AuthController();

@@ -2904,3 +2904,6 @@
 2022-07-30 17:51:49 INFO  UserController:50 - GET Request for User with ID successful.
 2022-07-30 17:52:14 INFO  UserController:50 - GET Request for User with ID successful.
 2022-07-30 17:52:25 INFO  UserController:50 - GET Request for User with ID successful.
+2022-07-30 17:54:53 INFO  ReimbController:32 - GET Request for all Reimbs successful
+2022-07-30 17:54:54 INFO  ReimbController:51 - GET Request for Reimb by ID successful
+2022-07-30 18:01:19 INFO  Launcher:40 - Connection with DB established.
