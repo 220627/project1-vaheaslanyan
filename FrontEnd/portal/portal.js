@@ -103,6 +103,9 @@ logoutButton.addEventListener("click", function (){
 function setupLoadedPage() {
   getUser(); //PJS*
   offcanvasButtonPressed(dashboardButton);
+
+  // TEMPORARY CODE
+  reimbsButtonPressed();
 }
 
 async function getUser() {
@@ -204,25 +207,27 @@ async function loadReimbsTable(filter) {
       let typeCell = document.createElement("td");
       let descriptionCell = document.createElement("td");
       let submittedCell = document.createElement("td");
+      let authorCell = document.createElement("td");
       let resolvedCell = document.createElement("td");
       let resolverCell = document.createElement("td");
-      let authorCell = document.createElement("td");
       let statusCell = document.createElement("td");
 
-      // Populating cells
+      // Styling
+      requestIdCell.classList.add("tableIdColumn");
 
+      // Populating cells
       requestIdCell.innerHTML = reimb.reimb_id;
-      amountCell.innerHTML = reimb.reimb_amount;
+      amountCell.innerHTML = `$${reimb.reimb_amount}`;
       typeCell.innerHTML = reimb.reimbType.reimb_type_name;
       descriptionCell.innerHTML = reimb.reimb_description;
       submittedCell.innerHTML = reimb.reimb_submitted;
+      authorCell.innerHTML = reimb.reimbAuthor.user_first_name;
       resolvedCell.innerHTML = reimb.reimb_resolved
         ? reimb.reimb_resolved
         : "Pending";
       resolverCell.innerHTML = reimb.reimb_resolver_id_fk
         ? reimb.reimbResolver.user_first_name
         : "Pending";
-      authorCell.innerHTML = reimb.reimbAuthor.user_first_name;
       statusCell.innerHTML = reimb.reimbStatus.reimb_status_name;
 
       // Appendning cells to the row
@@ -231,12 +236,12 @@ async function loadReimbsTable(filter) {
       bodyRow.appendChild(typeCell);
       bodyRow.appendChild(descriptionCell);
       bodyRow.appendChild(submittedCell);
-      bodyRow.appendChild(resolvedCell);
-      bodyRow.appendChild(resolverCell);
       if (userRoleId == 1) {
         // If manager also append employee name
         bodyRow.appendChild(authorCell);
       }
+      bodyRow.appendChild(resolvedCell);
+      bodyRow.appendChild(resolverCell);
       bodyRow.appendChild(statusCell);
 
       // Appending the row to the table body
@@ -263,9 +268,9 @@ function createTableHead() {
   let typeHead = document.createElement("th");
   let descriptionHead = document.createElement("th");
   let submittedHead = document.createElement("th");
+  let authorHead = document.createElement("th"); // Only added if user is manager
   let reoslvedHead = document.createElement("th");
   let resolverHead = document.createElement("th");
-  let authorHead = document.createElement("th"); // Only added if user is manager
   let statusHead = document.createElement("th");
   // ADD receipt pictre?
 
@@ -275,9 +280,9 @@ function createTableHead() {
   typeHead.innerHTML = "Type";
   descriptionHead.innerHTML = "Description";
   submittedHead.innerHTML = "Submitted";
+  authorHead.innerHTML = "Employee";
   reoslvedHead.innerHTML = "Resolved";
   resolverHead.innerHTML = "Resolver";
-  authorHead.innerHTML = "Employee";
   statusHead.innerHTML = "Status";
 
   // Appending cells to the row
@@ -286,12 +291,12 @@ function createTableHead() {
   headRow.appendChild(typeHead);
   headRow.appendChild(descriptionHead);
   headRow.appendChild(submittedHead);
-  headRow.appendChild(reoslvedHead);
-  headRow.appendChild(resolverHead);
   if (userRoleId == 1) {
     // If manager also append employee name
     headRow.appendChild(authorHead);
   }
+  headRow.appendChild(reoslvedHead);
+  headRow.appendChild(resolverHead);
   headRow.appendChild(statusHead);
 
   // Append the row to table head

@@ -24,6 +24,11 @@ tbody tr {
     max-width: 40rem;
 }
 
+/* Reimbs table */
+.tableIdColumn {
+    font-weight: 400;
+}
+
 /* MARK: - Employee Portal Exclusives -------------------------------------------------------------------------- */
 #newExpenseDiv {
     max-width: 50rem;
