@@ -23,7 +23,7 @@
 
 <body>
   <!-- MARK: - Navbar ------------------------------------------------------------------------------->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="navbar">
     <div class="container-fluid">
       <!-- Offcanvas toggle button -->
       <button class="navbar-toggler me-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample"
@@ -60,13 +60,13 @@
   </nav>
 
   <!-- MARK: - Offcanvas ------------------------------------------------------------------------------->
-  <div class="offcanvas offcanvas-start bg-dark text-light sidebar-nav" data-bs-scroll="true" data-bs-backdrop="true"
-    bindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+  <div class="offcanvas offcanvas-start text-light sidebar-nav" data-bs-scroll="true" data-bs-backdrop="true"
+    bindex="-1" aria-labelledby="offcanvasExampleLabel" id="sidebarNav">
     <div class="offcanvas-body p-0">
       <nac class="navbar-dark">
         <ul class="navbar-nav">
           <li>
-            <div class="text-muted small fw-bold text-uppercase px-3 mt-3">
+            <div class="small fw-bold text-uppercase px-3 mt-3 sidebar-header">
               Reimbursements
             </div>
           </li>

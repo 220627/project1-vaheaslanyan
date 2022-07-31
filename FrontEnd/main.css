@@ -5,6 +5,9 @@
 :root {
   --offcanvas-width: 270px;
   --topNavbarHeight: 56px;
+  --navbarColor: #064B73;
+  --navbarSecondaryColor: #095e8f;
+  --navbarHeaderColor: #849DB4;;
 }
 
 /* Global */
@@ -17,6 +20,14 @@ main {
 
 html, body {
   height: 100%;
+}
+
+#navbar, #sidebarNav {
+  background-color: var(--navbarColor);
+}
+
+.sidebar-header {
+  color: #849DB4;
 }
 
 body {
@@ -76,7 +87,7 @@ h2 {
 }
 
 .pressed-button {
-  background-color: #5a6269;
+  background-color: var(--navbarSecondaryColor);
 }
 
 footer {
