@@ -7,10 +7,15 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import com.revature.models.ReimbStatus;
 import com.revature.utils.ConnectionUtil;
 
 public class ReimbStatusDAO implements ReimbStatusDAOInterface {
+	
+	static final Logger log = LogManager.getLogger();
 	
 	@Override
 	public ArrayList<ReimbStatus> getAllReimbStatuses() {
@@ -38,7 +43,8 @@ public class ReimbStatusDAO implements ReimbStatusDAOInterface {
 			
 			
 		} catch (SQLException e) {
-			System.out.println("Failed getting all ReimbStatuses: SQL Exception occured.");
+			
+			log.warn("Failed getting all ReimbStatuses. SQL Exception occured: " + e);
 			e.printStackTrace();
 		}
 		
@@ -69,7 +75,8 @@ public class ReimbStatusDAO implements ReimbStatusDAOInterface {
 			}
 			
 		} catch (SQLException e) {
-			System.out.println("Failed getting ReimbStatus by ID: SQL Exception occured.");
+			
+			log.warn("Failed getting ReimbStatus by ID. SQL Exception occured: " + e);
 			e.printStackTrace();
 		}
 		
@@ -92,7 +99,8 @@ public class ReimbStatusDAO implements ReimbStatusDAOInterface {
 			return true;
 			
 		} catch (SQLException e) {
-			System.out.println("Failed inserting ReimbStatus: SQL Exception occured.");
+			
+			log.warn("Failed inserting ReimbStatus. SQL Exception occured: " + e);
 			e.printStackTrace();
 		}
 		
@@ -114,7 +122,8 @@ public class ReimbStatusDAO implements ReimbStatusDAOInterface {
 			return true;
 			
 		} catch (SQLException e) {
-			System.out.println("Failed deleting ReimbStatus: SQL Exception occured.");
+			
+			log.warn("Failed deleting ReimbStatus. SQL Exception occured: " + e);
 			e.printStackTrace();
 		}
 		

@@ -104,7 +104,13 @@ async function submitExpenseButtonPressed() {
 
   // Getting image from input and converting it to base64 to be able to send it to back-end
   let imageFile = document.getElementById("receiptImageInput").files[0];
-  let imageBase64 = await convertFileToBase64(imageFile);
+  let imageBase64;
+  try {
+    imageBase64 = await convertFileToBase64(imageFile);
+  } catch(e) {
+    console.error(e);
+  }
+  
 
   let newExpenseJson = JSON.stringify({
     reimb_amount: expenseAmount,
@@ -122,9 +128,9 @@ async function submitExpenseButtonPressed() {
   });
 
   if (response.status >= 200 && response.status < 300) {
-    console.log("success");
+    console.log("Expense successfully added.");
   } else {
-    console.log("messup");
+    console.log("Failed to add Expense: Error has occured.");
   }
 }
 

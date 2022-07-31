@@ -7,11 +7,16 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import com.revature.models.User;
 import com.revature.models.UserRole;
 import com.revature.utils.ConnectionUtil;
 
 public class UserDAO implements UserDAOInterface {
+	
+	static final Logger log = LogManager.getLogger();
 
 	@Override
 	public ArrayList<User> getAllUsers() {
@@ -50,7 +55,8 @@ public class UserDAO implements UserDAOInterface {
 		return userList;
 			
 		} catch (SQLException e) {
-			System.out.println("Failed getting all Users: SQL Exception occured.");
+			
+			log.warn("Failed getting all Users. SQL Exception occured: " + e);
 			e.printStackTrace();
 		}
 		
@@ -90,7 +96,8 @@ public class UserDAO implements UserDAOInterface {
 			
 			
 		} catch (SQLException e) {
-			System.out.println("Failed getting User by ID: SQL Exception occured.");
+			
+			log.warn("Failed getting User by ID. SQL Exception occured: " + e);
 			e.printStackTrace();
 		}
 		
@@ -120,7 +127,8 @@ public class UserDAO implements UserDAOInterface {
 			return true;
 			
 		} catch (SQLException e) {
-			System.out.println("Failed inserting User: SQL Exception occured.");
+			
+			log.warn("Failed inserting User. SQL Exception occured: " + e);
 			e.printStackTrace();
 		}
 		
@@ -143,7 +151,8 @@ public class UserDAO implements UserDAOInterface {
 			return true;
 			
 		} catch (SQLException e) {
-			System.out.println("Unable to delete UserRole: SQL Exception occured.");
+			
+			log.warn("Unable to delete UserRole. SQL Exception occured: " + e);
 			e.printStackTrace();
 		}
 		

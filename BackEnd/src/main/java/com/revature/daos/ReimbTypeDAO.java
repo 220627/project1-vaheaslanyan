@@ -7,10 +7,15 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import com.revature.models.ReimbType;
 import com.revature.utils.ConnectionUtil;
 
 public class ReimbTypeDAO implements ReimbTypeDAOInterface {
+	
+	static final Logger log = LogManager.getLogger();
 
 	@Override
 	public ArrayList<ReimbType> getAllReimbTypes() {
@@ -38,7 +43,8 @@ public class ReimbTypeDAO implements ReimbTypeDAOInterface {
 			
 			
 		} catch (SQLException e) {
-			System.out.println("Failed getting all ReimbTypes: SQL Exception occured.");
+			
+			log.warn("Failed getting all ReimbTypes. SQL Exception occured: " + e);
 			e.printStackTrace();
 		}
 		
@@ -69,7 +75,8 @@ public class ReimbTypeDAO implements ReimbTypeDAOInterface {
 			}
 			
 		} catch (SQLException e) {
-			System.out.println("Failed getting ReimbType by ID: SQL Exception occured.");
+			
+			log.warn("Failed getting ReimbType by ID. SQL Exception occured: " + e);
 			e.printStackTrace();
 		}
 		
@@ -92,7 +99,8 @@ public class ReimbTypeDAO implements ReimbTypeDAOInterface {
 			return true;
 			
 		} catch (SQLException e) {
-			System.out.println("Failed inserting ReimbType: SQL Exception occured.");
+			
+			log.warn("Failed inserting ReimbType. SQL Exception occured: " + e);
 			e.printStackTrace();
 		}
 		
@@ -114,7 +122,8 @@ public class ReimbTypeDAO implements ReimbTypeDAOInterface {
 			return true;
 			
 		} catch (SQLException e) {
-			System.out.println("Failed deleting ReimbType: SQL Exception occured.");
+			
+			log.warn("Failed deleting ReimbType. SQL Exception occured: " + e);
 			e.printStackTrace();
 		}
 		

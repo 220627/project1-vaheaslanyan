@@ -5,11 +5,15 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import com.revature.models.User;
 import com.revature.utils.ConnectionUtil;
 
 public class AuthDAO implements AuthDAOInterface{
 	
+	static final Logger log = LogManager.getLogger();
 	UserDAO userDAO = new UserDAO();
 
 	@Override
@@ -48,7 +52,8 @@ public class AuthDAO implements AuthDAOInterface{
 			}
 			
 		} catch (SQLException e) {
-			System.out.println("Login failed: SQL Exception occured.");
+			
+			log.warn("Authentication failed: " + e);
 			e.printStackTrace();
 		}
 		

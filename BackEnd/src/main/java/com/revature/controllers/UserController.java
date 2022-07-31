@@ -47,7 +47,7 @@ public class UserController {
 		User user = userDAO.getUserById(userId);
 		String userJson = gson.toJson(user);
 		
-		log.info("GET Request for User with ID successful.");
+		log.info("GET Request for User info with ID " + AuthController.session.getAttribute("userId") + " successful.");
 		
 		//Responding with JSON User object
 		ctx.result(userJson);

@@ -29,7 +29,7 @@ public class ReimbController {
 		ArrayList<Reimb> reimbList = reimbDAO.getAllReimbs();
 		String reimbListJson = gson.toJson(reimbList);
 		
-		log.info("GET Request for all Reimbs successful");
+		log.info("GET Request from user with ID " + AuthController.session.getAttribute("userId") + " for all Reimbs successful");
 		
 		ctx.result(reimbListJson);
 		ctx.status(200);
@@ -48,7 +48,7 @@ public class ReimbController {
 		Reimb reimb = reimbDAO.getReimbById(reimbId);
 		String reimbJson = gson.toJson(reimb);
 		
-		log.info("GET Request for Reimb by ID successful");
+		log.info("GET Request for Reimb with ID " + reimbId + " successful");
 		
 		//Responding with JSON User object
 		ctx.result(reimbJson);
@@ -66,9 +66,9 @@ public class ReimbController {
 		
 		if (reimbDAO.insertReimb(newReimb)) {
 			
-			log.info("POST Request for Reimb successful.");
+			log.info("POST Request for new Reimb successful from user with ID " + AuthController.session.getAttribute("userId"));
 			
-			ctx.result("Reimb with ID " + newReimb.getReimb_id() + " successfully added.");
+			ctx.result("Reimb successfully added.");
 			ctx.status(200);
 		} else {
 			
@@ -97,25 +97,6 @@ public class ReimbController {
 		}
 		
 	};
-	
-//	public Handler updateReimbStatusHandler = (ctx) -> {
-//		
-//		if (!AuthController.isLoggedIn(ctx)) {
-//			return;
-//		}
-//		
-//		String body = ctx.body();
-//		StatusForReimbDTO statusForReimbDTO = gson.fromJson(body,  StatusForReimbDTO.class);
-//		
-//		if (reimbDAO.updateReimbStatus(statusForReimbDTO.getReimb_id(), statusForReimbDTO.getReimb_status_id_fk())) {
-//			
-//			log.info("PUT Request for Status for a Reimb successful.");
-//			
-//			ctx.result("Status for Reimb with ID " + statusForReimbDTO.getReimb_id() + " successfully updated.");
-//			ctx.status(200);
-//		}
-//		
-//	};
 	
 	public Handler deleteReimbHandler = (ctx) -> {
 	

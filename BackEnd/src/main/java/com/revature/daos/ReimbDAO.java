@@ -9,6 +9,9 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.UUID;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import com.revature.controllers.AuthController;
 import com.revature.models.Reimb;
 import com.revature.models.ReimbStatus;
@@ -19,6 +22,8 @@ import com.revature.services.GCStorageService;
 import com.revature.utils.ConnectionUtil;
 
 public class ReimbDAO implements ReimbDAOInterface {
+	
+	static final Logger log = LogManager.getLogger();
 
 	@Override
 	public ArrayList<Reimb> getAllReimbs() {
@@ -81,7 +86,8 @@ public class ReimbDAO implements ReimbDAOInterface {
 			
 			
 		} catch (SQLException e) {
-			System.out.println("Failed to get all Reimbs: SQL Exception occured.");
+			
+			log.warn("Failed to get all Reimbs. SQL Exception occured: " + e);
 			e.printStackTrace();
 		}
 		
@@ -129,7 +135,8 @@ public class ReimbDAO implements ReimbDAOInterface {
 			}
 			
 		} catch (SQLException e) {
-			System.out.println("Failed to get Reimb by ID: SQL Exception occured.");
+			
+			log.warn("Failed to get Reimb by ID. SQL Exception occured: " + e);
 			e.printStackTrace();
 		}
 		
@@ -174,7 +181,8 @@ public class ReimbDAO implements ReimbDAOInterface {
 			return true;
 			
 		} catch (SQLException e) {
-			System.out.println("Failed to insert Reimb: SQL Exception occured.");
+			
+			log.warn("Failed to insert Reimb. SQL Exception occured: " + e);
 			e.printStackTrace();
 		}
 		

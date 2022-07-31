@@ -314,7 +314,6 @@ async function loadReimbCard(reimbId) {
     activeReimbId = data.reimb_id;
 
     // Populating elements with data
-
     receiptImageImg.src = data.reimb_receipt_url ? data.reimb_receipt_url :  "/assets/no-image.jpg";
     reimbCardIdSpan.innerHTML = data.reimb_id;
     reimbCardDescriptionP.innerHTML = data.reimb_description;

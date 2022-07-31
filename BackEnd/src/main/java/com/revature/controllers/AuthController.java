@@ -61,12 +61,11 @@ public class AuthController {
 		//If user obj successfully instantiated set session
 		if (user != null) {
 			
-			log.info("User login successful.");
-			
 			String userJson = gson.toJson(user);
 			int userId = user.getUser_id();
 			int userRoleId = user.getUser_role_id_fk();
 			
+			log.info("Login successfult for user with id " + userId);
 			
 			ctx.result(userJson);
 			ctx.status(200);
@@ -86,10 +85,10 @@ public class AuthController {
 	};
 		
 	public Handler logoutHandler = (ctx) -> {
-			
+		
+			log.info("Logout successful for user with ID " + session.getAttribute("userId"));
+		
 			session = null;
-
-			log.warn("User logout successful.");
 			
 			ctx.result("Logged out.");
 			ctx.status(200);
