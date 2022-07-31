@@ -35,9 +35,9 @@ public class ReimbDAO implements ReimbDAOInterface {
 			
 			// If user is admin show all otherwise filter by user
 			if (userRoleId == 1) {
-				 sql = "SELECT * FROM reimbs;";
+				 sql = "SELECT * FROM reimbs ORDER BY reimb_id DESC;";
 			} else {
-				 sql = "SELECT * FROM reimbs WHERE reimb_author_id_fk = ?;";
+				 sql = "SELECT * FROM reimbs WHERE reimb_author_id_fk = ? ORDER BY reimb_id DESC;";
 				 
 			}
 			
