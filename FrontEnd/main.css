@@ -9,8 +9,14 @@
 
 /* Global */
 main {
+  margin-bottom: 2rem;
   margin-top: var(--topNavbarHeight);
   padding: 1rem;
+  min-height: calc(100% - 30px);
+}
+
+html, body {
+  height: 100%;
 }
 
 body {
@@ -42,6 +48,10 @@ h2 {
   main.sidebar-present-content {
     margin-left: var(--offcanvas-width);
   }
+
+  footer {
+    margin-left: var(--offcanvas-width);
+  }
   
   .sidebar-nav {
     transform: none;
@@ -67,4 +77,13 @@ h2 {
 
 .pressed-button {
   background-color: #5a6269;
+}
+
+footer {
+  color: #c3c3c3;;
+  display:grid ;
+  justify-content: center;
+  height: 30px;
+  position: relative;
+  bottom: 0;
 }

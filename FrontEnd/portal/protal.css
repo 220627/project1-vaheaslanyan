@@ -3,6 +3,10 @@ tbody tr {
     cursor: pointer;
 }
 
+#mainHeader {
+    margin-bottom: 2rem;
+}
+
 #dashboardDiv .card {
     cursor: pointer !important;
 }
