@@ -23,11 +23,11 @@ public class Launcher {
 	
 	static final Logger log = LogManager.getLogger();
 
+
 	public static void main(String[] args) {
 		
 		establishConnection();
 		setUpJavalin();
-		
 //		try {
 //			GCStorageService.uploadObjectFromMemory("MEMORY_test13.jpeg");
 //		} catch (IOException e) {

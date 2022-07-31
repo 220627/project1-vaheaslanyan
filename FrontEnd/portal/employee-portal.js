@@ -33,9 +33,7 @@ newExpenseButton.addEventListener("click", function () {
 reimbsButton.addEventListener("click", function () {
   offcanvasButtonPressed(reimbsButton);
 });
-// submitExpenseButton.onclick = submitExpenseButtonPressed;
-
-submitExpenseButton.onclick = convertFileToByte;
+submitExpenseButton.onclick = submitExpenseButtonPressed;
 
 /* MARK: - Page Setup -------------------------------------------------------------------------------*/
 function setupLoadedPage() {
@@ -112,10 +110,14 @@ async function submitExpenseButtonPressed() {
   let expenseDescription = expenseDescriptionInput.value;
   let expenseTypeIndex = expenseTypeSelector.value;
 
+  // Getting image from input and converting it to base64 to be able to send it to back-end
+  let imageFile = document.getElementById("receiptImageInput").files[0];
+  let imageBase64 = await convertFileToBase64(imageFile);
+
   let newExpenseJson = JSON.stringify({
     reimb_amount: expenseAmount,
     reimb_description: expenseDescription,
-    reimb_receipt_url: "url_here",
+    reimb_receipt_url: imageBase64, // a base64 is passed which is sent to GCStorage from ReimbDAO and then it is replaced with actual URL and saved in DB
     reimb_type_id_fk: expenseTypeIndex,
     reimb_author_id_fk: userId,
     // reimb_resolver_id_fk: 1,
@@ -134,21 +136,11 @@ async function submitExpenseButtonPressed() {
   }
 }
 
-async function convertFileToByte() {
-  
-  const toBase64 = file => new Promise((resolve, reject) => {
+// Converting
+const convertFileToBase64 = (file) =>
+  new Promise((resolve, reject) => {
     const reader = new FileReader();
     reader.readAsDataURL(file);
     reader.onload = () => resolve(reader.result);
-    reader.onerror = error => reject(error);
-});
-  
-  let imageFile = document.getElementById("receiptImageInput").files[0]
-
-    let imageByte = await toBase64(imageFile);
-
-    console.log(imageByte);
-
-    
-  
-}
+    reader.onerror = (error) => reject(error);
+  });

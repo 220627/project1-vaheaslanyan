@@ -41,6 +41,7 @@ public class Reimb {
 		this.reimbResolver = resolver;
 	}
 	
+	// For inserting reimb
 	public Reimb(double reimb_amount, String reimb_description, String reimb_receipt_url, int reimb_type_id_fk,
 			int reimb_author_id_fk) {
 		super();

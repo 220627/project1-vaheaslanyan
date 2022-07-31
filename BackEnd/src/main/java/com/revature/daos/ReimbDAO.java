@@ -1,11 +1,13 @@
 package com.revature.daos;
 
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.UUID;
 
 import com.revature.controllers.AuthController;
 import com.revature.models.Reimb;
@@ -13,6 +15,7 @@ import com.revature.models.ReimbStatus;
 import com.revature.models.ReimbType;
 import com.revature.models.User;
 import com.revature.models.UserRole;
+import com.revature.services.GCStorageService;
 import com.revature.utils.ConnectionUtil;
 
 public class ReimbDAO implements ReimbDAOInterface {
@@ -133,10 +136,52 @@ public class ReimbDAO implements ReimbDAOInterface {
 		return null;
 	}
 
+//	@Override
+//	public boolean insertReimb(Reimb reimb) {
+//		
+//		try (Connection connection = ConnectionUtil.getConnection()) {
+//			
+//			String sql = "INSERT INTO reimbs (reimb_amount, reimb_description, reimb_receipt_url, reimb_type_id_fk, reimb_author_id_fk) "
+//					+ "VALUES (?, ?, ?, ?, ?);";
+//			
+//			PreparedStatement preparedStatement = connection.prepareStatement(sql);
+//			preparedStatement.setDouble(1, reimb.getReimb_amount());
+//			preparedStatement.setString(2, reimb.getReimb_description());
+//			preparedStatement.setString(3, reimb.getReimb_receipt_url());
+//			preparedStatement.setInt(4,  reimb.getReimb_type_id_fk());
+//			preparedStatement.setInt(5, reimb.getReimb_author_id_fk());
+//			
+//			preparedStatement.executeUpdate();
+//			System.out.println("Reimb with author ID " + reimb.getReimb_author_id_fk() + " successfully added");
+//			
+//			return true;
+//			
+//		} catch (SQLException e) {
+//			System.out.println("Failed to insert Reimb: SQL Exception occured.");
+//			e.printStackTrace();
+//		}
+//		
+//		return false;
+//	}
+	
 	@Override
 	public boolean insertReimb(Reimb reimb) {
 		
 		try (Connection connection = ConnectionUtil.getConnection()) {
+			
+			String receiptImageName = UUID.randomUUID().toString() + ".jpeg";
+			
+			String receiptImageBase64 = reimb.getReimb_receipt_url();
+			
+			try {
+				GCStorageService.uploadObjectFromMemory(receiptImageName, receiptImageBase64);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				return false;
+			}
+			
+			String storageReceiptURL = "https://storage.googleapis.com/soy-pillar-356718-receipts/" + receiptImageName;
 			
 			String sql = "INSERT INTO reimbs (reimb_amount, reimb_description, reimb_receipt_url, reimb_type_id_fk, reimb_author_id_fk) "
 					+ "VALUES (?, ?, ?, ?, ?);";
@@ -144,7 +189,7 @@ public class ReimbDAO implements ReimbDAOInterface {
 			PreparedStatement preparedStatement = connection.prepareStatement(sql);
 			preparedStatement.setDouble(1, reimb.getReimb_amount());
 			preparedStatement.setString(2, reimb.getReimb_description());
-			preparedStatement.setString(3, reimb.getReimb_receipt_url());
+			preparedStatement.setString(3, storageReceiptURL);
 			preparedStatement.setInt(4,  reimb.getReimb_type_id_fk());
 			preparedStatement.setInt(5, reimb.getReimb_author_id_fk());
 			
@@ -160,6 +205,8 @@ public class ReimbDAO implements ReimbDAOInterface {
 		
 		return false;
 	}
+	
+	
 	
 	@Override
 	public boolean updateReimbStatus(int reimb_id, int new_reimb_status_id_fk) {

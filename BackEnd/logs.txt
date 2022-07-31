@@ -2893,3 +2893,14 @@
 2022-07-30 17:01:04 INFO  Launcher:44 - Connection with DB established.
 2022-07-30 17:02:48 INFO  Launcher:44 - Connection with DB established.
 2022-07-30 17:12:31 INFO  Launcher:44 - Connection with DB established.
+2022-07-30 17:43:07 INFO  Launcher:44 - Connection with DB established.
+2022-07-30 17:47:01 INFO  AuthController:64 - User login successful.
+2022-07-30 17:47:42 WARN  AuthController:80 - User login attempt failed.
+2022-07-30 17:47:49 INFO  AuthController:64 - User login successful.
+2022-07-30 17:47:49 INFO  UserController:50 - GET Request for User with ID successful.
+2022-07-30 17:50:42 INFO  UserController:50 - GET Request for User with ID successful.
+2022-07-30 17:50:50 INFO  UserController:50 - GET Request for User with ID successful.
+2022-07-30 17:51:00 INFO  ReimbController:69 - POST Request for Reimb successful.
+2022-07-30 17:51:49 INFO  UserController:50 - GET Request for User with ID successful.
+2022-07-30 17:52:14 INFO  UserController:50 - GET Request for User with ID successful.
+2022-07-30 17:52:25 INFO  UserController:50 - GET Request for User with ID successful.
