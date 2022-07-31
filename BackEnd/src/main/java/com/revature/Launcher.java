@@ -1,4 +1,4 @@
-// If redownloading the project, make sure Google Cloud Storage is set up, env variable with key is set and project and bucket names are up to date in GCStorageService.java
+// If redownloading the project, make sure Google Cloud Storage is set up and allUsers have permission Environment User and Storage Object Viewer and maybe Storage Legacy Bucket Owner, env variable with key is set and project and bucket names are up to date in GCStorageService.java
 
 package com.revature;
 

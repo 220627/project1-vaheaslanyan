@@ -15,6 +15,7 @@ let mainHeader = document.getElementById("mainHeader");
 let requestCardDiv = document.getElementById("requestCardDiv");
 
 // Reimb Card elements
+let receiptImageImg = document.getElementById("receiptImageImg");
 let reimbCardIdSpan = document.getElementById("reimbCardIdSpan");
 let reimbCardDescriptionP = document.getElementById("reimbCardDescriptionP");
 let reimbCardAmountSpan = document.getElementById("reimbCardAmountSpan");
@@ -246,6 +247,7 @@ async function loadReimbCard(reimbId) {
     activeReimbId = data.reimb_id;
 
     // Populating elements with data
+    receiptImageImg.src = data.reimb_receipt_url
     reimbCardIdSpan.innerHTML = data.reimb_id;
     reimbCardDescriptionP.innerHTML = data.reimb_description;
     reimbCardAmountSpan.innerHTML = data.reimb_amount;

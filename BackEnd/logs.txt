@@ -2907,3 +2907,22 @@
 2022-07-30 17:54:53 INFO  ReimbController:32 - GET Request for all Reimbs successful
 2022-07-30 17:54:54 INFO  ReimbController:51 - GET Request for Reimb by ID successful
 2022-07-30 18:01:19 INFO  Launcher:40 - Connection with DB established.
+2022-07-30 18:05:07 WARN  AuthController:31 - User access denied: Login required.
+2022-07-30 18:07:52 WARN  AuthController:31 - User access denied: Login required.
+2022-07-30 18:08:08 INFO  AuthController:64 - User login successful.
+2022-07-30 18:08:08 INFO  UserController:50 - GET Request for User with ID successful.
+2022-07-30 18:08:21 INFO  ReimbController:69 - POST Request for Reimb successful.
+2022-07-30 18:08:24 INFO  ReimbController:32 - GET Request for all Reimbs successful
+2022-07-30 18:08:25 INFO  ReimbController:51 - GET Request for Reimb by ID successful
+2022-07-30 18:08:26 INFO  ReimbController:32 - GET Request for all Reimbs successful
+2022-07-30 18:08:33 INFO  ReimbController:51 - GET Request for Reimb by ID successful
+2022-07-30 18:08:42 INFO  ReimbController:32 - GET Request for all Reimbs successful
+2022-07-30 18:08:44 INFO  ReimbController:51 - GET Request for Reimb by ID successful
+2022-07-30 18:09:48 INFO  ReimbController:32 - GET Request for all Reimbs successful
+2022-07-30 18:09:51 INFO  ReimbController:32 - GET Request for all Reimbs successful
+2022-07-30 18:09:53 INFO  ReimbController:32 - GET Request for all Reimbs successful
+2022-07-30 18:09:55 INFO  ReimbController:51 - GET Request for Reimb by ID successful
+2022-07-30 18:09:56 INFO  ReimbController:32 - GET Request for all Reimbs successful
+2022-07-30 18:09:59 INFO  ReimbController:32 - GET Request for all Reimbs successful
+2022-07-30 18:09:59 INFO  ReimbController:32 - GET Request for all Reimbs successful
+2022-07-30 18:10:20 INFO  ReimbController:32 - GET Request for all Reimbs successful
