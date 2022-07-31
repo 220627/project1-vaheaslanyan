@@ -198,20 +198,31 @@
 
     <!--  Reimbursements div-->
     <div class="container-fluid" id="requestsDiv">
-      <div class="row">
-        <div class="d-flex justify-content-end my-2">
-          <button type="button" class="btn btn-warning btn-lg ms-1" id="filterReimbsPendingButton">Pending</button>
-          <button type="button" class="btn btn-warning btn-lg ms-1" id="filterReimbsDeniedButton">Denied</button>
-          <button type="button" class="btn btn-warning btn-lg ms-1" id="filterReimbsApprovedButton">Approved</button>
-          <button type="button" class="btn btn-warning btn-lg ms-1" id="filterReimbsResetButton">Reset</button>
+      <!-- <div class="row">
+        <div class="d-flex justify-content-end table-filter-component-div">
+          <span id="reimbsFilterLabel">Filter by status: </span>
+        </div>
+      </div> -->
+      <div class="row d-flex">
+        <div class="d-flex justify-content-end">
+          <span id="reimbsFilterLabel">Filter by status</span>
+        </div>
+        <div class="col d-flex justify-content-end table-filter-component-div">
+          <span id="tableShowingLabelSpan"></span>
+          <button type="button" title="Pending" id="filterReimbsPendingButton"></button>
+          <button type="button" title="Denied" id="filterReimbsDeniedButton"></button>
+          <button type="button" title="Approved" id="filterReimbsApprovedButton"></button>
+          <button type="button" title="Clear filters" id="filterReimbsResetButton">X</button>
         </div>
       </div>
       <div class="row">
-        <table class="table table-hover" id="reimbsTable">
-          <thead>
-          </thead>
-          <!-- tbody is inserted in portal.js loadReimbs() function -->
-        </table>
+        <div class="col">
+          <table class="table table-hover" id="reimbsTable">
+            <thead>
+            </thead>
+            <!-- tbody is inserted in portal.js loadReimbs() function -->
+          </table>
+        </div>
       </div>
     </div>
 
@@ -252,8 +263,9 @@
       </div>
     </div>
   </main>
-
-  </main>
+  <footer>
+    Copyright© 2022, Starfleet
+  </footer>
 
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"

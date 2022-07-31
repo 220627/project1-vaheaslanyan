@@ -1,6 +1,8 @@
-/* Setting cursor to pointer as our table rows are clickable */
-tbody tr {
-    cursor: pointer;
+/* MARK: - Variables ----------------------------------------------------------------------------------------*/
+:root {
+    --pendingLabelColor: #b5b5b5;
+    --deniedLabelColor: #7a0800;
+    --approvedLabelColor: #004d06;
 }
 
 #mainHeader {
@@ -29,23 +31,77 @@ tbody tr {
 }
 
 /* Reimbs table */
+#reimbsTable {
+    padding-left: 3rem;
+}
+
+tbody tr {
+    cursor: pointer;
+}
+
 .tableIdColumn {
     font-weight: 400;
 }
 
 .reimb-pending-label {
     font-weight: 300;
-    color: #b5b5b5;
+    color: var(--pendingLabelColor);
 }
 
 .reimb-approved-label {
     font-weight: 300;
-    color: #7a0800;
+    color: var(--approvedLabelColor);
 }
 
 .reimb-denied-label {
     font-weight: 300;
-    color: #004d06;
+    color: var(--deniedLabelColor);
+}
+
+.table-filter-component-div {
+    width: 10px;
+}
+
+.table-filter-component-div span {
+    margin: auto auto 0 0;
+}
+
+#reimbsFilterLabel {
+    margin-right: 15px;
+    font-size: .9rem;
+    color: var(--pendingLabelColor);
+}
+
+#requestsDiv button {
+    border-radius: 100%;
+    border: none;
+    width: 30px;
+    height: 30px;
+    margin-left: 2px;
+}
+
+#requestsDiv button:hover {
+    /* border: 1px solid; */
+    border-color: green;
+    box-shadow:  0 5px 15px var(--pendingLabelColor);
+}
+
+#filterReimbsPendingButton {
+    background-color: var(--pendingLabelColor);
+}
+
+#filterReimbsDeniedButton {
+    background-color: var(--deniedLabelColor);
+}
+
+#filterReimbsApprovedButton {
+    background-color: var(--approvedLabelColor);
+}
+
+#filterReimbsResetButton {
+    background-color: white;
+    color: var(--pendingLabelColor);
+    border: 1px solid var(--pendingLabelColor) !important;
 }
 
 /* MARK: - Employee Portal Exclusives -------------------------------------------------------------------------- */

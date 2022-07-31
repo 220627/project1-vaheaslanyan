@@ -22,6 +22,9 @@ let pendingDashCardH = document.getElementById("pendingDashCardH");
 let deniedDashCardH = document.getElementById("deniedDashCardH");
 let approvedDashCardH = document.getElementById("approvedDashCardH");
 
+// Reimb Table elements
+let tableShowingLabelSpan = document.getElementById("tableShowingLabelSpan");
+
 // Reimb Card elements
 let receiptImageImg = document.getElementById("receiptImageImg");
 let reimbCardIdSpan = document.getElementById("reimbCardIdSpan");
@@ -173,6 +176,20 @@ async function loadReimbsTable(filter) {
     reimbsTable.removeChild(reimbsTable.lastChild);
   }
 
+  switch (filter) {
+    case 1:
+      tableShowingLabelSpan.innerHTML = "Showing pending requests";
+      break;
+    case 2:
+      tableShowingLabelSpan.innerHTML = "Showing denied requests";
+      break;
+    case 3:
+      tableShowingLabelSpan.innerHTML = "Showing approved requests";
+      break;
+    default:
+      tableShowingLabelSpan.innerHTML = "Showing all requests";
+  }
+
   // Creating a tbody that will be appended a child at the end of this function
   let reimbsTableHead = document.createElement("thead");
   let reimbsTableBody = document.createElement("tbody");
@@ -215,9 +232,9 @@ async function loadReimbsTable(filter) {
       // Styling
       requestIdCell.classList.add("tableIdColumn");
       if (reimb.reimb_status_id_fk == 2) {
-        statusCell.classList.add("reimb-approved-label");
-      } else if (reimb.reimb_status_id_fk == 3) {
         statusCell.classList.add("reimb-denied-label");
+      } else if (reimb.reimb_status_id_fk == 3) {
+        statusCell.classList.add("reimb-approved-label");
       } else {
         statusCell.classList.add("reimb-pending-label");
       }

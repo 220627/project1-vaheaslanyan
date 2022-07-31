@@ -6,7 +6,7 @@
   --offcanvas-width: 270px;
   --topNavbarHeight: 56px;
   --navbarColor: #064B73;
-  --navbarSecondaryColor: #095e8f;
+  --navbarSecondaryColor: #125c88; /* #095e8f */
   --navbarHeaderColor: #849DB4;;
   --textColor: #233D53;
 }
@@ -102,7 +102,7 @@ h2 {
 }
 
 /* MARK: - Reimbs Table ---------------------------------------------------------------------------------*/
-.table {
+#requestsDiv table{
   color: var(--textColor);
 }
 
