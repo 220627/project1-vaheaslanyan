@@ -60,8 +60,8 @@ public class ReimbDAO implements ReimbDAOInterface {
 				Reimb reimb = new Reimb(
 						resultSet.getInt("reimb_id"), 
 						resultSet.getDouble("reimb_amount"),
-						resultSet.getString("reimb_submitted"), 
-						resultSet.getString("reimb_resolved"), 
+						resultSet.getDate("reimb_submitted"), 
+						resultSet.getDate("reimb_resolved"), 
 						resultSet.getString("reimb_description"), 
 						resultSet.getString("reimb_receipt_url"), 
 						resultSet.getInt("reimb_status_id_fk"), 
@@ -111,8 +111,8 @@ public class ReimbDAO implements ReimbDAOInterface {
 				Reimb reimb = new Reimb(
 						resultSet.getInt("reimb_id"), 
 						resultSet.getDouble("reimb_amount"),
-						resultSet.getString("reimb_submitted"), 
-						resultSet.getString("reimb_resolved"), 
+						resultSet.getDate("reimb_submitted"), 
+						resultSet.getDate("reimb_resolved"), 
 						resultSet.getString("reimb_description"), 
 						resultSet.getString("reimb_receipt_url"), 
 						resultSet.getInt("reimb_status_id_fk"), 

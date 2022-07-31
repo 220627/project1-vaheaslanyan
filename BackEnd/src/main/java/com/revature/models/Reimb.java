@@ -1,11 +1,14 @@
 package com.revature.models;
 
+import java.sql.Timestamp;
+import java.util.Date;
+
 public class Reimb {
 	
 	private int reimb_id;
 	private double reimb_amount;
-	private String reimb_submitted;
-	private String reimb_resolved;
+	private Date reimb_submitted;
+	private Date reimb_resolved;
 	private String reimb_description;
 	private String reimb_receipt_url;
 	private int reimb_status_id_fk;
@@ -21,7 +24,7 @@ public class Reimb {
 	/* MARK: - Constructors --------------------------------------------------------------------- */
 	
 	//For getting Reimb
-	public Reimb(int reimb_id, double reimb_amount, String reimb_submitted, String reimb_resolved,
+	public Reimb(int reimb_id, double reimb_amount, Date reimb_submitted, Date reimb_resolved,
 			String reimb_description, String reimb_receipt_url, int reimb_status_id_fk, int reimb_type_id_fk,
 			int reimb_author_id_fk, int reimb_resolver_id_fk, ReimbStatus reimbStatus, ReimbType reimbType, User author, User resolver) {
 		super();
@@ -63,11 +66,15 @@ public class Reimb {
 		return reimb_amount;
 	}
 
-	public String getReimb_submitted() {
+	public Date getReimb_submitted() {
+		
+//		LocalDateTime reimbSubmitted = reimb_submitted.toLocalDateTime();
+//		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd MM uu H:m", Locale.ENGLISH);
+//		String formattedDate = reimbSubmitted.format(formatter);
 		return reimb_submitted;
 	}
 
-	public String getReimb_resolved() {
+	public Date getReimb_resolved() {
 		return reimb_resolved;
 	}
 
@@ -120,11 +127,11 @@ public class Reimb {
 		this.reimb_amount = reimb_amount;
 	}
 
-	public void setReimb_submitted(String reimb_submitted) {
+	public void setReimb_submitted(Date reimb_submitted) {
 		this.reimb_submitted = reimb_submitted;
 	}
 
-	public void setReimb_resolved(String reimb_resolved) {
+	public void setReimb_resolved(Date reimb_resolved) {
 		this.reimb_resolved = reimb_resolved;
 	}
 
