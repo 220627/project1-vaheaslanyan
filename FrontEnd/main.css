@@ -68,9 +68,3 @@ h2 {
 .pressed-button {
   background-color: #5a6269;
 }
-
-/* MARK: - Login and Register  ----------------------------------------------------------------------------------*/
-
-main.login-and-logout form {
-  margin-top: 5rem;
-}

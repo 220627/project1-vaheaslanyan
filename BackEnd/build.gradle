@@ -52,5 +52,8 @@ dependencies {
 	//for cookies
 	//compile "com.fasterxml.jackson.core:jackson-databind:2.10.3"
 	
+	//GCP Cloud Storage Client Libraries
+	implementation platform('com.google.cloud:libraries-bom:26.0.0')
+	implementation 'com.google.cloud:google-cloud-storage'
 	
 }

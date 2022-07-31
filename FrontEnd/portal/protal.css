@@ -2,3 +2,15 @@
 tbody tr {
     cursor: pointer;
 }
+
+#reimbReceiptUploadImg {
+    max-height: 40rem;
+}
+
+#newExpenseDiv {
+    max-width: 50rem;
+}
+
+#requestCardDiv {
+    max-width: 50rem;
+}

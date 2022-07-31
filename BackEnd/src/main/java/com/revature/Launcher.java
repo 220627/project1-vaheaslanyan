@@ -1,5 +1,6 @@
 package com.revature;
 
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.function.Supplier;
@@ -13,6 +14,7 @@ import com.revature.controllers.ReimbController;
 import com.revature.controllers.ReimbTypeController;
 import com.revature.controllers.UserController;
 import com.revature.controllers.UserRoleController;
+import com.revature.services.GCStorageService;
 import com.revature.utils.ConnectionUtil;
 
 import io.javalin.Javalin;
@@ -25,6 +27,13 @@ public class Launcher {
 		
 		establishConnection();
 		setUpJavalin();
+		
+//		try {
+//			GCStorageService.uploadObjectFromMemory("MEMORY_test13.jpeg");
+//		} catch (IOException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
 			
 	}
 	

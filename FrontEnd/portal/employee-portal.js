@@ -16,7 +16,9 @@ let reimbsButton = document.getElementById("reimbsButton");
 let submitExpenseButton = document.getElementById("submitExpenseButton");
 
 let expenseAmountInput = document.getElementById("expenseAmountInput");
-let expenseDescriptionInput = document.getElementById("expenseDescriptionInput");
+let expenseDescriptionInput = document.getElementById(
+  "expenseDescriptionInput"
+);
 let expenseTypeSelector = document.getElementById("expenseTypeSelector");
 
 /* MARK: - Adding Event Listeners ------------------------------------------------------------------*/
@@ -31,7 +33,9 @@ newExpenseButton.addEventListener("click", function () {
 reimbsButton.addEventListener("click", function () {
   offcanvasButtonPressed(reimbsButton);
 });
-submitExpenseButton.onclick = submitExpenseButtonPressed;
+// submitExpenseButton.onclick = submitExpenseButtonPressed;
+
+submitExpenseButton.onclick = convertFileToByte;
 
 /* MARK: - Page Setup -------------------------------------------------------------------------------*/
 function setupLoadedPage() {
@@ -108,10 +112,6 @@ async function submitExpenseButtonPressed() {
   let expenseDescription = expenseDescriptionInput.value;
   let expenseTypeIndex = expenseTypeSelector.value;
 
-  console.log(
-    expenseAmount + " " + expenseDescription + " " + expenseTypeIndex
-  );
-
   let newExpenseJson = JSON.stringify({
     reimb_amount: expenseAmount,
     reimb_description: expenseDescription,
@@ -132,4 +132,23 @@ async function submitExpenseButtonPressed() {
   } else {
     console.log("messup");
   }
+}
+
+async function convertFileToByte() {
+  
+  const toBase64 = file => new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => resolve(reader.result);
+    reader.onerror = error => reject(error);
+});
+  
+  let imageFile = document.getElementById("receiptImageInput").files[0]
+
+    let imageByte = await toBase64(imageFile);
+
+    console.log(imageByte);
+
+    
+  
 }
