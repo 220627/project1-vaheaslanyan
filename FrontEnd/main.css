@@ -8,6 +8,7 @@
   --navbarColor: #064B73;
   --navbarSecondaryColor: #095e8f;
   --navbarHeaderColor: #849DB4;;
+  --textColor: #233D53;
 }
 
 /* Global */
@@ -20,14 +21,11 @@ main {
 
 html, body {
   height: 100%;
+  color: var(--textColor);
 }
 
-#navbar, #sidebarNav {
-  background-color: var(--navbarColor);
-}
-
-.sidebar-header {
-  color: #849DB4;
+li {
+  list-style: none;
 }
 
 body {
@@ -42,7 +40,16 @@ h2 {
 /* Using in navbar to make sure the account dropdown does not expand collapsed navbar */
 .popout { position: absolute !important;}
 
-/* MARK: - Sidebar  ------------------------------------------------------------------------------------------*/
+/* MARK: - Navbar and Sidebar ----------------------------------------------------------------------------------*/
+
+#navbar, #sidebarNav {
+  background-color: var(--navbarColor);
+}
+
+.sidebar-header {
+  color: #849DB4;
+}
+
 .sidebar-nav {
   width: var(--offcanvas-width);
 }
@@ -72,6 +79,10 @@ h2 {
   }
 }
 
+#sidebarNav a:hover {
+  font-weight: 300;
+}
+
 .sidebar-link {
   display: flex;
   align-items: center;
@@ -89,6 +100,13 @@ h2 {
 .pressed-button {
   background-color: var(--navbarSecondaryColor);
 }
+
+/* MARK: - Reimbs Table ---------------------------------------------------------------------------------*/
+.table {
+  color: var(--textColor);
+}
+
+
 
 footer {
   color: #c3c3c3;;
