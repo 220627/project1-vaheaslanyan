@@ -36,7 +36,7 @@ reimbsButton.addEventListener("click", function () {
 submitExpenseButton.onclick = submitExpenseButtonPressed;
 
 /* MARK: - Handling Navigation -----------------------------------------------------------------------*/
-function offcanvasButtonPressed(button, reimbsTableFilter) {
+function offcanvasButtonPressed(button, reimbsTableFilter, callback) {
   dashboardButton.classList.remove("pressed-button");
   newExpenseButton.classList.remove("pressed-button");
   reimbsButton.classList.remove("pressed-button");
@@ -45,7 +45,7 @@ function offcanvasButtonPressed(button, reimbsTableFilter) {
 
   switch (button) {
     case dashboardButton:
-      dashboardButtonPressed();
+      dashboardButtonPressed(callback);
       break;
     case newExpenseButton:
       newExpenseButtonPressed();
@@ -129,7 +129,7 @@ async function submitExpenseButtonPressed() {
 
   if (response.status >= 200 && response.status < 300) {
     console.log("Expense successfully added.");
-    dashboardButtonPressed(showAlert("Expnese successfully submitted!", "success"));
+    offcanvasButtonPressed(dashboardButton, 0, showAlert("Expnese successfully submitted!", "success"));
     } else {
     console.log("Failed to add Expense: Error has occured.");
     showAlert("Failed to submit expense. Please try again later.", "danger")
