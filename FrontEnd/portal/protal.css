@@ -7,6 +7,7 @@
 
 #mainHeader {
     margin-bottom: 2rem;
+    border-bottom: 0.5px solid rgb(6, 75, 115, .2);
 }
 
 /* Dash */
