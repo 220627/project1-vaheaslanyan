@@ -122,9 +122,8 @@ async function setUserName(response) {
   if (response.status >= 200 && response.status < 300) {
     let data = await response.json();
     navbarUserName.innerHTML = `Hi, ${data.user_first_name}`;
-    // mainHeader.innerText = `Welcome ${data.user_first_name}`;
   } else {
-    // IMPLEMENT ELSE
+    console.log("Failed to set usertname in navbar.")
   }
 }
 
@@ -171,7 +170,7 @@ async function setupDashboard(callback) {
 
 /* MARK: - Reimbursements Table -----------------------------------------------------------------------*/
 // Creates different thead depending on user role and iterates through data to populate tbody
-async function loadReimbsTable(filter) {
+async function loadReimbsTable(filter, callback) {
   // Removing any previous thead and tbody
   while (reimbsTable.childElementCount > 0) {
     reimbsTable.removeChild(reimbsTable.lastChild);
@@ -285,7 +284,12 @@ async function loadReimbsTable(filter) {
     reimbsTable.appendChild(reimbsTableHead);
     reimbsTable.appendChild(reimbsTableBody);
   } else {
-    // IMPLEMENT ELSE
+    showAlert("Failed to load requests. Please try again later.", "danger");
+    console.log("Failed to load requests table.")
+  }
+
+  if (callback) {
+    callback();
   }
 }
 
@@ -386,7 +390,7 @@ async function loadReimbCard(reimbId) {
     // Div visibility toggled here to avoid it loading before the above code completes
     requestCardDiv.style.display = "block";
   } else {
-    // IMPLEMENT ELSE
+    showAlert("Failed to show request. Please try again later.", "danger");
   }
 }
 
@@ -399,8 +403,9 @@ async function logoutButtonPressed() {
 
   if (response.status >= 200 && response.status < 300) {
     takeToLoginPage();
+    console.log("Logged out.")
   } else {
-    alert("Logout failed");
+    showAlert("Logout failed", "danger");
   }
 
 }

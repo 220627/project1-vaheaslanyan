@@ -93,7 +93,7 @@ button:hover {
     overflow: auto !important;
   }
 
-  #alertDiv {
+  .sidebar-present-content #alertDiv {
     margin-left: var(--offcanvas-width);
   }
   

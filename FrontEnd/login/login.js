@@ -36,7 +36,7 @@ async function loginFunction() {
         document.cookie = `userRoleId=${userData.user_role_id_fk}; path=/;`;
         takeToDashboard(userData);
     } else {
-        alert("Login failed");
+        showAlert("Login failed. Please check credentials and try again.", "warning");
     }
 
 }

@@ -56,14 +56,14 @@ function dashboardButtonPressed() {
   setupDashboard() //PJS*
 }
 
-function reimbsButtonPressed(filter) {
+function reimbsButtonPressed(filter, callback) {
   dasboardDiv.style.display = "none";
   requestCardDiv.style.display = "none"; //PJS*
   requestsDiv.style.display = "block";
 
   mainHeader.innerHTML = "Requests"; //PJS*
 
-  loadReimbsTable(filter); //PJS*
+  loadReimbsTable(filter, callback); //PJS*
 }
 
 // This function is called via onClick attribute in HTML
@@ -83,9 +83,8 @@ async function updateReimbStatus(reimbStatusIdFK) {
 
   if (response.status >= 200 && response.status < 300) {
     console.log("updated");
+    reimbsButtonPressed(0, showAlert("Request status sucessfully updated.", "success"));
   } else {
-    alert("Login failed");
+    showAlert("Failed to update request status. Please try again.", "danger");
   }
-
-  reimbsButtonPressed();
 }
