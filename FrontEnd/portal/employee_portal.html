@@ -30,7 +30,8 @@
         aria-controls="sidebarNav">
         <span class="navbar-toggler-icon" data-bs-target="sidebarNav"></span>
       </button>
-      <a class="navbar-brand fw-bold text-uppercase me-auto" href="#">ERS</a>
+      <!-- <a class="navbar-brand fw-bold text-uppercase me-auto" href="#">ERS</a> -->
+      <img id="ERSLogo" src="/assets/ERSLogo.png" alt="ERS-logo">
       <div>
         <li class="nav-item my-auto">
           <a class="navbar-brand disabled" id="navbarUserName"></a>
@@ -78,13 +79,13 @@
           </li>
           <li id="newExpenseButton">
             <a href="#" class="nav-link px-3 active">
-              <span class="me-2"><i class="bi bi-speedometer2"></i></span>
+              <span class="me-2"><i class="bi bi-plus-lg"></i></span>
               <span>New Expense</span>
             </a>
           </li>
           <li id="reimbsButton">
             <a href="#" class="nav-link px-3 active">
-              <span class="me-2"><i class="bi bi-speedometer2"></i></span>
+              <span class="me-2"><i class="bi bi-cash-stack"></i></i></span>
               <span>Reimbursements</span>
             </a>
           </li>
@@ -148,17 +149,20 @@
 
                   <!-- Fields -->
                   <div class="col">
-                    <div class="card-body p-md-5 text-black">
+                    <div class="card-body p-md-5">
                       <h3 class="mb-5">Tell us about your expense</h3>
                       <div class="row">
                         <div class="form-outline mb-4">
                           <label class="form-label" for="expenseAmountInput">Amount</label>
-                          <input type="number" min="0.00" step="0.01" id="expenseAmountInput"
-                            class="form-control form-control-lg" required/>
+                          <div class="input-group">
+                            <span class="input-group-text" id="basic-addon1"><i class="bi bi-currency-dollar"></i></span>
+                            <input type="number" min="0.00" step="0.01" id="expenseAmountInput"
+                            class="form-control form-control-lg" placeholder="e.g. 48.99" required/>
+                          </div>
                         </div>
                         <div class="form-outline mb-4">
                           <label class="form-label" for="expenseDescriptionInput">Description</label>
-                          <textarea class="form-control" id="expenseDescriptionInput" rows="3"></textarea>
+                          <textarea class="form-control" id="expenseDescriptionInput" rows="3" placeholder="...vendor name, etc."></textarea>
                         </div>
                       </div>
                       <div class="row">
@@ -222,17 +226,17 @@
       </div>
     </div>
 
-    <!-- Request Card div -->
-    <div class="container-fluid" id="requestCardDiv">
-      <!-- Back button. Click handled in portal.js -->
-      <div class="row">
-        <div class="d-flex justify-content-start my-2">
-          <button type="button" class="btn btn-warning btn-lg" id="reimbCardBackButton">Back</button>
-        </div>
-      </div>
+     <!-- Request Card div -->
+     <div class="container-fluid" id="requestCardDiv">
       <!-- Card. Populated in portal.js -->
       <div class="row" id="requestCard">
         <div class="col">
+          <!-- Back button. Click handled in portal.js -->
+          <div class="row">
+            <div class="d-flex justify-content-start my-2">
+              <button type="button" class="btn" id="reimbCardBackButton"><i class="bi bi-x-lg"></i></i></button>
+            </div>
+          </div>
           <div class="card">
             <img src="/assets/no-image.jpg" class="card-img-top" alt="receipt-image" id="receiptImageImg">
             <div class="card-body">

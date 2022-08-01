@@ -109,10 +109,6 @@ tbody tr {
     margin-left: 2px;
 }
 
-#requestsDiv button:hover {
-    filter: brightness(1.2);
-}
-
 #filterReimbsPendingButton {
     background-color: var(--pendingLabelColor);
 }

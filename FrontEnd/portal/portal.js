@@ -246,7 +246,7 @@ async function loadReimbsTable(filter) {
 
       // Populating cells
       requestIdCell.innerHTML = reimb.reimb_id;
-      amountCell.innerHTML = `$${reimb.reimb_amount}`;
+      amountCell.innerHTML = `$${reimb.reimb_amount.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}`;
       typeCell.innerHTML = reimb.reimbType.reimb_type_name;
       descriptionCell.innerHTML = reimb.reimb_description;
       submittedCell.innerHTML = reimb.reimb_submitted;
