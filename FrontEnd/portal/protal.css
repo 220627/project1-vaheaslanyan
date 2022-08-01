@@ -9,8 +9,21 @@
     margin-bottom: 2rem;
 }
 
+/* Dash */
+
 #dashboardDiv .card {
     cursor: pointer !important;
+    max-width: 18rem;
+    height: 400px;
+    margin: 0 auto 0 auto;
+    border: none;
+    border-radius: 2rem;
+    overflow: hidden;
+    background-color: var(--navbarColor);
+}
+
+#dashboardDiv .card:hover {
+    filter: brightness(1.2);
 }
 
 #dashCardHeader h4 {
@@ -26,9 +39,18 @@
     justify-content: center;
 }
 
-#requestCardDiv {
-    max-width: 40rem;
+#pendingDashCard .card-body {
+    background-color: var(--pendingLabelColor);
 }
+
+#deniedDashCard .card-body{
+    background-color: var(--deniedLabelColor);
+}
+
+#approvedDashCard .card-body{
+    background-color: var(--approvedLabelColor);
+}
+
 
 /* Reimbs table */
 #reimbsTable {
@@ -64,12 +86,18 @@ tbody tr {
 
 .table-filter-component-div span {
     margin: auto auto 0 0;
+    color: var(--pendingLabelColor);
 }
 
 #reimbsFilterLabel {
-    margin-right: 15px;
+    margin-right: 5px;
     font-size: .9rem;
     color: var(--pendingLabelColor);
+}
+
+#requestsDiv i {
+    color: var(--pendingLabelColor);
+    margin-right: .4rem;
 }
 
 #requestsDiv button {
@@ -80,10 +108,13 @@ tbody tr {
     margin-left: 2px;
 }
 
+/* Request Card */
+#requestCardDiv {
+    max-width: 40rem;
+}
+
 #requestsDiv button:hover {
-    /* border: 1px solid; */
-    border-color: green;
-    box-shadow:  0 5px 15px var(--pendingLabelColor);
+    filter: brightness(1.2);
 }
 
 #filterReimbsPendingButton {

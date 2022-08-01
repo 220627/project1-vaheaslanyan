@@ -66,7 +66,7 @@
       <nac class="navbar-dark">
         <ul class="navbar-nav">
           <li>
-            <div class="small fw-bold text-uppercase px-3 mt-3 sidebar-header">
+            <div class="small text-uppercase px-3 mt-3 sidebar-header">
               Reimbursements
             </div>
           </li>
@@ -82,7 +82,7 @@
               <span>Requests</span>
             </a>
           </li>
-          <li class="mt-5">
+          <!-- <li class="mt-5">
             <hr class="dropdown-divider">
           </li>
           <li>
@@ -129,7 +129,7 @@
                 </ul>
               </div>
             </div>
-          </li>
+          </li> -->
         </ul>
         </nav>
     </div>
@@ -150,46 +150,52 @@
     <div class="container-fluid" id="dashboardDiv">
       <div class="row">
         <div class="col-md-4 mb-3">
-          <div class="card text-white bg-primary mb-3 h-100 mx-auto" style="max-width: 18rem;" id="pendingDashCard">
+          <div class="card text-white" id="pendingDashCard">
             <div class="card-header" id="dashCardHeader"><h4 id="pendingDashCardH"></h4><h5 >Requests</h5></div>
             <div class="card-body">
               <h5 class="card-title">Need your attention</h5>
-              <p class="card-text">Click on the card to check them out.</p>
+              <p class="card-text">Click on the card to review them.</p>
             </div>
           </div>
         </div>
         <div class="col-md-4 mb-3">
-          <div class="card text-white bg-primary mb-3 h-100 mx-auto" style="max-width: 18rem;" id="deniedDashCard">
+          <div class="card text-white" id="deniedDashCard">
             <div class="card-header" id="dashCardHeader"><h4 id="deniedDashCardH"></h4><h5>Requests</h5></div>
             <div class="card-body">
-              <h5 class="card-title">Need your attention</h5>
-              <p class="card-text">Click on the card to check them out.</p>
+              <h5 class="card-title">Denied</h5>
+              <p class="card-text"></p>
             </div>
           </div>
         </div>
         <div class="col-md-4 mb-3">
-          <div class="card text-white bg-primary mb-3 h-100 mx-auto" style="max-width: 18rem;" id="approvedDashCard">
+          <div class="card text-white" id="approvedDashCard">
             <div class="card-header" id="dashCardHeader"><h4 id="approvedDashCardH"></h4><h5>Requests</h5></div>
             <div class="card-body">
-              <h5 class="card-title">Need your attention</h5>
-              <p class="card-text">Click on the card to check them out.</p>
+              <h5 class="card-title">Approved</h5>
+              <p class="card-text"></p>
             </div>
           </div>
         </div>
       </div>
     </div>
 
-    <!--  Reimbursements div-->
-    <div class="container-fluid" id="requestsDiv">
-      <div class="row">
-        <div class="d-flex justify-content-end my-2">
-          <button type="button" class="btn btn-warning btn-lg ms-1" id="filterReimbsPendingButton">Pending</button>
-          <button type="button" class="btn btn-warning btn-lg ms-1" id="filterReimbsDeniedButton">Denied</button>
-          <button type="button" class="btn btn-warning btn-lg ms-1" id="filterReimbsApprovedButton">Approved</button>
-          <button type="button" class="btn btn-warning btn-lg ms-1" id="filterReimbsResetButton">Reset</button>
-        </div>
+   <!--  Reimbursements div-->
+   <div class="container-fluid" id="requestsDiv">
+    <div class="row d-flex">
+      <div class="d-flex justify-content-end">
+        <i class="bi bi-filter-right"></i>
+        <span id="reimbsFilterLabel">Filter by status</span>
       </div>
-      <div class="row">
+      <div class="col d-flex justify-content-end table-filter-component-div">
+        <span id="tableShowingLabelSpan"></span>
+        <button type="button" title="Pending" id="filterReimbsPendingButton"></button>
+        <button type="button" title="Denied" id="filterReimbsDeniedButton"></button>
+        <button type="button" title="Approved" id="filterReimbsApprovedButton"></button>
+        <button type="button" title="Clear filters" id="filterReimbsResetButton">X</button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
         <table class="table table-hover" id="reimbsTable">
           <thead>
           </thead>
@@ -197,6 +203,7 @@
         </table>
       </div>
     </div>
+  </div>
 
     <!-- Request Card div -->
     <div class="container-fluid" id="requestCardDiv">

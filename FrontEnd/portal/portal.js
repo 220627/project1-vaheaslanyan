@@ -106,9 +106,6 @@ logoutButton.addEventListener("click", function (){
 function setupLoadedPage() {
   getUser(); //PJS*
   offcanvasButtonPressed(dashboardButton);
-
-  // TEMPORARY CODE
-  reimbsButtonPressed();
 }
 
 async function getUser() {
@@ -309,7 +306,7 @@ function createTableHead() {
   // Populating head cells
   requestIdHead.innerHTML = "ID";
   amountHead.innerHTML = "Amount";
-  typeHead.innerHTML = "Type";
+  typeHead.innerHTML = "Category";
   descriptionHead.innerHTML = "Description";
   submittedHead.innerHTML = "Submitted";
   authorHead.innerHTML = "Employee";
