@@ -129,7 +129,7 @@ async function setUserName(response) {
 }
 
 /* MARK: - Dashboard ----------------------------------------------------------------------------------*/
-async function setupDashboard() {
+async function setupDashboard(callback) {
 
   let pendingCounter = 0;
   let approvedCounter = 0;
@@ -164,6 +164,9 @@ async function setupDashboard() {
 
   }
 
+  if (callback) {
+    callback();
+  }
 }
 
 /* MARK: - Reimbursements Table -----------------------------------------------------------------------*/

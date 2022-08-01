@@ -56,14 +56,14 @@ function offcanvasButtonPressed(button, reimbsTableFilter) {
   }
 }
 
-function dashboardButtonPressed() {
+function dashboardButtonPressed(callback) {
   newExpenseDiv.style.display = "none";
   requestsDiv.style.display = "none";
   requestCardDiv.style.display = "none"; //PJS*
   dasboardDiv.style.display = "block";
 
   mainHeader.innerHTML = "Dashboard"; //PJS*
-  setupDashboard(); //PJS
+  setupDashboard(callback); //PJS
 }
 
 function newExpenseButtonPressed() {
@@ -129,8 +129,10 @@ async function submitExpenseButtonPressed() {
 
   if (response.status >= 200 && response.status < 300) {
     console.log("Expense successfully added.");
-  } else {
+    dashboardButtonPressed(showAlert("Expnese successfully submitted!", "success"));
+    } else {
     console.log("Failed to add Expense: Error has occured.");
+    showAlert("Failed to submit expense. Please try again later.", "danger")
   }
 }
 
