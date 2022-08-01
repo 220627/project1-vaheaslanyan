@@ -1,6 +1,15 @@
-#loginFormDiv {
-    margin-top: 5rem;
+#loginForm {
+    margin-top: 1rem;
     box-shadow: 5px 5px 15px 0px rgba(195, 195, 195, 0.3);
     padding: 5rem;
     border-radius: 1rem;
+  }
+
+  #loginButton {
+    background-color: var(--navbarColor);
+  }
+
+  #loginFormDiv img {
+    width: 200px;
+    margin: 2rem auto 2rem auto;
   }

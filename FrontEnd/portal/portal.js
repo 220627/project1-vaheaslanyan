@@ -13,6 +13,7 @@ let mainHeader = document.getElementById("mainHeader");
 
 // Divs
 let requestCardDiv = document.getElementById("requestCardDiv");
+let alertDiv = document.getElementById("alertDiv");
 
 // Dash elements
 let pendingDashCard = document.getElementById("pendingDashCard");

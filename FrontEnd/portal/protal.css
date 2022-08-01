@@ -165,3 +165,10 @@ tbody tr {
 #reimbReceiptUploadImg {
     max-height: 40rem;
 }
+
+#newExpenseCard {
+    margin-top: 1rem;
+    box-shadow: 5px 5px 15px 0px rgba(195, 195, 195, 0.3);
+    padding: 5rem;
+    border-radius: 1rem;
+}

@@ -7,7 +7,7 @@
   --topNavbarHeight: 56px;
   --navbarColor: #064B73;
   --navbarSecondaryColor: #125c88; /* #095e8f */
-  --navbarHeaderColor: #849DB4;;
+  --navbarHeaderColor: #849DB4;
   --textColor: #233D53;
   --footerColor: #c3c3c3;
 }
@@ -28,6 +28,12 @@ main {
 html, body {
   height: 100%;
   color: var(--textColor);
+}
+ 
+#alertDiv {
+  z-index: 5;
+  left: 1rem;
+  right: 1rem;
 }
 
 #ERSLogo {
@@ -87,16 +93,16 @@ button:hover {
     overflow: auto !important;
   }
 
-  /* .offcanvas-backdrop::before {
-    display: none;
-  } */
+  #alertDiv {
+    margin-left: var(--offcanvas-width);
+  }
   
   main.sidebar-present-content {
     margin-left: var(--offcanvas-width);
   }
 
   footer {
-    margin-left: var(--offcanvas-width);
+    margin-left: var(--offcanvas-width) !important;
   }
   
   .sidebar-nav {
@@ -134,8 +140,6 @@ button:hover {
   color: var(--textColor);
 }
 
-
-
 footer {
   color: var(--footerColor);
   display:grid ;
@@ -143,4 +147,5 @@ footer {
   height: 30px;
   position: relative;
   bottom: 0;
+  margin-left: 0;
 }
