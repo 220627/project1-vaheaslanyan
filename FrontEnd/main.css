@@ -16,6 +16,7 @@
   color: var(--footerColor) !important;
   opacity: .5 !important; /* Firefox */
 }
+
 /* Global */
 main {
   margin-bottom: 2rem;
@@ -49,6 +50,18 @@ h2 {
 
 button:hover {
   filter: brightness(1.2);
+}
+
+.submit-button {
+  width: 100px;
+  height: 50px;
+  color: white;
+  background-color: #ffb907;
+}
+
+.submit-button:hover {
+  filter: brightness(1.05);
+  color: white;
 }
 
 /* Using in navbar to make sure the account dropdown does not expand collapsed navbar */
