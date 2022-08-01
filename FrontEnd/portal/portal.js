@@ -348,10 +348,11 @@ async function loadReimbCard(reimbId) {
     activeReimbId = data.reimb_id;
 
     // Styling
+    reimbCardStatusSpan.classList.remove("reimb-denied-label", "reimb-approved-label", "reimb-pending-label")
     if (data.reimb_status_id_fk == 2) {
-      reimbCardStatusSpan.classList.add("reimb-approved-label");
-    } else if (data.reimb_status_id_fk == 3) {
       reimbCardStatusSpan.classList.add("reimb-denied-label");
+    } else if (data.reimb_status_id_fk == 3) {
+      reimbCardStatusSpan.classList.add("reimb-approved-label");
     } else {
       reimbCardStatusSpan.classList.add("reimb-pending-label");
     }

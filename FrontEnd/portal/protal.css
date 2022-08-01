@@ -68,17 +68,17 @@ tbody tr {
 
 .reimb-pending-label {
     font-weight: 300;
-    color: var(--pendingLabelColor);
+    color: var(--pendingLabelColor) !important;
 }
 
 .reimb-approved-label {
     font-weight: 300;
-    color: var(--approvedLabelColor);
+    color: var(--approvedLabelColor) !important;
 }
 
 .reimb-denied-label {
     font-weight: 300;
-    color: var(--deniedLabelColor);
+    color: var(--deniedLabelColor) !important;
 }
 
 .table-filter-component-div {
@@ -109,11 +109,6 @@ tbody tr {
     margin-left: 2px;
 }
 
-/* Request Card */
-#requestCardDiv {
-    max-width: 40rem;
-}
-
 #requestsDiv button:hover {
     filter: brightness(1.2);
 }
@@ -134,6 +129,36 @@ tbody tr {
     background-color: white;
     color: var(--pendingLabelColor);
     border: 1px solid var(--pendingLabelColor) !important;
+}
+
+/* Request Card */
+
+#reimbCardBackButton {
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    background-color: var(--pendingLabelColor);
+    color: white;
+}
+
+#requestCardDiv .card-body button {
+    width: 100px;
+    height: 50px;
+}
+
+#reimbDenyButton {
+    background-color: var(--deniedLabelColor);
+    color: white;
+}
+
+#reimbApproveButton {
+    background-color: var(--approvedLabelColor);
+    color: white;
+}
+
+#requestCard {
+    max-width: 40rem;
+    margin: 2rem auto 0 auto;
 }
 
 /* MARK: - Employee Portal Exclusives -------------------------------------------------------------------------- */

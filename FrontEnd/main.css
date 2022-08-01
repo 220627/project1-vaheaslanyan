@@ -37,6 +37,10 @@ h2 {
   font-weight: 200;
 }
 
+button:hover {
+  filter: brightness(1.2);
+}
+
 /* Using in navbar to make sure the account dropdown does not expand collapsed navbar */
 .popout { position: absolute !important;}
 

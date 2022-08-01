@@ -26,9 +26,9 @@
   <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="navbar">
     <div class="container-fluid">
       <!-- Offcanvas toggle button -->
-      <button class="navbar-toggler me-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample"
-        aria-controls="offcanvasExample">
-        <span class="navbar-toggler-icon" data-bs-target="offcanvasExample"></span>
+      <button class="navbar-toggler me-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarNav"
+        aria-controls="sidebarNav">
+        <span class="navbar-toggler-icon" data-bs-target="sidebarNav"></span>
       </button>
       <a class="navbar-brand fw-bold text-uppercase me-auto" href="#">ERS</a>
       <div>
@@ -66,7 +66,7 @@
       <nac class="navbar-dark">
         <ul class="navbar-nav">
           <li>
-            <div class="small fw-bold text-uppercase px-3 mt-3 sidebar-header">
+            <div class="small text-uppercase px-3 mt-3 sidebar-header">
               Expenses
             </div>
           </li>
@@ -198,13 +198,9 @@
 
     <!--  Reimbursements div-->
     <div class="container-fluid" id="requestsDiv">
-      <!-- <div class="row">
-        <div class="d-flex justify-content-end table-filter-component-div">
-          <span id="reimbsFilterLabel">Filter by status: </span>
-        </div>
-      </div> -->
       <div class="row d-flex">
         <div class="d-flex justify-content-end">
+          <i class="bi bi-filter-right"></i>
           <span id="reimbsFilterLabel">Filter by status</span>
         </div>
         <div class="col d-flex justify-content-end table-filter-component-div">
@@ -212,7 +208,7 @@
           <button type="button" title="Pending" id="filterReimbsPendingButton"></button>
           <button type="button" title="Denied" id="filterReimbsDeniedButton"></button>
           <button type="button" title="Approved" id="filterReimbsApprovedButton"></button>
-          <button type="button" title="Clear filters" id="filterReimbsResetButton">X</button>
+          <button type="button" title="Clear filters" id="filterReimbsResetButton"><i class="bi bi-x"></i></button>
         </div>
       </div>
       <div class="row">
@@ -229,14 +225,16 @@
     <!-- Request Card div -->
     <div class="container-fluid" id="requestCardDiv">
       <!-- Back button. Click handled in portal.js -->
-      <div class="d-flex justify-content-start my-2">
-        <button type="button" class="btn btn-warning btn-lg" id="reimbCardBackButton">Back</button>
+      <div class="row">
+        <div class="d-flex justify-content-start my-2">
+          <button type="button" class="btn btn-warning btn-lg" id="reimbCardBackButton">Back</button>
+        </div>
       </div>
       <!-- Card. Populated in portal.js -->
-      <div class="row">
+      <div class="row" id="requestCard">
         <div class="col">
           <div class="card">
-            <img src="/assets/no-image.jpg" class="card-img-top" alt="receipt-image"  id="receiptImageImg">
+            <img src="/assets/no-image.jpg" class="card-img-top" alt="receipt-image" id="receiptImageImg">
             <div class="card-body">
               <h5 class="card-title d-flex"><span class="me-auto">Request ID:</span><span id="reimbCardIdSpan"></span>
               </h5>
