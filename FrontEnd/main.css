@@ -101,7 +101,7 @@ button:hover {
     margin-left: var(--offcanvas-width);
   }
 
-  footer {
+  #portalFooter {
     margin-left: var(--offcanvas-width) !important;
   }
   
